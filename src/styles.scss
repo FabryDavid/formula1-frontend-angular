@@ -10,9 +10,52 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Poppins;
+  font-family: $poppins;
 }
 
 .text-primary-color {
   color: $primary;
+}
+
+.primary-button {
+  $border-radius: 5px;
+
+  font-family: $poppins;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 49px;
+  text-align: center;
+  display: inline;
+  padding: 0 25px;
+  color: white;
+  background-color: $primary;
+  border: 2px solid $primary;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: $border-radius;
+    background-color: white;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    color: $primary;
+
+    &:before {
+      width: 100%;
+    }
+  }
 }

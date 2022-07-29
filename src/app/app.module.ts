@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {NavbarModule} from "./components/shared/navbar/navbar.module";
 import {FooterComponent} from './components/shared/footer/footer.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     MatButtonModule,
     NavbarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

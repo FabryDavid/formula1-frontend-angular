@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {NavigationLink} from "../../../interfaces/navigation-link";
+import {INavigationLink} from "../../../interfaces/inavigation-link";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,7 @@ import {NavigationLink} from "../../../interfaces/navigation-link";
 export class NavbarComponent implements OnInit {
   isElevated = false
   drawer = false
-  navLinks:Array<NavigationLink> = [
+  navLinks:Array<INavigationLink> = [
     {text:"Schedule",url:"schedule"},
     {text:"News",url:"news"},
     {text:"Drivers",url:"drivers"},
