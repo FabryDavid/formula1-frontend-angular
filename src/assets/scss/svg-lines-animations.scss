@@ -1,0 +1,38 @@
+$times: 12;
+
+%move-styles {
+  transform-origin: top center;
+}
+
+@mixin move-x-list {
+  @for $i from 1 through $times {
+    .move-#{$i}-s {
+      @extend %move-styles;
+      animation: move $i + s linear infinite alternate;
+    }
+    .move-reverse-#{$i}-s {
+      @extend %move-styles;
+      animation: move-reverse $i + s linear infinite alternate;
+    }
+  }
+}
+
+@include move-x-list;
+
+@keyframes move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes move-reverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,86 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/_variables.scss";
+
+header {
+  font-family: $f1-font;
+  padding: 5px 0;
+  background-color: white;
+  position: fixed;
+  z-index: 999;
+  transition: all 0.25s ease-in;
+
+  &.elevated {
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  }
+
+  @include media-breakpoint-up(md) {
+    .navigation-link {
+      &:not(:last-child) {
+        margin-right: 1.5rem
+      }
+    }
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navbar-top {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -3px;
+      left: 0;
+      background-color: $primary;
+      transition: all 0.25s $bounce-curve;
+    }
+
+    &.active,
+    &:hover {
+      &:after {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100%);
+    background-color: $light-gray;
+    font-size: 28px;
+    transition: all 0.4s ease-in;
+    clip-path: ellipse(0 0 at 88% -10%);
+
+    .background {
+      pointer-events: none;
+      position: absolute;
+      z-index: -1;
+      transform: rotate(-45deg);
+      height: 110%;
+      width: 145%;
+    }
+  }
+
+  .mobile-menu-open {
+    clip-path: ellipse(145% 145% at 88% -10%) !important;
+  }
+}

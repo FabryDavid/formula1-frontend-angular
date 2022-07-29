@@ -1,0 +1,42 @@
+<header class="w-100" [class.elevated]="isElevated">
+  <div class="navbar-top container-fluid container-md d-flex align-items-center justify-content-between">
+    <img src="assets/logo.svg" alt="Logo" class="logo">
+
+    <div class="d-none d-md-flex align-items-center">
+      <a
+        *ngFor="let item of navLinks"
+        class="navigation-link"
+        routerLinkActive="active"
+        [routerLink]="item.url"
+      >
+        {{item.text}}
+      </a>
+    </div>
+
+    <div class="d-md-none">
+      <app-open-close-button [(opened)]="drawer"></app-open-close-button>
+    </div>
+  </div>
+
+  <div
+    class="mobile-menu d-flex d-md-none justify-content-center align-items-center flex-column"
+    [class.mobile-menu-open]="drawer"
+  >
+    <a
+      *ngFor="let item of navLinks"
+      class="navigation-link text-center my-3"
+      routerLinkActive="active"
+      [routerLink]="item.url"
+    >
+      {{item.text}}
+    </a>
+
+    <div class="background">
+      <app-card-background
+        primary="#e10600"
+        secondary="#003049"
+        tertiary="#2e2e2e"
+      ></app-card-background>
+    </div>
+  </div>
+</header>

@@ -1,5 +1,6 @@
 @import "assets/scss/theming";
 @import "~bootstrap/scss/bootstrap";
+@import "assets/fonts/fonts";
 @import "assets/scss/variables";
 @import "assets/scss/mixins";
 
@@ -9,5 +10,5 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Poppins;
 }
