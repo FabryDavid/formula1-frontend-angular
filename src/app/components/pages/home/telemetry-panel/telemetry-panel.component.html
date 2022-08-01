@@ -1,4 +1,4 @@
-<div class="container telemetry">
+<div class="container telemetry" #parent>
   <div class="inner position-relative">
     <div class="row">
       <div class="col-12 col-md-8">
@@ -25,6 +25,8 @@
       src="assets/images/cars/aston_martin.png"
       class="d-block d-md-none mobile-image mx-auto mt-5"
       alt="Aston Martin"
+      [style]="{transform:'translateX('+mobileCarOffset+'%)'}"
+      #mobileCar
     />
 
     <img class="telemetry-dots" src="assets/images/dots-pattern.svg" alt="Dots">

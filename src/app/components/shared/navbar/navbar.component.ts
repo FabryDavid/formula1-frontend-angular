@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll', [])
   onScroll() {
     this.isElevated = document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
   }
