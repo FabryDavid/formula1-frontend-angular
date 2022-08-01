@@ -1,0 +1,119 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
+
+.standings {
+  background-color: $dark-blue;
+  padding-top: 100px;
+  padding-bottom: 40%;
+  position: relative;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 175px;
+    padding-top: 175px;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 49px;
+    color: white;
+    margin-bottom: 25px;
+  }
+}
+
+
+#container {
+  width: 85%;
+  position: relative;
+  margin-top: 35%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-breakpoint-up(md) {
+    width: 100%;
+    margin-top: unset;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+#circle-wrapper-inner,
+#circle-wrapper-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#car-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+}
+
+#car-shadow {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(15px);
+  bottom: 0;
+  left: 0;
+}
+
+#car-img-wrapper img {
+  width: 100%;
+}
+
+#circle-inner,
+#circle-outer {
+  border-radius: 50%;
+}
+
+#circle-outer {
+  background-color: darken($primary, 10%);
+}
+
+#circle-inner {
+  background-color: $primary;
+}
+
+#circle-inner::after,
+#circle-outer::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+#circle-wrapper-inner {
+  width: 55%;
+  height: auto;
+  z-index: 2;
+}
+
+#circle-inner {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
+
+#circle-wrapper-outer {
+  width: 75%;
+  height: auto;
+  z-index: 1;
+}
+
+#circle-outer {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
