@@ -1,8 +1,7 @@
 <a [routerLink]="weekend.round" class="text-decoration-none">
   <div class="schedule-item py-5 position-relative">
     <div class="flag">
-      <!--    <component :is="flagComponent" />-->
-      <app-flag-container></app-flag-container>
+      <app-flag-container [country]="weekend.Circuit.Location.country"></app-flag-container>
     </div>
 
     <div class="base d-flex flex-column align-items-center">
