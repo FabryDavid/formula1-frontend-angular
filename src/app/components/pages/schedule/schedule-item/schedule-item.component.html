@@ -1,0 +1,43 @@
+<a [routerLink]="weekend.round" class="text-decoration-none">
+  <div class="schedule-item py-5 position-relative">
+    <div class="flag">
+      <!--    <component :is="flagComponent" />-->
+    </div>
+
+    <div class="base d-flex flex-column align-items-center">
+      <div class="circuit-layout-container">
+        <img
+          [alt]="weekend.Circuit.circuitName"
+          [src]="'assets/images/circuit-layout-minimal/'+weekend.Circuit.circuitId+'.png'"
+          class="circuit-layout-image"
+        />
+      </div>
+
+      <h2 class="text-center">
+        {{ weekend.Circuit.Location.country }}
+      </h2>
+
+      <div class="date mt-5">
+        {{ weekend | weekendDates }}
+      </div>
+    </div>
+
+    <div class="overlay">
+      <img
+        [alt]="weekend.Circuit.circuitName"
+        [src]="'assets/images/circuit-photos/'+weekend.Circuit.circuitId+'.jpg'"
+        class="circuit-photo"
+      />
+
+      <div
+        class="details-container d-flex flex-column justify-content-between align-items-center py-5 px-4 text-center"
+      >
+        <div class="weekend-name">{{ weekend.raceName }}</div>
+
+        <a [routerLink]="weekend.round" class="primary-button">
+          See details
+        </a>
+      </div>
+    </div>
+  </div>
+</a>

@@ -7,6 +7,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
+import {ScheduleItemModule} from "./schedule-item/schedule-item.module";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    ScheduleItemModule,
   ]
 })
 export class ScheduleModule {

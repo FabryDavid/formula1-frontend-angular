@@ -15,12 +15,12 @@
     </mat-form-field>
   </div>
 
-  <div class="row">
+  <div class="row gy-4">
     <div
-      *ngFor="let schedule of filteredSchedule"
+      *ngFor="let weekend of filteredSchedule"
       class="col-12 col-md-6 col-lg-4"
     >
-      {{schedule.raceName}}
+      <app-schedule-item [weekend]="weekend"></app-schedule-item>
     </div>
   </div>
 </div>

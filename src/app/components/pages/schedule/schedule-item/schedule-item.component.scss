@@ -1,0 +1,98 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
+
+.schedule-item {
+  background-color: $dark-blue;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  height: 100%;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: $dark-blue;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 48, 73, 0.75) 0%,
+        rgba(0, 48, 73, 0) 100%
+    );
+  }
+
+  .flag {
+    position: absolute;
+    bottom: -34%;
+    right: -31%;
+    width: 100%;
+    transform: rotate(-39deg);
+  }
+
+  .base {
+    position: relative;
+    z-index: 1;
+
+    .circuit-layout-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 215px;
+
+      .circuit-layout-image {
+        width: 50%;
+
+        @include media-breakpoint-down(sm) {
+          width: 75%;
+        }
+      }
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 45px;
+    }
+
+    .date {
+      font-size: 25px;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 3;
+    background-color: $dark-blue;
+    transition: all 0.3s ease-out;
+
+    .circuit-photo {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      -webkit-box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .details-container {
+      height: 48%;
+
+      .weekend-name {
+        font-weight: bold;
+        font-size: 25px;
+      }
+    }
+  }
+
+  &:hover {
+    .overlay {
+      top: 0;
+    }
+  }
+}
