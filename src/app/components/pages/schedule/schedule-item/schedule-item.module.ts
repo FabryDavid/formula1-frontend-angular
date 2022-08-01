@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ScheduleItemComponent} from "./schedule-item.component";
 import {RouterModule} from "@angular/router";
 import {WeekendDatesModule} from "../../../../pipes/weekend-dates/weekend-dates.module";
+import {FlagContainerModule} from "./flag-container/flag-container.module";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {WeekendDatesModule} from "../../../../pipes/weekend-dates/weekend-dates.
   imports: [
     CommonModule,
     RouterModule,
-    WeekendDatesModule
+    WeekendDatesModule,
+    FlagContainerModule,
   ],
   exports: [ScheduleItemComponent]
 })
