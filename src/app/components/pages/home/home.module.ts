@@ -6,15 +6,17 @@ import { HeroComponent } from './hero/hero.component';
 import { UpcomingSessionComponent } from './upcoming-session/upcoming-session.component';
 import { UpcomingSessionCardComponent } from './upcoming-session/upcoming-session-card/upcoming-session-card.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [HomeComponent, HeroComponent, UpcomingSessionComponent, UpcomingSessionCardComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatProgressSpinnerModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MatProgressSpinnerModule,
+        MatButtonModule
+    ]
 })
 export class HomeModule {
 }
