@@ -11,6 +11,21 @@ export class StandingsPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.addEventListener('mousemove', this.parallax)
   }
 
+  parallax(e: any) {
+    document.querySelectorAll(".layer").forEach((layer) => {
+      const speedAtr = layer.getAttribute("data-speed");
+      const speed = speedAtr ? parseFloat(speedAtr) : 1
+      const x = (window.innerWidth - e.pageX * speed) / 100;
+      const y = (window.innerHeight - e.pageY * speed) / 100;
+
+      (layer as HTMLElement).style.transform = `translateX(${x}px) translateY(${y}px)`;
+    })
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('mousemove', this.parallax)
+  }
 }

@@ -8,7 +8,7 @@ import {RouterModule} from "@angular/router";
   declarations: [StandingsPanelComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [StandingsPanelComponent]
 })
