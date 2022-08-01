@@ -14,11 +14,21 @@ export class ScheduleServiceService {
   }
 
   getUpcomingSession(): Observable<IWeekendSchedule> {
-    return this.http.get<any>(`${environment.apiUrl}/upcoming-race`).pipe(
-      map((response: any) => {
+    return this.http.get<IWeekendSchedule>(`${environment.apiUrl}/upcoming-race`).pipe(
+      map((response: IWeekendSchedule) => {
         return response;
       }),
       catchError(this.handleError.bind(this))
+    )
+  }
+
+  getCurrentSchedule(): Observable<Array<IWeekendSchedule>> {
+    return this.http.get<Array<IWeekendSchedule>>(`${environment.apiUrl}/current-schedule`).pipe(
+      map((response => {
+          return response
+        }),
+        catchError(this.handleError.bind(this))
+      )
     )
   }
 

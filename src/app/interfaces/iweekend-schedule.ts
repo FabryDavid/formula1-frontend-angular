@@ -11,7 +11,7 @@ export interface IWeekendSchedule {
   date: string,
   time: string,
   raceName: string,
-  round: number,
-  season: number,
+  round: string,
+  season: string,
   url: string
 }
