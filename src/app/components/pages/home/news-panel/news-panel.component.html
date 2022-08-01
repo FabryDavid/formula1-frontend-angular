@@ -1,17 +1,33 @@
 <div class="news-panel d-flex align-items-center">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
         <p class="text-center text-md-start">
           See whats happening in the world of Formula 1.
         </p>
 
-        <a class="primary-button mt-4" routerLink="news">
+        <a class="primary-button show-more-btn mt-4" routerLink="news">
           Show more
         </a>
       </div>
-      <div class="col-12 col-md-5 col-lg-4 offset-md-1 offset-lg-2">
 
+      <div class="col-12 col-md-5 col-lg-4 offset-md-1 offset-lg-2">
+        <div *ngIf="latestTweet; else loading">
+          <ngx-twitter-tweet
+            [tweetID]="latestTweet.id"
+            [options]="{
+            align: 'center',
+            cards: 'hidden',
+            conversation: 'none'
+          }"
+          >
+            <mat-spinner color="primary"></mat-spinner>
+          </ngx-twitter-tweet>
+        </div>
+
+        <ng-template #loading>
+          <mat-spinner color="primary"></mat-spinner>
+        </ng-template>
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@
   padding-bottom: 35%;
   position: relative;
   z-index: 1;
+  box-shadow: $base-shadow;
 
   @include media-breakpoint-up(lg) {
     padding-top: 15%;

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {environment} from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
@@ -13,8 +13,15 @@ export class NewsServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getNews(): Observable<ITweetsResponse> {
-    return this.http.get<ITweetsResponse>(`${environment.apiUrl}/get-tweets`).pipe(
+  getNews(tweetsCount: number = 10, token: string | null = null): Observable<ITweetsResponse> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("limit", tweetsCount);
+
+    if (token) {
+      queryParams = queryParams.append("token", token)
+    }
+
+    return this.http.get<ITweetsResponse>(`${environment.apiUrl}/get-tweets`, {params: queryParams}).pipe(
       map((response: ITweetsResponse) => {
         return response;
       }),
