@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-standings-panel',
@@ -11,9 +11,9 @@ export class StandingsPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    document.addEventListener('mousemove', this.parallax)
   }
 
+  @HostListener('window:mousemove', ['$event'])
   parallax(e: any) {
     document.querySelectorAll(".layer").forEach((layer) => {
       const speedAtr = layer.getAttribute("data-speed");
@@ -23,9 +23,5 @@ export class StandingsPanelComponent implements OnInit {
 
       (layer as HTMLElement).style.transform = `translateX(${x}px) translateY(${y}px)`;
     })
-  }
-
-  ngOnDestroy() {
-    document.removeEventListener('mousemove', this.parallax)
   }
 }
