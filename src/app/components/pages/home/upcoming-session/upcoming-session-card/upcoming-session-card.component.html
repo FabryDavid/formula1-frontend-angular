@@ -11,7 +11,7 @@
     <div class="row w-100 mx-0">
       <div class="col-6 col-sm-3">
         <div class="time">
-          {{ nextSession.remainingTime.days}}
+          {{ nextSession.remainingTime.days | numberAbs }}
         </div>
         <div class="label">
           days
@@ -19,7 +19,7 @@
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
-          {{ nextSession.remainingTime.hours}}
+          {{ nextSession.remainingTime.hours | numberAbs }}
         </div>
         <div class="label">
           hours
@@ -27,7 +27,7 @@
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
-          {{ nextSession.remainingTime.minutes}}
+          {{ nextSession.remainingTime.minutes | numberAbs }}
         </div>
         <div class="label">
           minutes
@@ -35,12 +35,19 @@
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
-          {{ nextSession.remainingTime.seconds}}
+          {{ nextSession.remainingTime.seconds | numberAbs }}
         </div>
         <div class="label">
           seconds
         </div>
       </div>
+    </div>
+
+    <div
+      *ngIf="today > nextSession.time"
+      class="text-center time-label text-uppercase"
+    >
+      ago
     </div>
   </div>
 

@@ -7,16 +7,18 @@ import { UpcomingSessionComponent } from './upcoming-session/upcoming-session.co
 import { UpcomingSessionCardComponent } from './upcoming-session/upcoming-session-card/upcoming-session-card.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatButtonModule} from "@angular/material/button";
+import {NumberAbsModule} from "../../../pipes/number-abs/number-abs.module";
 
 
 @NgModule({
   declarations: [HomeComponent, HeroComponent, UpcomingSessionComponent, UpcomingSessionCardComponent],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        MatProgressSpinnerModule,
-        MatButtonModule
-    ]
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    NumberAbsModule
+  ]
 })
 export class HomeModule {
 }

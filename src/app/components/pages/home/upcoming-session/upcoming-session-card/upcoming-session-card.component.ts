@@ -12,6 +12,7 @@ import {INextSession} from "../../../../../interfaces/inext-session";
 export class UpcomingSessionCardComponent implements OnInit {
   weekend: IWeekendSchedule | null = null
   countDown: number | null = null
+  today=new Date()
   nextSession = {
     name: "Fp2",
     time: new Date(),
@@ -79,11 +80,11 @@ export class UpcomingSessionCardComponent implements OnInit {
     }
 
     let closest: INextSession | null = null;
-    const today = new Date();
+    this.today = new Date();
 
     for (let i = 0; i < sessionTimes.length; i++) {
       if (
-        today.getTime() < sessionTimes[i].time.getTime() &&
+        this.today.getTime() < sessionTimes[i].time.getTime() &&
         (!closest ||
           sessionTimes[i].time.getTime() < closest.time.getTime())
       ) {
@@ -103,7 +104,8 @@ export class UpcomingSessionCardComponent implements OnInit {
   }
 
   setTimeRemaining() {
-    const total = this.nextSession.time.getTime() - new Date().getTime();
+    this.today = new Date();
+    const total = this.nextSession.time.getTime() - this.today.getTime();
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
