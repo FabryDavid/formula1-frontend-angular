@@ -8,10 +8,11 @@ import {NumberAbsModule} from "../../../pipes/number-abs/number-abs.module";
 import {HeroModule} from "./hero/hero.module";
 import {UpcomingSessionModule} from "./upcoming-session/upcoming-session.module";
 import {StandingsPanelModule} from "./standings-panel/standings-panel.module";
+import { TelemetryPanelComponent } from './telemetry-panel/telemetry-panel.component';
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, TelemetryPanelComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

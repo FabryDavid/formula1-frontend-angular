@@ -1,0 +1,48 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.telemetry {
+  contain: paint;
+
+  .inner {
+    padding-bottom: 75px;
+    padding-top: 75px;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: 180px;
+      padding-top: 180px;
+    }
+
+    p {
+      font-size: 35px;
+      line-height: 49px;
+    }
+
+    .car-parallax {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+      z-index: 1;
+      height: 200%;
+
+      .parallax-car {
+        position: sticky;
+        right: 0;
+        top: 100px;
+        height: 500px;
+      }
+    }
+
+    .mobile-image {
+      width: 85%;
+    }
+
+    .telemetry-dots {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+}
