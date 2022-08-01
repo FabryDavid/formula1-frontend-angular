@@ -1,6 +1,7 @@
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
 
 .telemetry {
   contain: paint;
@@ -31,11 +32,15 @@
         right: 0;
         top: 100px;
         height: 500px;
+        filter: drop-shadow($base-shadow);
+        -webkit-filter: drop-shadow($base-shadow);
       }
     }
 
     .mobile-image {
       width: 100%;
+      filter: drop-shadow($base-shadow);
+      -webkit-filter: drop-shadow($base-shadow);
     }
 
     .telemetry-dots {

@@ -1,0 +1,14 @@
+@import "src/assets/scss/variables";
+
+.news-panel {
+  background-color: $dark-blue;
+  padding: 40px 0;
+  min-height: 540px;
+
+  p {
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 49px;
+    color: white;
+  }
+}

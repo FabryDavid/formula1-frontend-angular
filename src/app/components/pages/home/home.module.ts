@@ -9,6 +9,7 @@ import {HeroModule} from "./hero/hero.module";
 import {UpcomingSessionModule} from "./upcoming-session/upcoming-session.module";
 import {StandingsPanelModule} from "./standings-panel/standings-panel.module";
 import {TelemetryPanelModule} from "./telemetry-panel/telemetry-panel.module";
+import {NewsPanelModule} from "./news-panel/news-panel.module";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {TelemetryPanelModule} from "./telemetry-panel/telemetry-panel.module";
     HeroModule,
     UpcomingSessionModule,
     StandingsPanelModule,
-    TelemetryPanelModule
+    TelemetryPanelModule,
+    NewsPanelModule
   ]
 })
 export class HomeModule {
