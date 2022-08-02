@@ -22,7 +22,6 @@ export class CircuitInfosComponent implements OnInit {
     this.countryCode = getCountryCode(this.weekend.Circuit.Location.country) ?? ""
 
     this.sessionTimesService.getFastestSessionsInWeekend(parseInt(this.weekend.round)).subscribe((data) => {
-      console.log(data)
       this.sectorTimes = data
     })
   }
