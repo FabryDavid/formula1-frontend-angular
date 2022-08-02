@@ -1,0 +1,62 @@
+@import "src/assets/scss/flag-animations";
+
+
+.azerbaijan-1 {
+  fill: #00b9e4;
+}
+
+.azerbaijan-2 {
+  fill: #ed2939;
+}
+
+.azerbaijan-3 {
+  fill: #3f9c35;
+}
+
+svg {
+  #Layer_2 {
+    #Azerbaijan {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5,
+      #line-17 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-11,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15,
+      #line-16 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

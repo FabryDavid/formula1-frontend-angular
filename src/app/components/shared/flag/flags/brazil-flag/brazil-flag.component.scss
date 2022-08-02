@@ -1,0 +1,71 @@
+@import "src/assets/scss/flag-animations";
+
+.brazil-1 {
+  fill: #009c3b;
+}
+
+.brazil-2 {
+  fill: #ffdf00;
+}
+
+.brazil-3 {
+  fill: #002776;
+}
+
+svg {
+  #Layer_2 {
+    #Brazil {
+      #Layer_26 {
+        #line-1,
+        #line-21,
+        #line-22 {
+          animation: topToBottom 3.5s infinite linear;
+        }
+
+        #line-2,
+        #line-19,
+        #line-20 {
+          animation: topToBottom 2.5s infinite linear;
+        }
+
+        #line-3,
+        #line-4,
+        #line-8 {
+          animation: topToBottom 2s infinite linear;
+        }
+
+        #line-5,
+        #line-17,
+        #line-18,
+        #line-23 {
+          animation: topToBottom 4s infinite linear;
+        }
+
+        #line-6,
+        #line-7 {
+          animation: bottomToTop 3s infinite linear;
+        }
+
+        #line-9,
+        #line-11,
+        #line-24 {
+          animation: bottomToTop 5s infinite linear;
+        }
+
+        #line-10,
+        #line-11,
+        #line-12,
+        #line-13 {
+          animation: topToBottom 4s infinite linear;
+        }
+
+        #line-14,
+        #line-15,
+        #line-16,
+        #line-25 {
+          animation: topToBottom 2.75s infinite linear;
+        }
+      }
+    }
+  }
+}

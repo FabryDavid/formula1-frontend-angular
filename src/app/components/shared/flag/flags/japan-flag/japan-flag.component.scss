@@ -1,29 +1,21 @@
 @import "src/assets/scss/flag-animations";
 
-.france-1 {
-  fill: #fff;
+.japan-1 {
+  fill: #f2f2f2;
 }
 
-.france-2 {
-  fill: #ed2939;
-}
-
-.france-3 {
-  fill: #002395;
+.japan-2 {
+  fill: #bb002d;
 }
 
 svg {
   #Layer_2 {
-    #France {
-      #line-1,
-      #line-21,
-      #line-22 {
+    #Japan {
+      #line-1 {
         animation: topToBottom 3.5s infinite linear;
       }
 
-      #line-2,
-      #line-19,
-      #line-20 {
+      #line-2 {
         animation: topToBottom 2.5s infinite linear;
       }
 
@@ -33,10 +25,7 @@ svg {
         animation: topToBottom 2s infinite linear;
       }
 
-      #line-5,
-      #line-17,
-      #line-18,
-      #line-23 {
+      #line-5 {
         animation: topToBottom 4s infinite linear;
       }
 
@@ -46,12 +35,12 @@ svg {
       }
 
       #line-9,
-      #line-11,
-      #line-24 {
+      #line-11 {
         animation: bottomToTop 5s infinite linear;
       }
 
       #line-10,
+      #line-11,
       #line-12,
       #line-13 {
         animation: topToBottom 4s infinite linear;
@@ -59,8 +48,7 @@ svg {
 
       #line-14,
       #line-15,
-      #line-16,
-      #line-25 {
+      #line-16 {
         animation: topToBottom 2.75s infinite linear;
       }
     }

@@ -11,7 +11,6 @@ export class AustriaFlagComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Austria")
   }
 
 }

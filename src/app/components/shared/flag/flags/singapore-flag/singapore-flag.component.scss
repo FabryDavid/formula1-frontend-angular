@@ -1,29 +1,29 @@
 @import "src/assets/scss/flag-animations";
 
-.france-1 {
+.singapore-1 {
+  fill: #ed2839;
+}
+
+.singapore-2 {
   fill: #fff;
 }
 
-.france-2 {
-  fill: #ed2939;
+.singapore-3 {
+  fill: #e6e6e6;
 }
 
-.france-3 {
-  fill: #002395;
+.singapore-4 {
+  fill: #f2f2f2;
 }
 
 svg {
   #Layer_2 {
-    #France {
-      #line-1,
-      #line-21,
-      #line-22 {
+    #Singapore {
+      #line-1 {
         animation: topToBottom 3.5s infinite linear;
       }
 
-      #line-2,
-      #line-19,
-      #line-20 {
+      #line-2 {
         animation: topToBottom 2.5s infinite linear;
       }
 
@@ -33,10 +33,7 @@ svg {
         animation: topToBottom 2s infinite linear;
       }
 
-      #line-5,
-      #line-17,
-      #line-18,
-      #line-23 {
+      #line-5 {
         animation: topToBottom 4s infinite linear;
       }
 
@@ -46,22 +43,12 @@ svg {
       }
 
       #line-9,
-      #line-11,
-      #line-24 {
+      #line-11 {
         animation: bottomToTop 5s infinite linear;
       }
 
-      #line-10,
-      #line-12,
-      #line-13 {
+      #line-10 {
         animation: topToBottom 4s infinite linear;
-      }
-
-      #line-14,
-      #line-15,
-      #line-16,
-      #line-25 {
-        animation: topToBottom 2.75s infinite linear;
       }
     }
   }

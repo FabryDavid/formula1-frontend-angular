@@ -1,0 +1,85 @@
+@import "src/assets/scss/flag-animations";
+
+.uk-1 {
+  fill: #fff;
+}
+
+.uk-2 {
+  fill: #cf142b;
+}
+
+.uk-3 {
+  fill: #00247d;
+}
+
+.uk-4 {
+  fill: #eaeaea;
+}
+
+.uk-5 {
+  fill: #c8102e;
+}
+
+.uk-6 {
+  fill: #012169;
+}
+
+svg {
+  #Layer_2 {
+    #Layer_32 {
+      #line-1,
+      #line-21,
+      #line-22 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2,
+      #line-19,
+      #line-20,
+      #line-30 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5,
+      #line-17,
+      #line-18,
+      #line-23 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7,
+      #line-26,
+      #line-27 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11,
+      #line-24,
+      #line-28,
+      #line-29 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15,
+      #line-16,
+      #line-25 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

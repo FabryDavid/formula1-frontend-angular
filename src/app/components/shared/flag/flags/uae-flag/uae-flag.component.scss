@@ -1,0 +1,69 @@
+@import "src/assets/scss/flag-animations";
+
+.uae-1 {
+  fill: #00732e;
+}
+
+.uae-2 {
+  fill: #fff;
+}
+
+.uae-3 {
+  fill: #fe0000;
+}
+
+.uae-4 {
+  fill: #ddd;
+}
+
+.uae-5 {
+  fill: #005b25;
+}
+
+.uae-6 {
+  fill: #1a1a1a;
+}
+
+svg {
+  #Layer_2 {
+    #Abu_Dhabi {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

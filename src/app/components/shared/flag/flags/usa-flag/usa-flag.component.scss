@@ -1,0 +1,66 @@
+@import "src/assets/scss/flag-animations";
+
+.usa-1 {
+  fill: #b32134;
+}
+
+.usa-2 {
+  fill: #fff;
+}
+
+.usa-3 {
+  fill: #3b3b6d;
+}
+
+.usa-4 {
+  fill: #e5e5e5;
+}
+
+.usa-5 {
+  fill: #aa243b;
+}
+
+svg {
+  #Layer_2 {
+    #USA {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

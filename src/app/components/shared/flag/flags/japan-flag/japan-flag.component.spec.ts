@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TurkeyFlagComponent } from './turkey-flag.component';
+import { JapanFlagComponent } from './japan-flag.component';
 
-describe('TurkeyFlagComponent', () => {
-  let component: TurkeyFlagComponent;
-  let fixture: ComponentFixture<TurkeyFlagComponent>;
+describe('JapanFlagComponent', () => {
+  let component: JapanFlagComponent;
+  let fixture: ComponentFixture<JapanFlagComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TurkeyFlagComponent ]
+      declarations: [ JapanFlagComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TurkeyFlagComponent);
+    fixture = TestBed.createComponent(JapanFlagComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

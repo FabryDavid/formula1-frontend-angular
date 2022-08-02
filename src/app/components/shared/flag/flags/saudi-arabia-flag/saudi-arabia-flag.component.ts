@@ -11,7 +11,6 @@ export class SaudiArabiaFlagComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Saudi arabia")
   }
 
 }

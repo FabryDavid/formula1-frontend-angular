@@ -1,0 +1,68 @@
+@import "src/assets/scss/flag-animations";
+
+.bahrain-1 {
+  fill: none;
+}
+
+.bahrain-2 {
+  clip-path: url(#clip-path);
+}
+
+.bahrain-3 {
+  fill: #cd1126;
+}
+
+.bahrain-4 {
+  fill: #fefdfe;
+}
+
+.bahrain-5 {
+  fill: #fff;
+}
+
+svg {
+  #Layer_2 {
+    #Bahrain {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5,
+      #line-17 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-11,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

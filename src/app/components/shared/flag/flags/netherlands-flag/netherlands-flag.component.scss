@@ -1,0 +1,61 @@
+@import "src/assets/scss/flag-animations";
+
+
+.netherlands-1 {
+  fill: #ae1c27;
+}
+
+.netherlands-2 {
+  fill: #fff;
+}
+
+.netherlands-3 {
+  fill: #21468c;
+}
+
+svg {
+  #Layer_2 {
+    #Netherlands {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5,
+      #line-17 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15,
+      #line-16 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

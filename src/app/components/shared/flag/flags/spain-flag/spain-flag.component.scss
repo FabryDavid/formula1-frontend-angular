@@ -1,0 +1,57 @@
+@import "src/assets/scss/flag-animations";
+
+
+.spain-1 {
+  fill: #ffc400;
+}
+
+.spain-2 {
+  fill: #c60b1e;
+}
+
+.spain-3 {
+  fill: #b50b24;
+}
+
+.spain-4 {
+  fill: #efb000;
+}
+
+svg {
+  #Layer_2 {
+    #Spain {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12 {
+        animation: topToBottom 4s infinite linear;
+      }
+    }
+  }
+}

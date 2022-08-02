@@ -1,0 +1,70 @@
+@import "src/assets/scss/flag-animations";
+
+.italy-1 {
+  fill: #f2f2f2;
+}
+
+.italy-2 {
+  fill: #ed2839;
+}
+
+.italy-3 {
+  fill: #009247;
+}
+
+svg {
+  #Layer_2 {
+    #Italy {
+      #line-1,
+      #line-21,
+      #line-22 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2,
+      #line-19,
+      #line-20 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5,
+      #line-17,
+      #line-18,
+      #line-23 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7,
+      #line-25 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11,
+      #line-24 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-11,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-14,
+      #line-15,
+      #line-16,
+      #line-25 {
+        animation: topToBottom 2.75s infinite linear;
+      }
+    }
+  }
+}

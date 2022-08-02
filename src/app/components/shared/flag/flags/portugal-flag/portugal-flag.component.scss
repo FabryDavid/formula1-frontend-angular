@@ -1,0 +1,58 @@
+@import "src/assets/scss/flag-animations";
+
+
+.portugal-1 {
+  fill: none;
+}
+
+.portugal-2 {
+  clip-path: url(#clip-path);
+}
+
+.portugal-3 {
+  fill: #fd0000;
+}
+
+.portugal-4 {
+  fill: #016600;
+}
+
+svg {
+  #Layer_2 {
+    #Portugal {
+      #line-1 {
+        animation: topToBottom 3.5s infinite linear;
+      }
+
+      #line-2 {
+        animation: topToBottom 2.5s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-8 {
+        animation: topToBottom 2s infinite linear;
+      }
+
+      #line-5 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-6,
+      #line-7 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-9,
+      #line-11 {
+        animation: bottomToTop 5s infinite linear;
+      }
+
+      #line-10,
+      #line-12,
+      #line-13 {
+        animation: topToBottom 4s infinite linear;
+      }
+    }
+  }
+}

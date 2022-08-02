@@ -11,7 +11,6 @@ export class UsaFlagComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("usa")
   }
 
 }

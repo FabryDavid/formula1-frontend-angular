@@ -1,0 +1,47 @@
+@import "src/assets/scss/flag-animations";
+
+.austria-1 {
+  fill: #f2f2f2;
+}
+
+.austria-2 {
+  fill: #c60b1e;
+}
+
+.austria-3 {
+  fill: #b50b24;
+}
+
+.austria-4 {
+  fill: #eaeaea;
+}
+
+svg {
+  #lines {
+    #Austria {
+      #line-1,
+      #line-2,
+      #line-5,
+      #line-10,
+      #line-11 {
+        animation: topToBottom 4s infinite linear;
+      }
+
+      #line-3,
+      #line-4,
+      #line-12 {
+        animation: bottomToTop 3.5s infinite linear;
+      }
+
+      #line-6,
+      #line-7,
+      #line-9 {
+        animation: bottomToTop 3s infinite linear;
+      }
+
+      #line-8 {
+        animation: topToBottom 5s infinite linear;
+      }
+    }
+  }
+}
