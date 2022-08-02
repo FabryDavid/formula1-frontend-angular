@@ -32,6 +32,16 @@ export class ScheduleServiceService {
     )
   }
 
+  getScheduledRoundInformation(round: number): Observable<IWeekendSchedule> {
+    return this.http.get<IWeekendSchedule>(`${environment.apiUrl}/schedule/${round}`).pipe(
+      map((response => {
+          return response
+        }),
+        catchError(this.handleError.bind(this))
+      )
+    )
+  }
+
   public handleError(
     err: HttpErrorResponse,
     caught: Observable<any>
