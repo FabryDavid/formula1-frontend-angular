@@ -1,6 +1,15 @@
 @use "node_modules/@angular/material/index" as mat;
 
+@import "src/assets/fonts/fonts";
+@import "variables";
 @import "palettes";
+
+$my-custom-typography: mat.define-typography-config(
+  $font-family: $poppins,
+);
+
+@include mat.core($my-custom-typography);
+
 
 $my-primary: mat.define-palette($primary-palette, 500);
 $my-accent: mat.define-palette($info-palette, 500);
