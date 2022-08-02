@@ -1,0 +1,9 @@
+@import "src/assets/scss/variables";
+
+.map-container {
+  .map {
+    min-height: 500px;
+    border-radius: 10px;
+    box-shadow: $base-shadow;
+  }
+}
