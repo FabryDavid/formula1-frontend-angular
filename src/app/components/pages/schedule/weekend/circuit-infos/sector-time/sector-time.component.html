@@ -1,0 +1,34 @@
+<div
+  [style]="{ 'border-color': sectorNumber | sectorColor }"
+  class="sector-time w-100"
+>
+  <div
+    class="
+      d-flex flex-row flex-sm-column flex-md-row
+      align-items-center align-items-sm-start align-items-md-center
+      justify-content-between
+    "
+  >
+    <div class="d-flex align-items-center">
+      <div class="sector-number d-flex justify-content-center align-items-center">
+        {{ sectorNumber }}
+      </div>
+
+      <div class="driver-code ms-2">
+        {{ sectorTitle }}
+      </div>
+    </div>
+
+    <div *ngIf="!isLoading" class="session-name me-2 me-sm-0 me-md-2">
+      {{ sessionName }}
+    </div>
+  </div>
+
+  <div class="text-center time">
+    {{ isLoading || !sectorTime ? "Loading" : sectorTime.time }}
+  </div>
+
+  <mat-spinner color="primary" mode="indeterminate" *ngIf="isLoading"></mat-spinner>
+
+  <!--  <v-progress-linear v-if="isLoading" :color="sectorColor" indeterminate />-->
+</div>

@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IWeekendSchedule} from "../../../../../interfaces/iweekend-schedule";
 import getCountryCode from "../../../../../helpers/countryCodes";
+import {SessionTimeService} from "../../../../../services/session-time-service/session-time.service";
+import {ISectorTimes} from "../../../../../interfaces/isector-times";
 
 @Component({
   selector: 'app-circuit-infos',
@@ -10,14 +12,19 @@ import getCountryCode from "../../../../../helpers/countryCodes";
 export class CircuitInfosComponent implements OnInit {
   @Input() weekend!: IWeekendSchedule
   countryCode: string = ""
+  isLoading = false
+  sectorTimes?: ISectorTimes
 
-  constructor() {
+  constructor(private sessionTimesService: SessionTimeService) {
   }
 
   ngOnInit(): void {
     this.countryCode = getCountryCode(this.weekend.Circuit.Location.country) ?? ""
 
-    console.log(this.weekend.Circuit)
+    this.sessionTimesService.getFastestSessionsInWeekend(parseInt(this.weekend.round)).subscribe((data) => {
+      console.log(data)
+      this.sectorTimes = data
+    })
   }
 
 }

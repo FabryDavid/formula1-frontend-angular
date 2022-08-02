@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IWeekendSchedule} from "../../../../interfaces/iweekend-schedule";
 import {ActivatedRoute} from "@angular/router";
-import {ScheduleServiceService} from "../../../../services/schedule-service.service";
+import {ScheduleServiceService} from "../../../../services/schedule-service/schedule-service.service";
 
 @Component({
   selector: 'app-weekend',

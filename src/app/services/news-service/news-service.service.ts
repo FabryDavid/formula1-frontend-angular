@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {catchError, map} from "rxjs/operators";
-import {ITweetsResponse} from "../interfaces/itweets-response";
+import {ITweetsResponse} from "../../interfaces/itweets-response";
 
 @Injectable({
   providedIn: 'root'

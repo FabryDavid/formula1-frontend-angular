@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ScheduleServiceService} from "../../../services/schedule-service.service";
+import {ScheduleServiceService} from "../../../services/schedule-service/schedule-service.service";
 import {IWeekendSchedule} from "../../../interfaces/iweekend-schedule";
 
 @Component({
