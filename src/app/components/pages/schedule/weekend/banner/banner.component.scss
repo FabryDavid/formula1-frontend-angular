@@ -1,0 +1,39 @@
+@import "src/assets/scss/variables";
+
+.fill-white {
+  fill: #fff;
+}
+
+.fill-dark-gray {
+  fill: #363636;
+}
+
+.fill-gray {
+  fill: #747474;
+}
+
+.fill-light-gray {
+  fill: #dedede;
+}
+
+.country-text {
+  font-size: 110px;
+}
+
+.year-text,
+.country-text {
+  font-family: $f1-font;
+  font-weight: 700;
+}
+
+.year-text {
+  font-size: 70px;
+}
+
+.text-country-clipping {
+  clip-path: url(#text-country);
+}
+
+.text-year-clipping {
+  clip-path: url(#text-year);
+}

@@ -1,0 +1,8 @@
+<div class="weekend mb-5" *appLoading="isLoading">
+  <div *ngIf="weekendData; else noData">
+    <app-banner [circuit]="weekendData.Circuit"></app-banner>
+  </div>
+  <ng-template #noData>
+    else
+  </ng-template>
+</div>

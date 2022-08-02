@@ -14,18 +14,18 @@ import {LoadingModule} from "../../shared/page-loading-indicator/loading/loading
 
 @NgModule({
   declarations: [ScheduleComponent],
-    imports: [
-        CommonModule,
-        ScheduleRoutingModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        FormsModule,
-        ScheduleItemModule,
-        PageLoadingIndicatorModule,
-        LoadingModule,
-    ]
+  imports: [
+    CommonModule,
+    ScheduleRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    ScheduleItemModule,
+    PageLoadingIndicatorModule,
+    LoadingModule,
+  ]
 })
 export class ScheduleModule {
 }
