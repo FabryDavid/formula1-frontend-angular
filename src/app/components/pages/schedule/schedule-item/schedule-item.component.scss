@@ -9,6 +9,7 @@
   cursor: pointer;
   overflow: hidden;
   height: 100%;
+  box-shadow: $base-shadow;
 
   &:after {
     content: " ";
@@ -76,8 +77,26 @@
       width: 100%;
       height: 50%;
       object-fit: cover;
-      -webkit-box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.7);
+      -webkit-box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0);
+      box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0);
+      transition: all 0.25s ease-out;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      top: 0;
+      left: -30%;
+      background: rgb(0, 48, 73);
+      transition: all 0.2s ease-in;
+      background: linear-gradient(
+          130deg,
+          rgba(255, 255, 255, 0) 35%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0) 60%
+      );
     }
 
     .details-container {
@@ -93,6 +112,17 @@
   &:hover {
     .overlay {
       top: 0;
+
+      .circuit-photo {
+        -webkit-box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.6);
+        transition-delay: 0.2s;
+      }
+
+      &:after {
+        left: -15%;
+        transition-delay: 0.15s;
+      }
     }
   }
 }
