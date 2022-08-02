@@ -8,20 +8,22 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {ScheduleItemModule} from "./schedule-item/schedule-item.module";
+import {PageLoadingIndicatorModule} from "../../shared/page-loading-indicator/page-loading-indicator.module";
 
 
 @NgModule({
   declarations: [ScheduleComponent],
-  imports: [
-    CommonModule,
-    ScheduleRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule,
-    ScheduleItemModule,
-  ]
+    imports: [
+        CommonModule,
+        ScheduleRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        ScheduleItemModule,
+        PageLoadingIndicatorModule,
+    ]
 })
 export class ScheduleModule {
 }

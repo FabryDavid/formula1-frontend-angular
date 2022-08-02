@@ -1,0 +1,16 @@
+<div class="w-100 d-flex justify-content-center align-items-center py-5">
+  <mat-spinner
+    *ngIf="!tire; else tireImage"
+    color="primary"
+    mode="indeterminate"
+    strokeWidth="7"
+  ></mat-spinner>
+
+  <ng-template #tireImage>
+    <img
+      class="loading-indicator"
+      [src]="'assets/images/tires/' + tire + '.svg'"
+      alt="Loading..."
+    >
+  </ng-template>
+</div>

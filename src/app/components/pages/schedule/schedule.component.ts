@@ -10,6 +10,7 @@ import {IWeekendSchedule} from "../../../interfaces/iweekend-schedule";
 export class ScheduleComponent implements OnInit {
   searchQuery = ""
   schedules: Array<IWeekendSchedule> = []
+  isLoading = false
 
   get filteredSchedule() {
     if (!this.searchQuery) {
@@ -31,8 +32,10 @@ export class ScheduleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.scheduleService.getCurrentSchedule().subscribe((data) => {
       this.schedules = data
+      this.isLoading = false
     })
   }
 

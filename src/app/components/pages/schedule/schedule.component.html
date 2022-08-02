@@ -1,26 +1,30 @@
-<div class="container my-5">
-  <div class="search-container">
-    <mat-form-field
-      appearance="outline"
-      class="mb-5 w-100"
-    >
-      <mat-label>Search</mat-label>
-      <input
-        matInput
-        [(ngModel)]="searchQuery"
-      >
-      <button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
+<app-page-loading-indicator *ngIf="isLoading; else loaded"></app-page-loading-indicator>
 
-  <div class="row gy-4">
-    <div
-      *ngFor="let weekend of filteredSchedule"
-      class="col-12 col-md-6 col-lg-4"
-    >
-      <app-schedule-item [weekend]="weekend"></app-schedule-item>
+<ng-template #loaded>
+  <div class="container my-5">
+    <div class="search-container">
+      <mat-form-field
+        appearance="outline"
+        class="mb-5 w-100"
+      >
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          [(ngModel)]="searchQuery"
+        >
+        <button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="row gy-4 justify-content-center">
+      <div
+        *ngFor="let weekend of filteredSchedule"
+        class="col-12 col-md-6 col-lg-4"
+      >
+        <app-schedule-item [weekend]="weekend"></app-schedule-item>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
