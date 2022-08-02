@@ -16,6 +16,8 @@ export class CircuitInfosComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryCode = getCountryCode(this.weekend.Circuit.Location.country) ?? ""
+
+    console.log(this.weekend.Circuit)
   }
 
 }

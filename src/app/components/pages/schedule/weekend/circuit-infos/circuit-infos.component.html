@@ -1,6 +1,8 @@
 <div class="container pt-5 circuit-infos">
+
+  <!--  HEADER  -->
   <div
-    class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-left"
+    class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-start"
   >
     <div class="flag">
       <span
@@ -11,6 +13,53 @@
     <div class="ms-3">
       <div class="gp-name">{{ weekend.raceName }}</div>
       <div class="circuit-name mt-n2">{{ weekend.Circuit.circuitName }}</div>
+    </div>
+  </div>
+
+  <!--  INFOS  -->
+  <div class="row mt-5">
+    <div class="col-12 col-md-8">
+      <img
+        [src]="'assets/images/circuit-layout-detailed/'+ weekend.Circuit.circuitId +'.png'"
+        [alt]="weekend.Circuit.circuitName"
+        class="circuit-detailed-image"
+      >
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="row" *ngIf="weekend.Circuit.details">
+        <div class="col-12 col-sm-6">
+          <div class="gp-info-item text-center text-sm-start">
+            <div class="gp-info-item-title">First<br />Grand Prix</div>
+            <div class="gp-info-item-value">
+              {{ weekend.Circuit.details.first_gp }}
+            </div>
+          </div>
+
+          <div class="gp-info-item text-center text-sm-start">
+            <div class="gp-info-item-title">Circuit<br />Length</div>
+            <div class="gp-info-item-value">
+              {{ weekend.Circuit.details.length }} km
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="gp-info-item text-center text-sm-start">
+            <div class="gp-info-item-title">Number Of<br />Laps</div>
+            <div class="gp-info-item-value">
+              {{ weekend.Circuit.details.number_of_laps.toFixed(1) }}
+            </div>
+          </div>
+
+          <div class="gp-info-item text-center text-sm-start">
+            <div class="gp-info-item-title">Race<br />Distance</div>
+            <div class="gp-info-item-value">
+              {{ weekend.Circuit.details.race_distance.toFixed(1) }} km
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

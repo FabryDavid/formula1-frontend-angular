@@ -12,6 +12,10 @@ export const countryCodes = [
     name: "United Arab Emirates",
   },
   {
+    code: "ae",
+    name: "UAE",
+  },
+  {
     code: "af",
     name: "Afghanistan",
   },
@@ -334,6 +338,10 @@ export const countryCodes = [
   {
     code: "gb",
     name: "United Kingdom",
+  },
+  {
+    code: "gb",
+    name: "UK",
   },
   {
     code: "gb-eng",
@@ -986,6 +994,10 @@ export const countryCodes = [
   {
     code: "us",
     name: "United States of America",
+  },
+  {
+    code: "us",
+    name: "USA",
   },
   {
     code: "uy",
