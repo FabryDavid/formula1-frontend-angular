@@ -9,6 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {ScheduleItemModule} from "./schedule-item/schedule-item.module";
 import {PageLoadingIndicatorModule} from "../../shared/page-loading-indicator/page-loading-indicator.module";
+import {LoadingModule} from "../../shared/page-loading-indicator/loading/loading.module";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {PageLoadingIndicatorModule} from "../../shared/page-loading-indicator/pa
         FormsModule,
         ScheduleItemModule,
         PageLoadingIndicatorModule,
+        LoadingModule,
     ]
 })
 export class ScheduleModule {
