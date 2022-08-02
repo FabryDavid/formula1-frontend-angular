@@ -114,7 +114,9 @@
     </div>
   </div>
 
-  <div class="mt-5">
-    <app-geo-map></app-geo-map>
+  <div class="mt-5" *ngIf="weekend.Circuit.details">
+    <app-geo-map
+      [geojsonFileName]="weekend.Circuit.details.gjson_map"
+    ></app-geo-map>
   </div>
 </div>
