@@ -1,11 +1,14 @@
 <div class="container pt-5 circuit-infos">
   <div
-    class="d-flex flex-column flex-sm-row align-center text-center text-sm-left"
+    class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-left"
   >
     <div class="flag">
-      <!--      <flag :iso="countryCode" />-->
+      <span
+        class="flag-icon"
+        [ngClass]="'flag-icon-'+countryCode"
+      ></span>
     </div>
-    <div class="ml-3">
+    <div class="ms-3">
       <div class="gp-name">{{ weekend.raceName }}</div>
       <div class="circuit-name mt-n2">{{ weekend.Circuit.circuitName }}</div>
     </div>

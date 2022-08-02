@@ -26,8 +26,6 @@ export class WeekendComponent implements OnInit {
     this.scheduleService.getScheduledRoundInformation(this.round).subscribe((data) => {
       this.weekendData = data
       this.isLoading = false
-
-      console.log(data)
     })
   }
 
