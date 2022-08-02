@@ -1,0 +1,40 @@
+@import "src/assets/scss/variables";
+
+.circuit-infos {
+  .flag {
+    font-size: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    line-height: 20px;
+    box-shadow: $base-shadow;
+  }
+
+  .gp-name {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .circuit-name {
+    font-size: 20px;
+  }
+
+  .circuit-detailed-image {
+    width: 100%;
+  }
+
+  .gp-info-item {
+    margin-bottom: 25px;
+
+    .gp-info-item-title {
+      font-size: 25px;
+      border-left: 1px solid black;
+      padding-left: 10px;
+    }
+
+    .gp-info-item-value {
+      font-weight: bold;
+      font-size: 30px;
+      padding-left: 10px;
+    }
+  }
+}

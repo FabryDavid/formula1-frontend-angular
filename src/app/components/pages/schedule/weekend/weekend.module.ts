@@ -4,6 +4,8 @@ import {WeekendRoutingModule} from './weekend-routing.module';
 import {WeekendComponent} from "./weekend.component";
 import {LoadingModule} from "../../../shared/page-loading-indicator/loading/loading.module";
 import {BannerModule} from "./banner/banner.module";
+import {MatTabsModule} from "@angular/material/tabs";
+import {CircuitInfosModule} from "./circuit-infos/circuit-infos.module";
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import {BannerModule} from "./banner/banner.module";
     CommonModule,
     WeekendRoutingModule,
     LoadingModule,
-    BannerModule
+    BannerModule,
+    MatTabsModule,
+    CircuitInfosModule
   ]
 })
 export class WeekendModule {

@@ -1,0 +1,11 @@
+@import "src/assets/scss/variables";
+
+.weekend {
+  .tabs {
+    &::ng-deep {
+      .mat-tab-header {
+        box-shadow: $base-shadow;
+      }
+    }
+  }
+}
