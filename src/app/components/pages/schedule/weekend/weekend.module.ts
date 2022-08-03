@@ -7,19 +7,21 @@ import {BannerModule} from "./banner/banner.module";
 import {MatTabsModule} from "@angular/material/tabs";
 import {CircuitInfosModule} from "./circuit-infos/circuit-infos.module";
 import {SessionResultsModule} from "./session-results/session-results.module";
+import {UpcomingSessionDisplayModule} from "./upcoming-session-display/upcoming-session-display.module";
 
 
 @NgModule({
   declarations: [WeekendComponent],
-    imports: [
-        CommonModule,
-        WeekendRoutingModule,
-        LoadingModule,
-        BannerModule,
-        MatTabsModule,
-        CircuitInfosModule,
-        SessionResultsModule
-    ]
+  imports: [
+    CommonModule,
+    WeekendRoutingModule,
+    LoadingModule,
+    BannerModule,
+    MatTabsModule,
+    CircuitInfosModule,
+    SessionResultsModule,
+    UpcomingSessionDisplayModule
+  ]
 })
 export class WeekendModule {
 }
