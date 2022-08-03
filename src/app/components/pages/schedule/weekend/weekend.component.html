@@ -4,35 +4,49 @@
 
     <mat-tab-group preserveContent mat-align-tabs="center" class="tabs" selectedIndex="0">
       <mat-tab label="Free Practice 1">
-        <app-session-results
-          [round]="weekendData.Circuit.Location.country"
-          [sessionDate]="weekendData.FirstPractice"
-          [session]="session.FP1"
-        ></app-session-results>
+        <ng-template matTabContent>
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="weekendData.FirstPractice"
+            [session]="session.FP1"
+          ></app-session-results>
+        </ng-template>
       </mat-tab>
 
       <mat-tab label="Free Practice 2">
-        FP2
+        <ng-template matTabContent>
+          FP2
+        </ng-template>
       </mat-tab>
 
       <mat-tab *ngIf="weekendData.ThirdPractice" label="Free Practice 3">
-        FP3
+        <ng-template matTabContent>
+          FP3
+        </ng-template>
       </mat-tab>
 
       <mat-tab label="Qualifying">
-        Q
+        <ng-template matTabContent>
+          Q
+        </ng-template>
       </mat-tab>
 
       <mat-tab *ngIf="weekendData.Sprint" label="Sprint">
-        Sprint
+        <ng-template matTabContent>
+          Sprint
+        </ng-template>
       </mat-tab>
 
       <mat-tab label="Race">
-        Race
+        <ng-template matTabContent>
+          Race
+        </ng-template>
       </mat-tab>
 
       <mat-tab label="Circuit">
-        <app-circuit-infos [weekend]="weekendData"></app-circuit-infos>
+        <ng-template matTabContent>
+          <app-circuit-infos [weekend]="weekendData"></app-circuit-infos>
+        </ng-template>
       </mat-tab>
     </mat-tab-group>
   </div>
