@@ -4,19 +4,13 @@
       <app-left-side-tabs
         [sessionName]="session"
         [sessionDate]="sessionDate"
-        [options]="[
-            'Result',
-            'Chart',
-            'Telemetry Chats',
-            'Gearshifts',
-            'Speed',
-            'Tyre Strategies',
-          ]"
+        [options]="navigationOptions"
       ></app-left-side-tabs>
     </div>
 
     <div class="col-12 col-md-9">
       <p>session-results works!</p>
+      <router-outlet name="sessionResult"></router-outlet>
     </div>
   </div>
 </div>

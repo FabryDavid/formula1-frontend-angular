@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ISessionTime} from "../../../../../interfaces/isession-time";
 import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
+import {IRouterItem} from "../../../../../interfaces/irouter-item";
 
 @Component({
   selector: 'app-left-side-tabs',
@@ -10,7 +11,7 @@ import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
 export class LeftSideTabsComponent implements OnInit {
   @Input() sessionName!: string;
   @Input() sessionDate!: ISessionTime;
-  @Input() options!: Array<string>
+  @Input() options!: Array<IRouterItem>
 
   activeItem = 0
 
