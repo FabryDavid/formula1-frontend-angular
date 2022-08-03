@@ -1,0 +1,185 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "variables";
+@import "mixins";
+
+.result-card {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 150px;
+  box-shadow: $base-shadow;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+
+    .corner-image-container {
+      left: -30px;
+    }
+
+    .team-logo-container,
+    .driver-image-container {
+      height: 250px;
+      top: -100px;
+    }
+  }
+
+  &::ng-deep {
+    .mat-expansion-panel {
+      box-shadow: none;
+      background: transparent;
+
+      .mat-expansion-panel-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .corner-image-container {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    transition: all 0.3s ease-out;
+    transition-delay: 0.1s;
+
+    .position-text {
+      color: white;
+      font-weight: bold;
+      font-size: 40px;
+      position: absolute;
+      top: 12px;
+      left: 15px;
+    }
+  }
+
+  .text-container {
+    height: 100%;
+    padding: 0 20px 0 115px;
+    min-height: 150px;
+    color: $dark-blue;
+
+    @include media-breakpoint-up(md) {
+      padding: 0 15% 0 115px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 20% 0 10%;
+    }
+
+    .driver-name {
+      font-weight: bold;
+      font-size: 38px;
+
+      @include media-breakpoint-only(md) {
+        font-size: 32px;
+      }
+
+      @include media-breakpoint-only(xs) {
+        direction: rtl;
+        font-size: 25px;
+      }
+    }
+
+    .delta-difference,
+    .constructor-name {
+      font-size: 25px;
+
+      @include media-breakpoint-only(md) {
+        font-size: 22px;
+      }
+
+      @include media-breakpoint-only(xs) {
+        direction: rtl;
+        font-size: 20px;
+      }
+    }
+
+    .time {
+      font-size: 40px;
+      font-weight: bold;
+
+      @include media-breakpoint-down(sm) {
+        margin-left: -115px;
+      }
+    }
+
+    .delta-difference {
+      @include media-breakpoint-down(sm) {
+        margin-left: -115px;
+      }
+    }
+  }
+
+  .team-logo-container,
+  .driver-image-container {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    overflow-x: hidden;
+    border-radius: 10px 0 0 10px;
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+    transition-delay: 0.1s;
+    transform-origin: top center;
+
+    .team-logo,
+    .driver-image {
+      height: 100%;
+      margin-right: -50px;
+    }
+  }
+
+  .card-body {
+    border-top: 2px solid $dark-blue;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+
+    * {
+      color: $dark-blue;
+    }
+
+    .details-item-title {
+      font-weight: bold;
+      font-size: 22px;
+      border-bottom: 1px solid $dark-blue;
+      margin-bottom: 5px;
+    }
+
+    .details-item-value {
+      font-size: 18px;
+
+      .kmh {
+        font-size: 15px;
+      }
+    }
+
+    .tire-used-image {
+      width: 75px;
+    }
+  }
+}
+
+
+.result-podium {
+  @include setResultCardToWhite;
+  background-color: $primary !important;
+}
+
+.result-dnf {
+  background-color: #e3e3e3 !important;
+}
+
+.fastest-lap {
+  @include setResultCardToWhite;
+  background-color: #8e4bac !important;
+}

@@ -1,1 +1,7 @@
-<p>result works!</p>
+<div class="result-container">
+  <div class="row justify-content-end">
+    <div class="col-12 col-lg-11 mb-5" *ngFor="let result of sessionResults">
+      <app-result-card [result]="result"></app-result-card>
+    </div>
+  </div>
+</div>

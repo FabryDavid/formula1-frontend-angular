@@ -1,9 +1,9 @@
 <div class="f1-panel fill-width py-2 ps-2">
   <div class="panel-inside">
-    <div class="panel-content pa-1">
-      <div class="fill-width logo-container mb-2">
-        <div class="d-flex align-center">
-          <img class="logo me-3" alt="logo" src="assets/logo-white.svg" />
+    <div class="panel-content p-1">
+      <div class="w-100 logo-container mb-2">
+        <div class="d-flex align-items-center">
+          <img class="logo mr-3" alt="logo" src="assets/logo-white.svg" />
           {{ sessionName }}
         </div>
 
@@ -12,17 +12,13 @@
         </div>
       </div>
 
-      <!--              v-for="(option, index) in options"-->
-      <!--              :key="option"-->
-      <!--              :class="{ 'font-weight-bold': activeItem === index }"-->
-      <!--              @click="$emit('itemSelect', index)"-->
       <div
         *ngFor="let option of options; let i = index"
         class="option-item"
         [class.fw-bold]="activeItem === i"
-        (click)="activeItem=i"
+        (click)="activeItemChange.emit(i)"
       >
-        {{ option.name }}
+        {{ option }}
       </div>
     </div>
   </div>

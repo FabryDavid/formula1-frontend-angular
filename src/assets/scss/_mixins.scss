@@ -1,1 +1,20 @@
 @import "variables";
+
+@mixin setResultCardToWhite {
+  * {
+    color: white !important;
+  }
+
+  .text-container {
+    color: white !important;
+  }
+
+  .card-body {
+    border-top-color: white !important;
+    color: white !important;
+
+    .details-item-title {
+      border-bottom-color: white !important;
+    }
+  }
+}

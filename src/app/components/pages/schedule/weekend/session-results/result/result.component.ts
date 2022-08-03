@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ISessionResult} from "../../../../../../interfaces/isession-result";
 
 @Component({
   selector: 'app-result',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
+  @Input() sessionResults!: Array<ISessionResult>
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ResultComponent} from './result.component';
+import {ResultCardModule} from "./result-card/result-card.module";
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import {ResultComponent} from './result.component';
     ResultComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ResultCardModule
   ],
   exports: [ResultComponent]
 })
