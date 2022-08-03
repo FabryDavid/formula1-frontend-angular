@@ -1,6 +1,6 @@
 <div class="container my-5">
-  <ngx-masonry [options]="masonryOptions" style="width: 90vw;" [ordered]="true">
-    <div ngxMasonryItem *ngFor="let n of news;index as idx" style="width: 30%;">
+  <ngx-masonry [options]="masonryOptions" class="w-100" [ordered]="true" [updateLayout]="true">
+    <div ngxMasonryItem *ngFor="let n of news" class="masonry-item">
       <div class="">
         <ngx-twitter-tweet
           [tweetID]="n.id"
