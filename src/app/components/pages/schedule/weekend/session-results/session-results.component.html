@@ -1,0 +1,22 @@
+<div class="container session-results mt-5" *appLoading="isLoading">
+  <div class="row justify-content-between">
+    <div class="col-12 col-sm-5 col-md-3 mt-0 mt-md-5">
+      <app-left-side-tabs
+        [sessionName]="session"
+        [sessionDate]="sessionDate"
+        [options]="[
+            'Result',
+            'Chart',
+            'Telemetry Chats',
+            'Gearshifts',
+            'Speed',
+            'Tyre Strategies',
+          ]"
+      ></app-left-side-tabs>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <p>session-results works!</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@import "src/assets/scss/variables";
+
+
+.f1-panel {
+  $panel-border-radius: 15px 0 0 15px;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: $panel-border-radius;
+
+  .panel-inside {
+    border-radius: $panel-border-radius;
+    background-color: #1c1f26;
+    padding: 5px 0 5px 5px;
+
+    .panel-content {
+      border-radius: $panel-border-radius;
+      border: 3px solid $primary;
+      border-right: none;
+
+      .logo-container {
+        border-bottom: 1px solid #898a8e;
+        font-size: 30px;
+        font-weight: 700;
+        font-family: $f1-font;
+
+        .logo {
+          height: 100px;
+          margin-top: -10%;
+          margin-bottom: -10%;
+        }
+
+        .session-date {
+          font-size: 18px;
+          font-weight: normal;
+        }
+      }
+
+      .option-item {
+        font-size: 20px;
+        padding: 2px 0;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}

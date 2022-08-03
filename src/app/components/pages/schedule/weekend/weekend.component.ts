@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IWeekendSchedule} from "../../../../interfaces/iweekend-schedule";
 import {ActivatedRoute} from "@angular/router";
 import {ScheduleServiceService} from "../../../../services/schedule-service/schedule-service.service";
+import {Session} from "../../../../enums/session";
 
 @Component({
   selector: 'app-weekend',
@@ -13,6 +14,7 @@ export class WeekendComponent implements OnInit {
   round!: number;
   isLoading = false
   weekendData: IWeekendSchedule | null = null
+  session = Session
 
   constructor(private route: ActivatedRoute, private scheduleService: ScheduleServiceService) {
   }
@@ -27,10 +29,6 @@ export class WeekendComponent implements OnInit {
       this.weekendData = data
       this.isLoading = false
     })
-  }
-
-  get test() {
-    return JSON.stringify(this.weekendData)
   }
 
   ngOnDestroy() {

@@ -2,9 +2,13 @@
   <div *ngIf="weekendData">
     <app-banner [circuit]="weekendData.Circuit"></app-banner>
 
-    <mat-tab-group mat-align-tabs="center" class="tabs" selectedIndex="5">
+    <mat-tab-group preserveContent mat-align-tabs="center" class="tabs" selectedIndex="0">
       <mat-tab label="Free Practice 1">
-        FP1
+        <app-session-results
+          [round]="weekendData.Circuit.Location.country"
+          [sessionDate]="weekendData.FirstPractice"
+          [session]="session.FP1"
+        ></app-session-results>
       </mat-tab>
 
       <mat-tab label="Free Practice 2">
