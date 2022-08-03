@@ -5,6 +5,7 @@ import {LeftSideTabsModule} from "../left-side-tabs/left-side-tabs.module";
 import {LoadingModule} from "../../../../shared/page-loading-indicator/loading/loading.module";
 import {RouterModule} from "@angular/router";
 import {ResultModule} from "./result/result.module";
+import {SessionResultsChartModule} from "../session-results-chart/session-results-chart.module";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {ResultModule} from "./result/result.module";
         LeftSideTabsModule,
         LoadingModule,
         RouterModule,
-        ResultModule
+        ResultModule,
+        SessionResultsChartModule
     ],
   exports: [SessionResultsComponent]
 })
