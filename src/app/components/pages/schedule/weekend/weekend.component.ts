@@ -17,6 +17,7 @@ export class WeekendComponent implements OnInit {
   isLoading = false
   weekendData: IWeekendSchedule | null = null
   session = Session
+  sessionRound: number = 1
   raceDate!: ISessionTime
   sessionsInTheFuture: Array<Session> = []
 
@@ -31,6 +32,7 @@ export class WeekendComponent implements OnInit {
 
     this.scheduleService.getScheduledRoundInformation(this.round).subscribe((data) => {
       this.weekendData = data
+      this.sessionRound = parseInt(this.weekendData.round)
       this.raceDate = {
         date: data.date,
         time: data.time

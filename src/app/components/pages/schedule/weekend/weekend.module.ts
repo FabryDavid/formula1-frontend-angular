@@ -8,6 +8,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {CircuitInfosModule} from "./circuit-infos/circuit-infos.module";
 import {SessionResultsModule} from "./session-results/session-results.module";
 import {UpcomingSessionDisplayModule} from "./upcoming-session-display/upcoming-session-display.module";
+import {RaceResultsModule} from "./race-results/race-results.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {UpcomingSessionDisplayModule} from "./upcoming-session-display/upcoming-
     MatTabsModule,
     CircuitInfosModule,
     SessionResultsModule,
-    UpcomingSessionDisplayModule
+    UpcomingSessionDisplayModule,
+    RaceResultsModule
   ]
 })
 export class WeekendModule {

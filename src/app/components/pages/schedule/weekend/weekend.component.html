@@ -2,7 +2,7 @@
   <div *ngIf="weekendData">
     <app-banner [circuit]="weekendData.Circuit"></app-banner>
 
-    <mat-tab-group preserveContent mat-align-tabs="center" class="tabs">
+    <mat-tab-group preserveContent mat-align-tabs="center" class="tabs" selectedIndex="4">
       <mat-tab label="Free Practice 1">
         <ng-template matTabContent>
           <app-upcoming-session-display
@@ -96,11 +96,10 @@
           ></app-upcoming-session-display>
 
           <ng-template #rInPast>
-            <app-session-results
-              [round]="weekendData.Circuit.Location.country"
+            <app-race-results
+              [round]="sessionRound"
               [sessionDate]="raceDate"
-              [session]="session.R"
-            ></app-session-results>
+            ></app-race-results>
           </ng-template>
         </ng-template>
       </mat-tab>
