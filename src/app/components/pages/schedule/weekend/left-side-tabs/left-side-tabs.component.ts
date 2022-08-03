@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ISessionTime} from "../../../../../interfaces/isession-time";
+import {Session} from "../../../../../enums/session";
 import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
 
 @Component({
@@ -8,17 +9,34 @@ import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
   styleUrls: ['./left-side-tabs.component.scss']
 })
 export class LeftSideTabsComponent implements OnInit {
-  @Input() sessionName!: string;
+  @Input() sessionName!: Session;
   @Input() sessionDate!: ISessionTime;
   @Input() options!: Array<string>
   @Input() activeItem?: number = 0
 
   @Output() activeItemChange = new EventEmitter<number>()
 
-  get sessionDateFormatted() {
-    const sessionD = sessionTimeToDate(this.sessionDate)
+  sessionNameFormatted!: string;
+  sessionDateFormatted!: string;
 
-    return sessionD.toLocaleString("en-US", {
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    switch (this.sessionName) {
+      case Session.Q:
+        this.sessionNameFormatted = "Quali";
+        break;
+      case Session.R:
+        this.sessionNameFormatted = "Race"
+        break;
+      default:
+        this.sessionNameFormatted = this.sessionName
+        break;
+    }
+
+    const sessionD = sessionTimeToDate(this.sessionDate)
+    this.sessionDateFormatted = sessionD.toLocaleString("en-US", {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
@@ -27,11 +45,4 @@ export class LeftSideTabsComponent implements OnInit {
       minute: "2-digit",
     })
   }
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }

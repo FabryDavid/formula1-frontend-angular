@@ -39,7 +39,7 @@
         *ngIf="result.lapTimeBase"
         class="delta-difference text-center text-md-start"
       >
-        <br *ngIf="result.position === 1; else notFirst" />
+        <br *ngIf="result.position === 0; else notFirst" />
         <ng-template #notFirst>
           <span *ngIf="result.lapTimeDelta">
             +{{ result.lapTimeDelta.toStringFormatted(true) }}

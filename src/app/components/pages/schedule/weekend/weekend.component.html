@@ -2,7 +2,7 @@
   <div *ngIf="weekendData">
     <app-banner [circuit]="weekendData.Circuit"></app-banner>
 
-    <mat-tab-group preserveContent mat-align-tabs="center" class="tabs" selectedIndex="0">
+    <mat-tab-group preserveContent mat-align-tabs="center" class="tabs">
       <mat-tab label="Free Practice 1">
         <ng-template matTabContent>
           <app-session-results
@@ -15,31 +15,51 @@
 
       <mat-tab label="Free Practice 2">
         <ng-template matTabContent>
-          FP2
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="weekendData.SecondPractice"
+            [session]="session.FP2"
+          ></app-session-results>
         </ng-template>
       </mat-tab>
 
       <mat-tab *ngIf="weekendData.ThirdPractice" label="Free Practice 3">
         <ng-template matTabContent>
-          FP3
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="weekendData.ThirdPractice"
+            [session]="session.FP3"
+          ></app-session-results>
         </ng-template>
       </mat-tab>
 
       <mat-tab label="Qualifying">
         <ng-template matTabContent>
-          Q
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="weekendData.Qualifying"
+            [session]="session.Q"
+          ></app-session-results>
         </ng-template>
       </mat-tab>
 
       <mat-tab *ngIf="weekendData.Sprint" label="Sprint">
         <ng-template matTabContent>
-          Sprint
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="weekendData.Sprint"
+            [session]="session.SPRINT"
+          ></app-session-results>
         </ng-template>
       </mat-tab>
 
       <mat-tab label="Race">
         <ng-template matTabContent>
-          Race
+          <app-session-results
+            [round]="weekendData.Circuit.Location.country"
+            [sessionDate]="raceDate"
+            [session]="session.R"
+          ></app-session-results>
         </ng-template>
       </mat-tab>
 

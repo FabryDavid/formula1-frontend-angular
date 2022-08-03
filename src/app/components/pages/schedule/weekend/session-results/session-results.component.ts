@@ -32,9 +32,7 @@ export class SessionResultsComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true
     this.sessionResultsService.getSessionResults(this.round, this.session).subscribe((data) => {
-      console.log(data)
       this.sessionResults = data
-
       this.isLoading = false
     })
   }

@@ -3,6 +3,7 @@ import {IWeekendSchedule} from "../../../../interfaces/iweekend-schedule";
 import {ActivatedRoute} from "@angular/router";
 import {ScheduleServiceService} from "../../../../services/schedule-service/schedule-service.service";
 import {Session} from "../../../../enums/session";
+import {ISessionTime} from "../../../../interfaces/isession-time";
 
 @Component({
   selector: 'app-weekend',
@@ -15,6 +16,7 @@ export class WeekendComponent implements OnInit {
   isLoading = false
   weekendData: IWeekendSchedule | null = null
   session = Session
+  raceDate!: ISessionTime
 
   constructor(private route: ActivatedRoute, private scheduleService: ScheduleServiceService) {
   }
@@ -27,6 +29,10 @@ export class WeekendComponent implements OnInit {
 
     this.scheduleService.getScheduledRoundInformation(this.round).subscribe((data) => {
       this.weekendData = data
+      this.raceDate = {
+        date: data.date,
+        time: data.time
+      }
       this.isLoading = false
     })
   }
