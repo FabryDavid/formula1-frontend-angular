@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NewsServiceService} from "../../../services/news-service/news-service.service";
 import {ITweet} from "../../../interfaces/itweet";
+import {NgxMasonryComponent, NgxMasonryOptions} from "ngx-masonry";
 
 @Component({
   selector: 'app-news',
@@ -11,10 +12,13 @@ export class NewsComponent implements OnInit {
   news: Array<ITweet> = []
   nextToken: null | string = null
   tweetLimit = 10
+  masonryOptions: NgxMasonryOptions = {
+    gutter: 20,
+  };
+  isLoading = false;
+  loadingNews: Array<string> = []
 
-  masonryOptions = {
-    gutter: 10
-  }
+  @ViewChild(NgxMasonryComponent) masonry!: NgxMasonryComponent;
 
   constructor(private newsService: NewsServiceService) {
   }
@@ -28,7 +32,21 @@ export class NewsComponent implements OnInit {
       console.log(response)
 
       this.nextToken = response.meta.next_token
-      this.news = response.data
+
+      const newsIds = response.data.map((n) => n.id)
+      this.loadingNews = this.loadingNews.concat(newsIds)
+
+      this.news = this.news.concat(response.data)
     })
+  }
+
+  tweetLoaded(id: string) {
+    const index = this.loadingNews.indexOf(id)
+
+    if (index > -1) {
+      this.loadingNews.splice(index, 1)
+    }
+
+    this.masonry.layout()
   }
 }

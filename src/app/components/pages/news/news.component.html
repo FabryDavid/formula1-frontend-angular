@@ -1,31 +1,25 @@
 <div class="container my-5">
-  news
+  <ngx-masonry [options]="masonryOptions" style="width: 90vw;" [ordered]="true">
+    <div ngxMasonryItem *ngFor="let n of news;index as idx" style="width: 30%;">
+      <div class="">
+        <ngx-twitter-tweet
+          [tweetID]="n.id"
+          [options]="{
+                  align: 'center',
+                  conversation: 'none'
+                }"
+          (onLoad)="tweetLoaded(n.id)"
+        >
+        </ngx-twitter-tweet>
 
-  <!--  <div class="row gy-5">-->
-  <!--    <div class="col-12 col-md-6 col-lg-3" *ngFor="let n of news;">-->
-  <!--      <ngx-twitter-tweet-->
-  <!--        [tweetID]="n.id"-->
-  <!--        [options]="{-->
-  <!--            align: 'center',-->
-  <!--            conversation: 'none'-->
-  <!--          }"-->
-  <!--      >-->
-  <!--        <mat-spinner color="primary"></mat-spinner>-->
-  <!--      </ngx-twitter-tweet>-->
-  <!--    </div>-->
-  <!--  </div>-->
-
-  <ngx-masonry [options]="masonryOptions" [updateLayout]="true">
-    <div ngxMasonryItem class="masonry-item" *ngFor="let n of news;">
-      <ngx-twitter-tweet
-        [tweetID]="n.id"
-        [options]="{
-              align: 'center',
-              conversation: 'none'
-            }"
-      >
-        <mat-spinner color="primary"></mat-spinner>
-      </ngx-twitter-tweet>
+        <div class="d-flex justify-content-center w-100 py-5" *ngIf="loadingNews.includes(n.id)">
+          <app-page-loading-indicator></app-page-loading-indicator>
+        </div>
+      </div>
     </div>
   </ngx-masonry>
+
+  <div *appLoading="isLoading || loadingNews.length > 0" class="d-flex justify-content-center mt-5">
+    <button class="primary-button" (click)="loadNews()">Load more</button>
+  </div>
 </div>
