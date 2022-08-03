@@ -16,6 +16,13 @@ const routes: Routes = [
         (module) => module.ScheduleModule
       ),
   },
+  {
+    path: 'news',
+    loadChildren: () =>
+      import('./components/pages/news/news.module').then(
+        (module) => module.NewsModule
+      ),
+  },
 ];
 
 @NgModule({
