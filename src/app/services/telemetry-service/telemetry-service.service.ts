@@ -8,6 +8,7 @@ import {ILapTelemetry} from "../../interfaces/ilap-telemetry";
 import {Timing} from "../../classes/timing/timing";
 import {IDriverLapTelemetries} from "../../interfaces/idriver-lap-telemetries";
 import {ILapDetailedTelemetry} from "../../interfaces/ilap-detailed-telemetry";
+import {ITelemetryCarData} from "../../interfaces/itelemetry-car-data";
 
 @Injectable({
   providedIn: 'root'
@@ -77,7 +78,30 @@ export class TelemetryServiceService {
   getSessionSingleLapTelemetry(gp: string | number, session: Session, lap: number, drivers: Array<string>): Observable<Array<ILapDetailedTelemetry>> {
     return this.http.get<any>(`${environment.apiUrl}/all-car-data/${gp}/${session}/2022/${lap}/${drivers.join(",")}`).pipe(
       map((data => {
-          return data
+          const result: Array<ILapDetailedTelemetry> = []
+
+          data.forEach((telemetry: any) => {
+            const carData: ITelemetryCarData = {
+              brake: Object.values(telemetry.carData.Brake).map((x) => parseFloat(x as string)),
+              throttle: Object.values(telemetry.carData.Throttle).map((x) => parseFloat(x as string)),
+              drs: Object.values(telemetry.carData.DRS).map((x) => parseFloat(x as string)),
+              distance: Object.values(telemetry.carData.Distance).map((x) => parseFloat(x as string)),
+              rpm: Object.values(telemetry.carData.RPM).map((x) => parseFloat(x as string)),
+              sessionTime: Object.values(telemetry.carData.SessionTime).map((x) => Timing.msToTime(parseFloat(x as string))),
+              speed: Object.values(telemetry.carData.Speed).map((x) => parseFloat(x as string)),
+              gear: Object.values(telemetry.carData.nGear).map((x) => parseFloat(x as string)),
+            }
+
+            result.push({
+              driverId: telemetry.driverId,
+              driverFullName: telemetry.fullName,
+              team: telemetry.team,
+              color: telemetry.color,
+              carData
+            })
+          })
+
+          return result
         }),
         catchError(this.handleError.bind(this))
       )
