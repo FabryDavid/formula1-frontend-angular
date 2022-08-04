@@ -5,6 +5,7 @@ import {DriversService} from "../../../../../services/drivers-service/drivers.se
 import {ISessionDriver} from "../../../../../interfaces/isession-driver";
 import {TelemetryServiceService} from "../../../../../services/telemetry-service/telemetry-service.service";
 import {ILapDetailedTelemetry} from "../../../../../interfaces/ilap-detailed-telemetry";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-lap-telemetry-header',
@@ -32,12 +33,13 @@ export class LapTelemetryHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true
 
-    this.maxLapInSessionService.getMaxLapInSession(this.round, this.session).subscribe((data) => {
-      this.maxLap = data
-    })
+    forkJoin({
+      maxLaps: this.maxLapInSessionService.getMaxLapInSession(this.round, this.session),
+      drivers: this.driversService.getSessionDrivers(this.round, this.session)
+    }).subscribe((data) => {
+      this.maxLap = data.maxLaps
 
-    this.driversService.getSessionDrivers(this.round, this.session).subscribe((response) => {
-      response.sort((a, b) => {
+      data.drivers.sort((a, b) => {
         const aTeam = a.team;
         const bTeam = b.team;
 
@@ -51,10 +53,10 @@ export class LapTelemetryHeaderComponent implements OnInit {
         return aTeam > bTeam ? 1 : -1;
       });
 
-      this.driversList = response;
-    })
+      this.driversList = data.drivers;
 
-    this.isLoading = false
+      this.isLoading = false
+    })
   }
 
 
