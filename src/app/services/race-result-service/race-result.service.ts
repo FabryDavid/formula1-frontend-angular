@@ -21,8 +21,8 @@ export class RaceResultService {
           data.forEach((dataItem: any) => {
             const r: IRaceResult = {
               driver: {
-                constructors: {
-                  constructor: {
+                teams: {
+                  team: {
                     constructorId: dataItem.Driver.Constructors.Constructor.constructorId,
                     name: dataItem.Driver.Constructors.Constructor.name,
                     nationality: dataItem.Driver.Constructors.Constructor.nationality,
@@ -60,7 +60,7 @@ export class RaceResultService {
               },
               fastestLap: {
                 averageSpeed: {
-                  speed: dataItem.FastestLap.AverageSpeed.speed,
+                  speed: parseFloat(dataItem.FastestLap.AverageSpeed.speed),
                   units: dataItem.FastestLap.AverageSpeed.units,
                 },
                 time: dataItem.FastestLap.Time.time,

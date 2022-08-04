@@ -29,8 +29,6 @@ export class NewsComponent implements OnInit {
 
   loadNews() {
     this.newsService.getNews(this.tweetLimit, this.nextToken).subscribe((response) => {
-      console.log(response)
-
       this.nextToken = response.meta.next_token
 
       const newsIds = response.data.map((n) => n.id)

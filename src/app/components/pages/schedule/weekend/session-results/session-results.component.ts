@@ -22,7 +22,7 @@ export class SessionResultsComponent implements OnInit {
     'Telemetry Chats',
     'Gearshifts',
     'Speed',
-    'Tyre Strategies',
+    'Tyre Usage',
   ]
   activeTab = 0
 

@@ -10,7 +10,6 @@ export class UpcomingSessionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log()
   }
 
 }
