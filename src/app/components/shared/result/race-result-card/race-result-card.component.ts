@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DriverImageService} from "../../../../services/driver-image-service/driver-image.service";
 import {IRaceResult} from "../../../../interfaces/irace-result";
 import getNumberTextSuffix from "../../../../helpers/get-number-text-suffix";
 import {faMinus, faSortDown, faSortUp} from '@fortawesome/free-solid-svg-icons';
+import {DriversService} from "../../../../services/drivers-service/drivers.service";
 
 @Component({
   selector: 'app-race-result-card',
@@ -22,7 +22,7 @@ export class RaceResultCardComponent implements OnInit {
   faSortDown = faSortDown
   faMinus = faMinus
 
-  constructor(private driverImageService: DriverImageService) {
+  constructor(private driversService: DriversService) {
   }
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class RaceResultCardComponent implements OnInit {
     this.positionFromStart = this.result.grid - this.result.position
     this.gainedPositionsAbs = Math.abs(this.positionFromStart)
 
-    this.driverImageService.getDriverImage(this.result.driver.driver.driverId).subscribe((data) => {
+    this.driversService.getDriverImage(this.result.driver.driver.driverId).subscribe((data) => {
       this.driverImage = data
     })
   }

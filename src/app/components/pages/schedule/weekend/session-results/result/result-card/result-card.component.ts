@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ISessionResult} from "../../../../../../../interfaces/isession-result";
 import getNumberTextSuffix from "../../../../../../../helpers/get-number-text-suffix";
-import {DriverImageService} from "../../../../../../../services/driver-image-service/driver-image.service";
 import getTyreCompoundImage from "../../../../../../../helpers/get-tyre-compound-image";
+import {DriversService} from "../../../../../../../services/drivers-service/drivers.service";
 
 @Component({
   selector: 'app-result-card',
@@ -17,13 +17,13 @@ export class ResultCardComponent implements OnInit {
   driverImage: any = null
   tireImagePath: null | string = null
 
-  constructor(private driverImageService: DriverImageService) {
+  constructor(private driversService: DriversService) {
   }
 
   ngOnInit(): void {
     this.tireImagePath = getTyreCompoundImage(this.result.compound)
 
-    this.driverImageService.getDriverImage(this.result.driverId).subscribe((data) => {
+    this.driversService.getDriverImage(this.result.driverId).subscribe((data) => {
       this.driverImage = data
     })
   }

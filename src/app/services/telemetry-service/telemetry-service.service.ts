@@ -7,6 +7,7 @@ import {Session} from "../../enums/session";
 import {ILapTelemetry} from "../../interfaces/ilap-telemetry";
 import {Timing} from "../../classes/timing/timing";
 import {IDriverLapTelemetries} from "../../interfaces/idriver-lap-telemetries";
+import {ILapDetailedTelemetry} from "../../interfaces/ilap-detailed-telemetry";
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,16 @@ export class TelemetryServiceService {
           })
 
           return result
+        }),
+        catchError(this.handleError.bind(this))
+      )
+    )
+  }
+
+  getSessionSingleLapTelemetry(gp: string | number, session: Session, lap: number, drivers: Array<string>): Observable<Array<ILapDetailedTelemetry>> {
+    return this.http.get<any>(`${environment.apiUrl}/all-car-data/${gp}/${session}/2022/${lap}/${drivers.join(",")}`).pipe(
+      map((data => {
+          return data
         }),
         catchError(this.handleError.bind(this))
       )

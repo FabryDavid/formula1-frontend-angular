@@ -1,5 +1,5 @@
 <div class="mb-5 row justify-content-center" *appLoading="isLoading">
-  <div class="col-12 col-md-7 d-flex align-items-center">
+  <div class="col-12 col-md-5 d-flex align-items-center">
     <span class="lap-text me-3">Lap {{selectedLap}}</span>
 
     <mat-slider
@@ -25,8 +25,18 @@
         multiple
       >
         <mat-option
-          *ngFor="let driver of driversList" [value]="driver.driver.driverId"
-        >{{driver.driver.givenName}} {{driver.driver.familyName}}</mat-option>
+          *ngFor="let driver of driversList" [value]="driver.code"
+        >
+          <span
+            class="driver-name"
+            [style]="{
+                  backgroundColor:driver.color==='#ffffff'?'#f4f4f4':driver.color,
+                  color:driver.color==='#ffffff'?'black':'white'
+               }"
+          >
+            {{driver.fullName}}
+          </span>
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -64,5 +74,10 @@
     <!--        </v-chip>-->
     <!--      </template>-->
     <!--    </v-autocomplete>-->
+  </div>
+  <div class="col-12 col-md-2">
+    <button class="primary-button w-100 mt-1" (click)="loadLapData()">
+      Load
+    </button>
   </div>
 </div>
