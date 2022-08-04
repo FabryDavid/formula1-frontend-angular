@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ISessionResult} from "../../../../../../../interfaces/isession-result";
-import getNumberTextSuffix from "../../../../../../../helpers/getNumberTextSuffix";
+import getNumberTextSuffix from "../../../../../../../helpers/get-number-text-suffix";
 import {DriverImageService} from "../../../../../../../services/driver-image-service/driver-image.service";
-import getTyreCompoundImage from "../../../../../../../helpers/getTyreCompoundImage";
+import getTyreCompoundImage from "../../../../../../../helpers/get-tyre-compound-image";
 
 @Component({
   selector: 'app-result-card',

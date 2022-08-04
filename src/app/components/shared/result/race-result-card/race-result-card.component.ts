@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DriverImageService} from "../../../../services/driver-image-service/driver-image.service";
 import {IRaceResult} from "../../../../interfaces/irace-result";
-import getNumberTextSuffix from "../../../../helpers/getNumberTextSuffix";
+import getNumberTextSuffix from "../../../../helpers/get-number-text-suffix";
 import {faMinus, faSortDown, faSortUp} from '@fortawesome/free-solid-svg-icons';
 
 @Component({

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IWeekendSchedule} from "../../../../../interfaces/iweekend-schedule";
-import getCountryCode from "../../../../../helpers/countryCodes";
+import getCountryCode from "../../../../../helpers/country-codes";
 import {SessionTimeService} from "../../../../../services/session-time-service/session-time.service";
 import {ISectorTimes} from "../../../../../interfaces/isector-times";
 
