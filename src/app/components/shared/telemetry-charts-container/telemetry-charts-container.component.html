@@ -1,0 +1,23 @@
+<div class="pt-5">
+  <div class="chart-note mb-5 ml-1">
+    Note: some data may be inaccurate / incorrect.
+  </div>
+
+  <app-chart-display-mode-select
+    [(lapByLapData)]="lapByLapData"
+    [(currentChartMode)]="currentChartMode"
+  ></app-chart-display-mode-select>
+
+  {{currentChartMode}}
+
+  <app-full-session-chart
+    *ngIf="!lapByLapData; else lapTelemetry"
+    [chartMode]="currentChartMode"
+    [session]="session"
+    [round]="round"
+  ></app-full-session-chart>
+
+  <ng-template #lapTelemetry>
+    <app-lap-telemetry-chart></app-lap-telemetry-chart>
+  </ng-template>
+</div>

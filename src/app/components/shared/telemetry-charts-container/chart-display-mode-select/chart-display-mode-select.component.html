@@ -1,0 +1,27 @@
+<div class="row mb-3">
+  <div class="d-flex justify-content-center align-items-center col-12 col-md-6">
+    <app-switch-button
+      leftValue="Full session"
+      rightValue="Lap by lap"
+      [value]="lapByLapData"
+      (valueChange)="lapByLapDataChange.emit($event)"
+    ></app-switch-button>
+  </div>
+
+  <div
+    *ngIf="!lapByLapData"
+    class="d-flex justify-content-center align-items-center col-12 col-md-6"
+  >
+    <mat-form-field appearance="outline" color="primary" class="w-100">
+      <mat-label>Chart display</mat-label>
+      <mat-select [(ngModel)]="currentChartMode" (ngModelChange)="currentChartModeChange.emit(currentChartMode)">
+        <mat-option [value]="telemetryChartMode.LAP_TIME">{{telemetryChartMode.LAP_TIME}}</mat-option>
+        <mat-option [value]="telemetryChartMode.SECTOR1">{{telemetryChartMode.SECTOR1}}</mat-option>
+        <mat-option [value]="telemetryChartMode.SECTOR2">{{telemetryChartMode.SECTOR2}}</mat-option>
+        <mat-option [value]="telemetryChartMode.SECTOR3">{{telemetryChartMode.SECTOR3}}</mat-option>
+        <mat-option [value]="telemetryChartMode.S1_SPEED_TRAP">{{telemetryChartMode.S1_SPEED_TRAP}}</mat-option>
+        <mat-option [value]="telemetryChartMode.S2_SPEED_TRAP">{{telemetryChartMode.S2_SPEED_TRAP}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

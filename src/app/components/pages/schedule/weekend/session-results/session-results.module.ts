@@ -6,6 +6,9 @@ import {LoadingModule} from "../../../../shared/page-loading-indicator/loading/l
 import {RouterModule} from "@angular/router";
 import {ResultModule} from "./result/result.module";
 import {SessionResultsChartModule} from "../../../../shared/session-results-chart/session-results-chart.module";
+import {
+    TelemetryChartsContainerModule
+} from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import {SessionResultsChartModule} from "../../../../shared/session-results-char
         LoadingModule,
         RouterModule,
         ResultModule,
-        SessionResultsChartModule
+        SessionResultsChartModule,
+        TelemetryChartsContainerModule
     ],
   exports: [SessionResultsComponent]
 })

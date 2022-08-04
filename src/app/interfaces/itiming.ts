@@ -3,6 +3,7 @@ export interface ITiming {
   minutes: number;
   seconds: number;
   milliseconds: number;
+  base: number;
 
   toStringFormatted(padNumbers: boolean): string;
 }

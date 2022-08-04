@@ -5,13 +5,15 @@ export class Timing implements ITiming {
   milliseconds: number;
   minutes: number;
   seconds: number;
+  base: number;
 
-  constructor(item: any) {
+  constructor(item: any, base = 0) {
     if (!item) {
       this.hours = 0;
       this.minutes = 0;
       this.seconds = 0;
       this.milliseconds = 0;
+      this.base = 0
 
       return;
     }
@@ -20,6 +22,7 @@ export class Timing implements ITiming {
     this.minutes = item.mins;
     this.seconds = item.secs;
     this.milliseconds = item.ms;
+    this.base = base
   }
 
   toStringFormatted(padNumbers: boolean = false): string {
@@ -66,6 +69,7 @@ export class Timing implements ITiming {
   }
 
   static msToTime(s: number) {
+    const base = s;
     const ms = s % 1000;
     s = (s - ms) / 1000;
     const secs = s % 60;
@@ -73,7 +77,7 @@ export class Timing implements ITiming {
     const mins = s % 60;
     const hrs = (s - mins) / 60;
 
-    return new Timing({hrs, mins, secs, ms});
+    return new Timing({hrs, mins, secs, ms}, base);
   }
 
   private pad(d: number) {

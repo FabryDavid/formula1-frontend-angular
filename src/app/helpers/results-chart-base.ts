@@ -15,6 +15,7 @@ const resultsChartBase: IChartOptions = {
       },
     },
   },
+  yaxis: {},
   plotOptions: {
     bar: {
       borderRadius: 4,
@@ -44,7 +45,8 @@ const resultsChartBase: IChartOptions = {
     },
   },
   tooltip: {},
-  colors: []
+  colors: [],
+  responsive: []
 };
 
 export default resultsChartBase

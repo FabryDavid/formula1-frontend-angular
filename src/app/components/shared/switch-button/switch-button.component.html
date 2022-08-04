@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center">
+  <div
+    [ngClass]="{ 'fw-bold': !value }"
+    class="value cursor-pointer"
+    (click)="valueChange.emit(false)"
+  >
+    {{ leftValue }}
+  </div>
+
+  <mat-slide-toggle
+    class="mx-4"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit(value)"
+    color="primary"
+  ></mat-slide-toggle>
+
+  <div
+    [ngClass]="{ 'fw-bold': value }"
+    class="value cursor-pointer"
+    (click)="valueChange.emit(true)"
+  >
+    {{ rightValue }}
+  </div>
+</div>
