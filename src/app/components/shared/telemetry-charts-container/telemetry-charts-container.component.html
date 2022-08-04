@@ -8,8 +8,6 @@
     [(currentChartMode)]="currentChartMode"
   ></app-chart-display-mode-select>
 
-  {{currentChartMode}}
-
   <app-full-session-chart
     *ngIf="!lapByLapData; else lapTelemetry"
     [chartMode]="currentChartMode"
@@ -18,6 +16,9 @@
   ></app-full-session-chart>
 
   <ng-template #lapTelemetry>
-    <app-lap-telemetry-chart></app-lap-telemetry-chart>
+    <app-lap-telemetry-chart
+      [session]="session"
+      [round]="round"
+    ></app-lap-telemetry-chart>
   </ng-template>
 </div>

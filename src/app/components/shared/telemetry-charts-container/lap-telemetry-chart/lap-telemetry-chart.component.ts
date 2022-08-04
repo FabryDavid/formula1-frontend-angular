@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Session} from "../../../../enums/session";
 
 @Component({
   selector: 'app-lap-telemetry-chart',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lap-telemetry-chart.component.scss']
 })
 export class LapTelemetryChartComponent implements OnInit {
+  @Input() round!: string | number
+  @Input() session!: Session
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

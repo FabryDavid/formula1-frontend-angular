@@ -11,7 +11,7 @@ export class TelemetryChartsContainerComponent implements OnInit {
   @Input() round!: string | number
   @Input() session!: Session
 
-  lapByLapData: boolean = false
+  lapByLapData: boolean = true
   currentChartMode = TelemetryChartMode.LAP_TIME
 
   constructor() {
