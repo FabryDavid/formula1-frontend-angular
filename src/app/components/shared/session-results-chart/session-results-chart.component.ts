@@ -1,10 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ChartComponent} from "ng-apexcharts";
-import {ISessionResult} from "../../../../../../interfaces/isession-result";
-import {IChartOptions} from "../../../../../../interfaces/ichart-options";
-import resultsChartBase from "../../../../../../helpers/results-chart-base";
-import {IRaceResult} from "../../../../../../interfaces/irace-result";
-import {Timing} from "../../../../../../classes/timing/timing";
+import {ISessionResult} from "../../../interfaces/isession-result";
+import {IChartOptions} from "../../../interfaces/ichart-options";
+import resultsChartBase from "../../../helpers/results-chart-base";
+import {IRaceResult} from "../../../interfaces/irace-result";
+import {Timing} from "../../../classes/timing/timing";
 
 @Component({
   selector: 'app-session-results-chart',
