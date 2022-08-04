@@ -1,4 +1,5 @@
-<div class="text-center pt-5">
+<div class="pt-5">
+  <div *ngIf="isRace" class="note">Lapped/<span class="text-uppercase">dnf</span> cars will not appear.</div>
   <apx-chart
     [series]="chartOptions.series"
     [chart]="chartOptions.chart"

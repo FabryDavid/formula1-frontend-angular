@@ -36,7 +36,7 @@ const resultsChartBase: IChartOptions = {
   dataLabels: {
     enabled: true,
     formatter: function (val) {
-      return `+ ${Timing.msToTime(parseInt(val.toString())).toStringFormatted()}`;
+      return `+ ${Timing.msToTime(parseInt(val.toString())).toStringFormatted(true)}`;
     },
     textAnchor: "middle",
     style: {

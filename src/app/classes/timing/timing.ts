@@ -50,7 +50,7 @@ export class Timing implements ITiming {
     }
 
     if (padNumbers) {
-      for (let i = 0; i < times.length; i++) {
+      for (let i = 1; i < times.length; i++) {
         times[i] = this.pad(parseFloat(times[i].toString()));
       }
     }
