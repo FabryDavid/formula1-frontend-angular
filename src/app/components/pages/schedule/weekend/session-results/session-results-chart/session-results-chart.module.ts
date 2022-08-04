@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SessionResultsChartComponent} from './session-results-chart.component';
+import {NgApexchartsModule} from "ng-apexcharts";
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import {SessionResultsChartComponent} from './session-results-chart.component';
     SessionResultsChartComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgApexchartsModule,
   ],
   exports: [SessionResultsChartComponent]
 })
