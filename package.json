@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prettier": "npx prettier --write ./"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "ng-apexcharts": "^1.7.1",
     "ngx-masonry": "^13.0.0",
     "ngx-twitter-widgets": "^1.0.3",
+    "prettier": "^2.7.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
