@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
-import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
-import {catchError, map} from "rxjs/operators";
+import {DomSanitizer} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
