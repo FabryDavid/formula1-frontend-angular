@@ -29,5 +29,25 @@
         ></app-telemetry-charts-container>
       </div>
     </div>
+
+    <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 3">
+      <div class="w-100">
+        <app-speed-and-gearshift-map
+          [session]="session.R"
+          [round]="round"
+          mode="gearshift"
+        ></app-speed-and-gearshift-map>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 4">
+      <div class="w-100">
+        <app-speed-and-gearshift-map
+          [session]="session.R"
+          [round]="round"
+          mode="speed"
+        ></app-speed-and-gearshift-map>
+      </div>
+    </div>
   </div>
 </div>

@@ -22,7 +22,6 @@ export class RaceResultsComponent implements OnInit {
     'Telemetry Chats',
     'Gearshifts',
     'Speed',
-    'Tyre Strategies',
   ]
   activeTab = 0
   session = Session

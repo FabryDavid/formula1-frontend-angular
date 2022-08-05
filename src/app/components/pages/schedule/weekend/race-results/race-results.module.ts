@@ -8,6 +8,7 @@ import {SessionResultsChartModule} from "../../../../shared/session-results-char
 import {
     TelemetryChartsContainerModule
 } from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
+import {SpeedAndGearshiftMapModule} from "../../../../shared/speed-and-gearshift-map/speed-and-gearshift-map.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {
         LoadingModule,
         RaceResultsContainerModule,
         SessionResultsChartModule,
-        TelemetryChartsContainerModule
+        TelemetryChartsContainerModule,
+        SpeedAndGearshiftMapModule
     ],
   exports: [RaceResultsComponent]
 })

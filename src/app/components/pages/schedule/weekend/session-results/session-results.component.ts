@@ -22,9 +22,8 @@ export class SessionResultsComponent implements OnInit {
     'Telemetry Chats',
     'Gearshifts',
     'Speed',
-    'Tyre Usage',
   ]
-  activeTab = 4
+  activeTab = 0
 
   constructor(private sessionResultsService: SessionResultsService) {
   }
