@@ -1,0 +1,83 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
+
+.driver-details-container {
+  .inside {
+    position: relative;
+    z-index: 1;
+
+    .main-row {
+      //@media #{map-get($display-breakpoints, 'lg-and-up')} {
+      //  min-height: 110vh;
+      //}
+
+      text-shadow: $base-shadow;
+      text-transform: uppercase;
+
+      .driver-name {
+        font-weight: bold;
+        line-height: 80px;
+        font-size: 76px;
+        font-family: $f1-font;
+
+        //@media #{map-get($display-breakpoints, 'sm-only')} {
+        //  font-size: 65px;
+        //}
+        //
+        //@media #{map-get($display-breakpoints, 'xs-only')} {
+        //  font-size: 55px;
+        //  line-height: 60px;
+        //}
+      }
+
+      .driver-stats {
+        font-weight: bold;
+        font-size: 65px;
+        line-height: 67px;
+        text-align: right;
+        direction: rtl;
+
+        //@media #{map-get($display-breakpoints, 'sm-and-down')} {
+        //  font-size: 50px;
+        //  line-height: 60px;
+        //}
+        //
+        //@media #{map-get($display-breakpoints, 'xs-only')} {
+        //  text-align: center;
+        //  direction: unset;
+        //}
+      }
+
+      .driver-image {
+        width: 150%;
+      }
+    }
+  }
+
+  .driver-background-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    min-height: 90vh;
+    overflow-x: hidden;
+
+    .driver-background {
+      margin-left: -49px;
+      width: 109.5vw;
+      position: absolute;
+      bottom: 0;
+
+      //@media #{map-get($display-breakpoints, 'sm-only')} {
+      //  width: 112vw;
+      //}
+      //
+      //@media #{map-get($display-breakpoints, 'xs-only')} {
+      //  width: 120vw;
+      //}
+    }
+  }
+}
