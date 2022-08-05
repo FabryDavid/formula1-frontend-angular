@@ -12,6 +12,7 @@ export class LapTelemetryChartComponent implements OnInit {
   @Input() session!: Session
 
   lapData: Array<ILapDetailedTelemetry> = []
+  isLoading: boolean = false
 
   constructor() {
   }

@@ -17,12 +17,22 @@ export class LapTelemetryHeaderComponent implements OnInit {
   @Input() session!: Session
 
   @Output() telemetryData = new EventEmitter<Array<ILapDetailedTelemetry>>()
+  @Output() isLoadingChange = new EventEmitter<boolean>()
 
-  isLoading: boolean = false
   selectedLap: number = 1
   maxLap: number = 2
   driversList: Array<ISessionDriver> = []
   selectedDrivers: Array<string> = []
+  isLoadingValue: boolean = false
+
+  get isLoading(): boolean {
+    return this.isLoadingValue
+  }
+
+  set isLoading(value) {
+    this.isLoadingValue = value
+    this.isLoadingChange.emit(value)
+  }
 
   constructor(
     private maxLapInSessionService: MaxLapInSessionService,
@@ -61,7 +71,6 @@ export class LapTelemetryHeaderComponent implements OnInit {
 
 
   loadLapData() {
-    console.log(this.selectedDrivers)
     this.isLoading = true
     this.telemetryService.getSessionSingleLapTelemetry(
       this.round,

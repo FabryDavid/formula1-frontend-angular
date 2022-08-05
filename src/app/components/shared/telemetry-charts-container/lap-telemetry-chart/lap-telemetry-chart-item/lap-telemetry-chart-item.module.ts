@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LapTelemetryChartItemComponent} from './lap-telemetry-chart-item.component';
 import {NgApexchartsModule} from "ng-apexcharts";
+import {LoadingModule} from "../../../page-loading-indicator/loading/loading.module";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {NgApexchartsModule} from "ng-apexcharts";
   ],
     imports: [
         CommonModule,
-        NgApexchartsModule
+        NgApexchartsModule,
+        LoadingModule
     ],
   exports: [LapTelemetryChartItemComponent]
 })
