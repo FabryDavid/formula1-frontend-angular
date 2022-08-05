@@ -9,49 +9,50 @@
     z-index: 1;
 
     .main-row {
-      //@media #{map-get($display-breakpoints, 'lg-and-up')} {
-      //  min-height: 110vh;
-      //}
+      @include media-breakpoint-up(lg) {
+        min-height: 110vh;
+      }
 
       text-shadow: $base-shadow;
       text-transform: uppercase;
 
       .driver-name {
         font-weight: bold;
-        line-height: 80px;
-        font-size: 76px;
+        line-height: 60px;
+        font-size: 55px;
         font-family: $f1-font;
 
-        //@media #{map-get($display-breakpoints, 'sm-only')} {
-        //  font-size: 65px;
-        //}
-        //
-        //@media #{map-get($display-breakpoints, 'xs-only')} {
-        //  font-size: 55px;
-        //  line-height: 60px;
-        //}
+        @include media-breakpoint-up(sm) {
+          font-size: 65px;
+          line-height: 80px;
+        }
+
+        @include media-breakpoint-up(md) {
+          font-size: 76px;
+        }
       }
 
       .driver-stats {
         font-weight: bold;
-        font-size: 65px;
-        line-height: 67px;
-        text-align: right;
-        direction: rtl;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: center;
+        direction: unset;
 
-        //@media #{map-get($display-breakpoints, 'sm-and-down')} {
-        //  font-size: 50px;
-        //  line-height: 60px;
-        //}
-        //
-        //@media #{map-get($display-breakpoints, 'xs-only')} {
-        //  text-align: center;
-        //  direction: unset;
-        //}
+        @include media-breakpoint-up(sm) {
+          text-align: right;
+          direction: rtl;
+        }
+
+        @include media-breakpoint-up(md) {
+          font-size: 65px;
+          line-height: 67px;
+        }
       }
 
       .driver-image {
         width: 150%;
+        filter: drop-shadow($base-shadow);
       }
     }
   }
@@ -64,20 +65,5 @@
     height: 100%;
     min-height: 90vh;
     overflow-x: hidden;
-
-    .driver-background {
-      margin-left: -49px;
-      width: 109.5vw;
-      position: absolute;
-      bottom: 0;
-
-      //@media #{map-get($display-breakpoints, 'sm-only')} {
-      //  width: 112vw;
-      //}
-      //
-      //@media #{map-get($display-breakpoints, 'xs-only')} {
-      //  width: 120vw;
-      //}
-    }
   }
 }

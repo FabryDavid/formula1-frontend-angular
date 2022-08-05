@@ -1,19 +1,22 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 @import "src/assets/scss/driver-background-svg-lines-animations";
+@import "src/assets/scss/variables";
 
 svg {
-  //position: relative;
   margin-left: -49px;
-  width: 109.5vw;
+  width: 120vw;
   position: absolute;
   bottom: 0;
 
-  //@media #{map-get($display-breakpoints, 'sm-only')} {
-  //  width: 112vw;
-  //}
-  //
-  //@media #{map-get($display-breakpoints, 'xs-only')} {
-  //  width: 120vw;
-  //}
+  @include media-breakpoint-up(sm) {
+    width: 112vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 109.5vw;
+  }
 
   .top-bar-fix {
     position: absolute;
@@ -24,8 +27,6 @@ svg {
     left: 0;
     z-index: 100;
   }
-
-
 }
 
 .fill-dark-gray {
@@ -42,7 +43,7 @@ svg {
 
 .text-style {
   font-size: 250px;
-  font-family: Formula1;
+  font-family: $f1-font;
   font-weight: 700;
 }
 
