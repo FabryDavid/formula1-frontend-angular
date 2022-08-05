@@ -37,23 +37,7 @@ export class DriverLapSelectComponent implements OnInit {
       drivers: this.driversService.getSessionDrivers(this.round, this.session)
     }).subscribe((data) => {
       this.maxLap = data.maxLaps
-
-      data.drivers.sort((a, b) => {
-        const aTeam = a.team;
-        const bTeam = b.team;
-
-        if (aTeam === bTeam) {
-          const aName = a.fullName;
-          const bName = b.fullName;
-
-          return aName > bName ? 1 : -1;
-        }
-
-        return aTeam > bTeam ? 1 : -1;
-      });
-
       this.driversList = data.drivers;
-
       this.isLoading = false
     })
   }

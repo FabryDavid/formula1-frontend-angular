@@ -36,6 +36,20 @@ export class DriversService {
   getSessionDrivers(gp: number | string, session: Session): Observable<Array<ISessionDriver>> {
     return this.http.get<Array<ISessionDriver>>(`${environment.apiUrl}/session-drivers/${gp}/${session}/2022`).pipe(
       map((response: any) => {
+        response.sort((a: ISessionDriver, b: ISessionDriver) => {
+          const aTeam = a.team;
+          const bTeam = b.team;
+
+          if (aTeam === bTeam) {
+            const aName = a.fullName;
+            const bName = b.fullName;
+
+            return aName > bName ? 1 : -1;
+          }
+
+          return aTeam > bTeam ? 1 : -1;
+        });
+
         return response;
       }),
       catchError(this.handleError.bind(this))
