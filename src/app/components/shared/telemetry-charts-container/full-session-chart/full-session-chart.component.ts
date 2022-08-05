@@ -40,9 +40,6 @@ export class FullSessionChartComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.chartMode) {
-      const value = changes.chartMode.currentValue
-      console.log(value)
-
       const [colors, categories, series] = this.getChartDatas(this.driversTelemetry);
 
       let title;

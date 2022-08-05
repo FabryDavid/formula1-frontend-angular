@@ -37,8 +37,6 @@ export class DriverDetailsComponent implements OnInit {
         driver: this.driverService.getDriverDetails(this.driverId),
         driverImage: this.driverService.getDriverImage(this.driverId)
       }).subscribe((data) => {
-        console.log(data)
-
         this.driver = data.driver
         this.driverImagePath = data.driverImage
 
