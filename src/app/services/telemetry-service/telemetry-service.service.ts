@@ -121,7 +121,26 @@ export class TelemetryServiceService {
 
           return {
             data: this.sanitizer.bypassSecurityTrustUrl(objectURL),
-            url: `${environment.apiUrl}/gear-shifts-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
+            url: data.url,
+          }
+        }),
+        catchError(this.handleError.bind(this))
+      )
+    )
+  }
+
+  getSpeedMap(gp: string | number, session: Session, lap: number, driver: string): Observable<IImageData> {
+    return this.http.get(
+      `${environment.apiUrl}/speed-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
+      {observe: 'response', responseType: 'blob'}
+    ).pipe(
+      map((data => {
+          const blob = data.body
+          const objectURL = URL.createObjectURL(blob);
+
+          return {
+            data: this.sanitizer.bypassSecurityTrustUrl(objectURL),
+            url: data.url,
           }
         }),
         catchError(this.handleError.bind(this))

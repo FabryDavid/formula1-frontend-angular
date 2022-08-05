@@ -2,23 +2,23 @@
   <app-driver-lap-select
     [session]="session"
     [round]="round"
-    (load)="loadGearshifts($event)"
+    (load)="loadSpeedMap($event)"
   ></app-driver-lap-select>
 
   <div *appLoading="isLoading">
-    <div class="text-center no-driver-text" *ngIf="!gearshiftsImage && !message; else image">
+    <div class="text-center no-driver-text" *ngIf="!speedImage && !message; else image">
       Select a driver to show the telemetry
     </div>
 
-    <div class="text-center no-driver-text text-warning" *ngIf="message && !gearshiftsImage">
+    <div class="text-center no-driver-text text-warning" *ngIf="message && !speedImage">
       {{message}}
     </div>
 
     <ng-template #image>
-      <div *ngIf="gearshiftsImage" class="mx-auto col-12 col-md-10">
+      <div *ngIf="speedImage" class="mx-auto col-12 col-md-10">
         <img
           class="w-100"
-          [src]="gearshiftsImage"
+          [src]="speedImage"
           alt="Gearshifts map"
         >
       </div>

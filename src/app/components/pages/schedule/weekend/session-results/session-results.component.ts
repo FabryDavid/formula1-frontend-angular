@@ -24,7 +24,7 @@ export class SessionResultsComponent implements OnInit {
     'Speed',
     'Tyre Usage',
   ]
-  activeTab = 3
+  activeTab = 4
 
   constructor(private sessionResultsService: SessionResultsService) {
   }

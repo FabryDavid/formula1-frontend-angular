@@ -10,6 +10,7 @@ import {
     TelemetryChartsContainerModule
 } from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
 import {GearShiftsTelemetryModule} from "../../../../shared/gear-shifts-telemetry/gear-shifts-telemetry.module";
+import {SpeedMapTelemetryModule} from "../../../../shared/speed-map-telemetry/speed-map-telemetry.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {GearShiftsTelemetryModule} from "../../../../shared/gear-shifts-telemetr
         ResultModule,
         SessionResultsChartModule,
         TelemetryChartsContainerModule,
-        GearShiftsTelemetryModule
+        GearShiftsTelemetryModule,
+        SpeedMapTelemetryModule
     ],
   exports: [SessionResultsComponent]
 })
