@@ -1,5 +1,5 @@
-import {Timing} from "../classes/timing/timing";
-import {TireCompound} from "../enums/tire-compound";
+import { Timing } from '../classes/timing/timing';
+import { TireCompound } from '../enums/tire-compound';
 
 export interface ISessionResult {
   color: string;

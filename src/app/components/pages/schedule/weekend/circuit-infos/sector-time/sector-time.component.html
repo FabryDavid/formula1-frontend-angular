@@ -3,14 +3,12 @@
   class="sector-time w-100"
 >
   <div
-    class="
-      d-flex flex-row flex-sm-column flex-md-row
-      align-items-center align-items-sm-start align-items-md-center
-      justify-content-between
-    "
+    class="d-flex flex-row flex-sm-column flex-md-row align-items-center align-items-sm-start align-items-md-center justify-content-between"
   >
     <div class="d-flex align-items-center">
-      <div class="sector-number d-flex justify-content-center align-items-center">
+      <div
+        class="sector-number d-flex justify-content-center align-items-center"
+      >
         {{ sectorNumber }}
       </div>
 
@@ -28,7 +26,11 @@
     {{ isLoading || !sectorTime ? "Loading" : sectorTime.time }}
   </div>
 
-  <mat-spinner color="primary" mode="indeterminate" *ngIf="isLoading"></mat-spinner>
+  <mat-spinner
+    color="primary"
+    mode="indeterminate"
+    *ngIf="isLoading"
+  ></mat-spinner>
 
   <!--  <v-progress-linear v-if="isLoading" :color="sectorColor" indeterminate />-->
 </div>

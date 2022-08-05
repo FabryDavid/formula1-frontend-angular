@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {DriversComponent} from "./drivers.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DriversComponent } from './drivers.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DriversComponent
+    component: DriversComponent,
   },
   {
     path: ':driverId',
@@ -18,7 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DriversRoutingModule {
-}
+export class DriversRoutingModule {}

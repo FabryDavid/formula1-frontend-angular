@@ -1,4 +1,4 @@
-import {ITiming} from "../../interfaces/itiming";
+import { ITiming } from '../../interfaces/itiming';
 
 export class Timing implements ITiming {
   hours: number;
@@ -13,7 +13,7 @@ export class Timing implements ITiming {
       this.minutes = 0;
       this.seconds = 0;
       this.milliseconds = 0;
-      this.base = 0
+      this.base = 0;
 
       return;
     }
@@ -22,7 +22,7 @@ export class Timing implements ITiming {
     this.minutes = item.mins;
     this.seconds = item.secs;
     this.milliseconds = item.ms;
-    this.base = base
+    this.base = base;
   }
 
   toStringFormatted(padNumbers: boolean = false): string {
@@ -58,12 +58,12 @@ export class Timing implements ITiming {
       }
     }
 
-    const timeString = times.join(":");
-    const lastIndex = timeString.lastIndexOf(":");
+    const timeString = times.join(':');
+    const lastIndex = timeString.lastIndexOf(':');
 
     return (
       timeString.substring(0, lastIndex) +
-      "." +
+      '.' +
       timeString.substring(lastIndex + 1)
     );
   }
@@ -77,11 +77,11 @@ export class Timing implements ITiming {
     const mins = s % 60;
     const hrs = (s - mins) / 60;
 
-    return new Timing({hrs, mins, secs, ms}, base);
+    return new Timing({ hrs, mins, secs, ms }, base);
   }
 
   private pad(d: number) {
-    return d < 10 ? "0" + d.toString() : d.toString();
+    return d < 10 ? '0' + d.toString() : d.toString();
   }
 }
 

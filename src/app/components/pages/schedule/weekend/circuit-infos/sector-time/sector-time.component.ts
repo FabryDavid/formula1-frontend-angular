@@ -1,39 +1,38 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ISectorTime} from "../../../../../../interfaces/isector-time";
+import { Component, Input, OnInit } from '@angular/core';
+import { ISectorTime } from '../../../../../../interfaces/isector-time';
 
 @Component({
   selector: 'app-sector-time',
   templateUrl: './sector-time.component.html',
-  styleUrls: ['./sector-time.component.scss']
+  styleUrls: ['./sector-time.component.scss'],
 })
 export class SectorTimeComponent implements OnInit {
-  @Input() sectorTime: ISectorTime | undefined = undefined
-  @Input() sectorNumber: 1 | 2 | 3 = 1
-  @Input() isLoading: boolean = false
+  @Input() sectorTime: ISectorTime | undefined = undefined;
+  @Input() sectorNumber: 1 | 2 | 3 = 1;
+  @Input() isLoading: boolean = false;
 
   get sessionName() {
     if (!this.sectorTime) {
-      return ""
+      return '';
     }
 
     switch (this.sectorTime.sessionName) {
-      case "Q":
-        return "Qualifying";
-      case "R":
-        return "Race";
+      case 'Q':
+        return 'Qualifying';
+      case 'R':
+        return 'Race';
       default:
         return this.sectorTime.sessionName;
     }
   }
 
   get sectorTitle() {
-    return this.isLoading || !this.sectorTime ? `Sector ${this.sectorNumber}` : this.sectorTime.driver
+    return this.isLoading || !this.sectorTime
+      ? `Sector ${this.sectorNumber}`
+      : this.sectorTime.driver;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

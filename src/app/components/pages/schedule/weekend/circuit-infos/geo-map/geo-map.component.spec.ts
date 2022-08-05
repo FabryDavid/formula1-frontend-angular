@@ -8,9 +8,8 @@ describe('GeoMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeoMapComponent ]
-    })
-    .compileComponents();
+      declarations: [GeoMapComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,82 +1,81 @@
-import {Component, OnInit} from '@angular/core';
-import {ScheduleServiceService} from "../../../../../services/schedule-service/schedule-service.service";
-import {IWeekendSchedule} from "../../../../../interfaces/iweekend-schedule";
-import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
-import {INextSession} from "../../../../../interfaces/inext-session";
+import { Component, OnInit } from '@angular/core';
+import { ScheduleServiceService } from '../../../../../services/schedule-service/schedule-service.service';
+import { IWeekendSchedule } from '../../../../../interfaces/iweekend-schedule';
+import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
+import { INextSession } from '../../../../../interfaces/inext-session';
 
 @Component({
   selector: 'app-upcoming-session-card',
   templateUrl: './upcoming-session-card.component.html',
-  styleUrls: ['./upcoming-session-card.component.scss']
+  styleUrls: ['./upcoming-session-card.component.scss'],
 })
 export class UpcomingSessionCardComponent implements OnInit {
-  weekend: IWeekendSchedule | null = null
-  countDown: number | null = null
-  today=new Date()
+  weekend: IWeekendSchedule | null = null;
+  countDown: number | null = null;
+  today = new Date();
   nextSession = {
-    name: "Fp2",
+    name: 'Fp2',
     time: new Date(),
     remainingTime: {
       days: 0,
       hours: 0,
       minutes: 0,
       seconds: 0,
-    }
-  }
+    },
+  };
 
-  constructor(private scheduleService: ScheduleServiceService) {
-  }
+  constructor(private scheduleService: ScheduleServiceService) {}
 
   ngOnInit(): void {
     this.scheduleService.getUpcomingSession().subscribe((data) => {
-      this.weekend = data
+      this.weekend = data;
 
-      const nextSession = this.getNextSession(this.weekend)
+      const nextSession = this.getNextSession(this.weekend);
 
       if (nextSession) {
-        this.nextSession.name = nextSession.session
-        this.nextSession.time = nextSession.time
+        this.nextSession.name = nextSession.session;
+        this.nextSession.time = nextSession.time;
 
-        this.startCountDown(nextSession.time)
+        this.startCountDown(nextSession.time);
       }
-    })
+    });
   }
 
   getNextSession(schedule: IWeekendSchedule) {
-    const sessionTimes: Array<INextSession> = []
+    const sessionTimes: Array<INextSession> = [];
 
     sessionTimes.push({
-      session: "Fp1",
-      time: sessionTimeToDate(schedule.firstPractice)
-    })
+      session: 'Fp1',
+      time: sessionTimeToDate(schedule.firstPractice),
+    });
 
     sessionTimes.push({
-      session: "Fp2",
-      time: sessionTimeToDate(schedule.secondPractice)
-    })
+      session: 'Fp2',
+      time: sessionTimeToDate(schedule.secondPractice),
+    });
 
     sessionTimes.push({
-      session: "Qualifying",
-      time: sessionTimeToDate(schedule.qualifying)
-    })
+      session: 'Qualifying',
+      time: sessionTimeToDate(schedule.qualifying),
+    });
 
     sessionTimes.push({
-      session: "Race",
-      time: new Date(`${schedule.date}T${schedule.time}`)
-    })
+      session: 'Race',
+      time: new Date(`${schedule.date}T${schedule.time}`),
+    });
 
     if (schedule.thirdPractice) {
       sessionTimes.push({
-        session: "Fp3",
-        time: sessionTimeToDate(schedule.thirdPractice)
-      })
+        session: 'Fp3',
+        time: sessionTimeToDate(schedule.thirdPractice),
+      });
     }
 
     if (schedule.sprint) {
       sessionTimes.push({
-        session: "Fp3",
-        time: sessionTimeToDate(schedule.sprint)
-      })
+        session: 'Fp3',
+        time: sessionTimeToDate(schedule.sprint),
+      });
     }
 
     let closest: INextSession | null = null;
@@ -85,8 +84,7 @@ export class UpcomingSessionCardComponent implements OnInit {
     for (let i = 0; i < sessionTimes.length; i++) {
       if (
         this.today.getTime() < sessionTimes[i].time.getTime() &&
-        (!closest ||
-          sessionTimes[i].time.getTime() < closest.time.getTime())
+        (!closest || sessionTimes[i].time.getTime() < closest.time.getTime())
       ) {
         closest = sessionTimes[i];
       }
@@ -96,11 +94,11 @@ export class UpcomingSessionCardComponent implements OnInit {
   }
 
   startCountDown(time: Date) {
-    this.clearCountDown()
+    this.clearCountDown();
 
     this.countDown = window.setInterval(() => {
       this.setTimeRemaining();
-    }, 1000)
+    }, 1000);
   }
 
   setTimeRemaining() {
@@ -121,11 +119,11 @@ export class UpcomingSessionCardComponent implements OnInit {
 
   clearCountDown() {
     if (this.countDown) {
-      window.clearInterval(this.countDown)
+      window.clearInterval(this.countDown);
     }
   }
 
   ngOnDestroy() {
-    this.clearCountDown()
+    this.clearCountDown();
   }
 }

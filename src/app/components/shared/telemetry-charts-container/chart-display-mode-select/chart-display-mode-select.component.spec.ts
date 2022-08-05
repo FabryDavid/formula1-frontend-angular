@@ -8,9 +8,8 @@ describe('ChartDisplayModeSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartDisplayModeSelectComponent ]
-    })
-    .compileComponents();
+      declarations: [ChartDisplayModeSelectComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,23 +1,22 @@
-import {IDriver} from "../../interfaces/idriver";
-import {ITweetsResponse} from "../../interfaces/itweets-response";
-import {ITweet} from "../../interfaces/itweet";
-import {IRaceResult} from "../../interfaces/irace-result";
-import {IWeekendSchedule} from "../../interfaces/iweekend-schedule";
-import {ISessionResult} from "../../interfaces/isession-result";
-import {Timing} from "../timing/timing";
-import {IDriverLapTelemetries} from "../../interfaces/idriver-lap-telemetries";
-import {ILapTelemetry} from "../../interfaces/ilap-telemetry";
-import {ITelemetryCarData} from "../../interfaces/itelemetry-car-data";
-import {IImageData} from "../../interfaces/iimage-data";
-import {DomSanitizer} from "@angular/platform-browser";
-import {Injectable} from "@angular/core";
+import { IDriver } from '../../interfaces/idriver';
+import { ITweetsResponse } from '../../interfaces/itweets-response';
+import { ITweet } from '../../interfaces/itweet';
+import { IRaceResult } from '../../interfaces/irace-result';
+import { IWeekendSchedule } from '../../interfaces/iweekend-schedule';
+import { ISessionResult } from '../../interfaces/isession-result';
+import { Timing } from '../timing/timing';
+import { IDriverLapTelemetries } from '../../interfaces/idriver-lap-telemetries';
+import { ILapTelemetry } from '../../interfaces/ilap-telemetry';
+import { ITelemetryCarData } from '../../interfaces/itelemetry-car-data';
+import { IImageData } from '../../interfaces/iimage-data';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServerResponseConverter {
-  constructor(private sanitizer: DomSanitizer) {
-  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   static driver(response: any): IDriver {
     return {
@@ -57,11 +56,11 @@ export class ServerResponseConverter {
       position: parseFloat(response.position),
       positionText: response.points,
       wins: parseFloat(response.wins),
-    }
+    };
   }
 
   static tweetResponse(response: any): ITweetsResponse {
-    const data: Array<ITweet> = []
+    const data: Array<ITweet> = [];
 
     response.data.forEach((tweet: any) => {
       const t: ITweet = {
@@ -75,11 +74,11 @@ export class ServerResponseConverter {
           quoteCount: tweet.public_metrics.quote_count,
         },
         createdAt: tweet.created_at,
-        attachments: tweet.attachments
-      }
+        attachments: tweet.attachments,
+      };
 
-      data.push(t)
-    })
+      data.push(t);
+    });
 
     return {
       data,
@@ -88,19 +87,20 @@ export class ServerResponseConverter {
         resultCount: response.meta.result_count,
         newestId: response.meta.newest_id,
         oldestId: response.meta.oldest_id,
-      }
-    }
+      },
+    };
   }
 
   static raceResult(response: any): Array<IRaceResult> {
-    const results: Array<IRaceResult> = []
+    const results: Array<IRaceResult> = [];
 
     response.forEach((dataItem: any) => {
       const r: IRaceResult = {
         driver: {
           teams: {
             team: {
-              constructorId: dataItem.Driver.Constructors.Constructor.constructorId,
+              constructorId:
+                dataItem.Driver.Constructors.Constructor.constructorId,
               name: dataItem.Driver.Constructors.Constructor.name,
               nationality: dataItem.Driver.Constructors.Constructor.nationality,
               url: dataItem.Driver.Constructors.Constructor.url,
@@ -144,10 +144,12 @@ export class ServerResponseConverter {
           lap: parseInt(dataItem.FastestLap.lap),
           rank: parseInt(dataItem.FastestLap.rank),
         },
-        time: dataItem.Time ? {
-          millis: parseInt(dataItem.Time.millis),
-          time: dataItem.Time.time,
-        } : null,
+        time: dataItem.Time
+          ? {
+              millis: parseInt(dataItem.Time.millis),
+              time: dataItem.Time.time,
+            }
+          : null,
         grid: parseInt(dataItem.grid),
         laps: parseInt(dataItem.laps),
         number: parseInt(dataItem.number),
@@ -155,12 +157,12 @@ export class ServerResponseConverter {
         position: parseInt(dataItem.position),
         positionText: dataItem.positionText,
         status: dataItem.status,
-      }
+      };
 
       results.push(r);
     });
 
-    return results
+    return results;
   }
 
   static weekendSchedule(response: any): IWeekendSchedule {
@@ -177,11 +179,11 @@ export class ServerResponseConverter {
       round: response.round,
       season: response.season,
       url: response.url,
-    }
+    };
   }
 
   static sessionResult(response: any): Array<ISessionResult> {
-    const results: Array<ISessionResult> = []
+    const results: Array<ISessionResult> = [];
     for (const key in Object.keys(response.Driver)) {
       const sessionResult: ISessionResult = {
         color: response.Color[key],
@@ -195,7 +197,9 @@ export class ServerResponseConverter {
         lapStartTime: Timing.msToTime(response.LapStartTime[key]),
         lapTime: Timing.msToTime(response.LapTime[key]),
         lapTimeBase: parseFloat(response.LapTime[key]),
-        lapTimeDelta: response.LapTimeDelta ? Timing.msToTime(response.LapTimeDelta[key]) : null,
+        lapTimeDelta: response.LapTimeDelta
+          ? Timing.msToTime(response.LapTimeDelta[key])
+          : null,
         lapTimeDeltaBase: parseFloat(response.LapTimeDelta[key]),
         position: parseInt(key),
         sector1SessionTime: Timing.msToTime(response.Sector1SessionTime[key]),
@@ -213,16 +217,16 @@ export class ServerResponseConverter {
         time: Timing.msToTime(response.Time[key]),
         trackStatus: parseInt(response.TrackStatus[key]),
         tyreLife: parseFloat(response.TyreLife[key]),
-      }
+      };
 
       results.push(sessionResult);
     }
 
-    return results
+    return results;
   }
 
   static sessionTelemetry(response: any): IDriverLapTelemetries {
-    const result: IDriverLapTelemetries = {}
+    const result: IDriverLapTelemetries = {};
 
     response.forEach((driverResults: any) => {
       const driverLaps = [];
@@ -240,25 +244,49 @@ export class ServerResponseConverter {
           driverNumber: parseInt(driverResults.DriverNumber[index]),
           freshTyre: !!driverResults.FreshTyre[index],
           lapNumber: parseInt(driverResults.LapNumber[index]),
-          lapStartTime: driverResults.LapStartTime[index] ? Timing.msToTime(driverResults.LapStartTime[index]) : null,
-          lapTime: driverResults.LapTime[index] ? Timing.msToTime(driverResults.LapTime[index]) : null,
-          sector1SessionTime: driverResults.Sector1SessionTime[index] ? Timing.msToTime(driverResults.Sector1SessionTime[index]) : null,
-          sector1Time: driverResults.Sector1Time[index] ? Timing.msToTime(driverResults.Sector1Time[index]) : null,
-          sector2SessionTime: driverResults.Sector2SessionTime[index] ? Timing.msToTime(driverResults.Sector2SessionTime[index]) : null,
-          sector2Time: driverResults.Sector2Time[index] ? Timing.msToTime(driverResults.Sector2Time[index]) : null,
-          sector3SessionTime: driverResults.Sector3SessionTime[index] ? Timing.msToTime(driverResults.Sector3SessionTime[index]) : null,
-          sector3Time: driverResults.Sector3Time[index] ? Timing.msToTime(driverResults.Sector3Time[index]) : null,
-          speedFL: driverResults.SpeedFL[index] ? parseFloat(driverResults.SpeedFL[index]) : null,
-          speedI1: driverResults.SpeedI1[index] ? parseFloat(driverResults.SpeedI1[index]) : null,
-          speedI2: driverResults.SpeedI2[index] ? parseFloat(driverResults.SpeedI2[index]) : null,
-          speedST: driverResults.SpeedST[index] ? parseFloat(driverResults.SpeedST[index]) : null,
+          lapStartTime: driverResults.LapStartTime[index]
+            ? Timing.msToTime(driverResults.LapStartTime[index])
+            : null,
+          lapTime: driverResults.LapTime[index]
+            ? Timing.msToTime(driverResults.LapTime[index])
+            : null,
+          sector1SessionTime: driverResults.Sector1SessionTime[index]
+            ? Timing.msToTime(driverResults.Sector1SessionTime[index])
+            : null,
+          sector1Time: driverResults.Sector1Time[index]
+            ? Timing.msToTime(driverResults.Sector1Time[index])
+            : null,
+          sector2SessionTime: driverResults.Sector2SessionTime[index]
+            ? Timing.msToTime(driverResults.Sector2SessionTime[index])
+            : null,
+          sector2Time: driverResults.Sector2Time[index]
+            ? Timing.msToTime(driverResults.Sector2Time[index])
+            : null,
+          sector3SessionTime: driverResults.Sector3SessionTime[index]
+            ? Timing.msToTime(driverResults.Sector3SessionTime[index])
+            : null,
+          sector3Time: driverResults.Sector3Time[index]
+            ? Timing.msToTime(driverResults.Sector3Time[index])
+            : null,
+          speedFL: driverResults.SpeedFL[index]
+            ? parseFloat(driverResults.SpeedFL[index])
+            : null,
+          speedI1: driverResults.SpeedI1[index]
+            ? parseFloat(driverResults.SpeedI1[index])
+            : null,
+          speedI2: driverResults.SpeedI2[index]
+            ? parseFloat(driverResults.SpeedI2[index])
+            : null,
+          speedST: driverResults.SpeedST[index]
+            ? parseFloat(driverResults.SpeedST[index])
+            : null,
           stint: driverResults.Stint[index],
           team: driverResults.Team[index],
           time: Timing.msToTime(driverResults.Time[index]),
           tireLife: driverResults.TyreLife[index],
           trackStatus: parseInt(driverResults.TrackStatus[index]),
           tyreCompound: driverResults.Compound[index],
-        }
+        };
 
         driverLaps.push(lapResult);
         driverId = lapResult.driverId;
@@ -267,31 +295,37 @@ export class ServerResponseConverter {
       if (driverId) {
         result[driverId] = driverLaps;
       }
-    })
+    });
 
-    return result
+    return result;
   }
 
   static telemetryCarData(response: any): ITelemetryCarData {
     return {
       brake: Object.values(response.Brake).map((x) => parseFloat(x as string)),
-      throttle: Object.values(response.Throttle).map((x) => parseFloat(x as string)),
+      throttle: Object.values(response.Throttle).map((x) =>
+        parseFloat(x as string)
+      ),
       drs: Object.values(response.DRS).map((x) => parseFloat(x as string)),
-      distance: Object.values(response.Distance).map((x) => parseFloat(x as string)),
+      distance: Object.values(response.Distance).map((x) =>
+        parseFloat(x as string)
+      ),
       rpm: Object.values(response.RPM).map((x) => parseFloat(x as string)),
-      sessionTime: Object.values(response.SessionTime).map((x) => Timing.msToTime(parseFloat(x as string))),
+      sessionTime: Object.values(response.SessionTime).map((x) =>
+        Timing.msToTime(parseFloat(x as string))
+      ),
       speed: Object.values(response.Speed).map((x) => parseFloat(x as string)),
       gear: Object.values(response.nGear).map((x) => parseFloat(x as string)),
-    }
+    };
   }
 
   imageData(response: any): IImageData {
-    const blob = response.body
+    const blob = response.body;
     const objectURL = URL.createObjectURL(blob);
 
     return {
       data: this.sanitizer.bypassSecurityTrustUrl(objectURL),
       url: response.url,
-    }
+    };
   }
 }

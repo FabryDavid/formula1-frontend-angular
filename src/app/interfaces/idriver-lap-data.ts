@@ -1,4 +1,4 @@
 export interface IDriverLapData {
-  lap: number,
-  driver: string
+  lap: number;
+  driver: string;
 }

@@ -2,9 +2,12 @@
   <app-lap-telemetry-header
     [round]="round"
     [session]="session"
-    (isLoadingChange)="isLoading=$event"
-    (telemetryData)="lapData=$event"
+    (isLoadingChange)="isLoading = $event"
+    (telemetryData)="lapData = $event"
   ></app-lap-telemetry-header>
 
-  <app-lap-telemetry-chart-item [lapTelemetry]="lapData" [isLoading]="isLoading"></app-lap-telemetry-chart-item>
+  <app-lap-telemetry-chart-item
+    [lapTelemetry]="lapData"
+    [isLoading]="isLoading"
+  ></app-lap-telemetry-chart-item>
 </div>

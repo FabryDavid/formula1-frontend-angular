@@ -1,15 +1,15 @@
 <div class="container my-5" *appLoading="isLoading">
   <div class="search-container">
-    <mat-form-field
-      appearance="outline"
-      class="mb-5 w-100"
-    >
+    <mat-form-field appearance="outline" class="mb-5 w-100">
       <mat-label>Search</mat-label>
-      <input
-        matInput
-        [(ngModel)]="searchQuery"
+      <input matInput [(ngModel)]="searchQuery" />
+      <button
+        *ngIf="searchQuery"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchQuery = ''"
       >
-      <button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>

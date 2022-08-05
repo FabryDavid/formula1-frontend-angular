@@ -1,30 +1,29 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {INavigationLink} from "../../../interfaces/inavigation-link";
+import { Component, HostListener, OnInit } from '@angular/core';
+import { INavigationLink } from '../../../interfaces/inavigation-link';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  isElevated = false
-  drawer = false
-  navLinks:Array<INavigationLink> = [
-    {text:"Schedule",url:"schedule"},
-    {text:"News",url:"news"},
-    {text:"Drivers",url:"drivers"},
-    {text:"Constructors",url:"constructors"},
-    {text:"Standings",url:"standings"},
-  ]
+  isElevated = false;
+  drawer = false;
+  navLinks: Array<INavigationLink> = [
+    { text: 'Schedule', url: 'schedule' },
+    { text: 'News', url: 'news' },
+    { text: 'Drivers', url: 'drivers' },
+    { text: 'Constructors', url: 'constructors' },
+    { text: 'Standings', url: 'standings' },
+  ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @HostListener('window:scroll', [])
   onScroll() {
-    this.isElevated = document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
+    this.isElevated =
+      document.body.scrollTop > 80 || document.documentElement.scrollTop > 80;
   }
 }

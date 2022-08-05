@@ -1,4 +1,4 @@
 export interface ISessionTime {
-  date: string,
-  time: string
+  date: string;
+  time: string;
 }

@@ -1,13 +1,13 @@
-import {IChartOptions} from "../interfaces/ichart-options";
-import {Timing} from "../classes/timing/timing";
+import { IChartOptions } from '../interfaces/ichart-options';
+import { Timing } from '../classes/timing/timing';
 
 const telemetryChartBase: IChartOptions = {
   chart: {
-    type: "line",
+    type: 'line',
     height: 600,
     animations: {
       enabled: true,
-      easing: "easeout",
+      easing: 'easeout',
       speed: 300,
       animateGradually: {
         enabled: false,
@@ -20,10 +20,10 @@ const telemetryChartBase: IChartOptions = {
   xaxis: {
     categories: [],
     title: {
-      text: "Laps",
+      text: 'Laps',
       style: {
-        fontSize: "12px",
-        fontFamily: "Poppins",
+        fontSize: '12px',
+        fontFamily: 'Poppins',
         fontWeight: 600,
       },
     },
@@ -32,17 +32,17 @@ const telemetryChartBase: IChartOptions = {
       showDuplicates: false,
       style: {
         colors: [],
-        fontSize: "12px",
-        fontFamily: "Poppins",
+        fontSize: '12px',
+        fontFamily: 'Poppins',
       },
     },
   },
   yaxis: {
     title: {
-      text: "Time",
+      text: 'Time',
       style: {
-        fontSize: "12px",
-        fontFamily: "Poppins",
+        fontSize: '12px',
+        fontFamily: 'Poppins',
         fontWeight: 600,
       },
     },
@@ -50,8 +50,8 @@ const telemetryChartBase: IChartOptions = {
       show: true,
       style: {
         colors: [],
-        fontSize: "12px",
-        fontFamily: "Poppins",
+        fontSize: '12px',
+        fontFamily: 'Poppins',
       },
       formatter: function (val) {
         return Timing.msToTime(val).toStringFormatted(true);
@@ -60,7 +60,7 @@ const telemetryChartBase: IChartOptions = {
   },
   series: [],
   stroke: {
-    curve: "smooth",
+    curve: 'smooth',
   },
   colors: [],
   dataLabels: {
@@ -69,8 +69,8 @@ const telemetryChartBase: IChartOptions = {
   legend: {
     show: true,
     showForSingleSeries: false,
-    position: "left",
-    fontFamily: "Poppins",
+    position: 'left',
+    fontFamily: 'Poppins',
   },
   plotOptions: {},
   tooltip: {
@@ -92,11 +92,11 @@ const telemetryChartBase: IChartOptions = {
       breakpoint: 960,
       options: {
         legend: {
-          position: "bottom",
+          position: 'bottom',
         },
       },
     },
   ],
-}
+};
 
-export default telemetryChartBase
+export default telemetryChartBase;

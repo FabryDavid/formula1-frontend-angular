@@ -3,19 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { DriversRoutingModule } from './drivers-routing.module';
 import { DriversComponent } from './drivers.component';
-import {LoadingModule} from "../../shared/page-loading-indicator/loading/loading.module";
-import {DriverCardModule} from "./driver-card/driver-card.module";
-
+import { LoadingModule } from '../../shared/page-loading-indicator/loading/loading.module';
+import { DriverCardModule } from './driver-card/driver-card.module';
 
 @NgModule({
-  declarations: [
-    DriversComponent
-  ],
+  declarations: [DriversComponent],
   imports: [
     CommonModule,
     DriversRoutingModule,
     LoadingModule,
-    DriverCardModule
-  ]
+    DriverCardModule,
+  ],
 })
-export class DriversModule { }
+export class DriversModule {}

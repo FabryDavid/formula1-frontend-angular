@@ -1,5 +1,8 @@
 <div *ngIf="!isLoading">
-  <div class="text-center no-driver-text" *ngIf="lapTelemetry.length===0; else charts">
+  <div
+    class="text-center no-driver-text"
+    *ngIf="lapTelemetry.length === 0; else charts"
+  >
     Select a driver to show the telemetry
   </div>
 

@@ -1,10 +1,9 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {NewsPanelComponent} from "./news-panel.component";
-import {RouterModule} from "@angular/router";
-import {NgxTwitterWidgetsModule} from "ngx-twitter-widgets";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NewsPanelComponent } from './news-panel.component';
+import { RouterModule } from '@angular/router';
+import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [NewsPanelComponent],
@@ -12,9 +11,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     CommonModule,
     RouterModule,
     NgxTwitterWidgetsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
-  exports: [NewsPanelComponent]
+  exports: [NewsPanelComponent],
 })
-export class NewsPanelModule {
-}
+export class NewsPanelModule {}

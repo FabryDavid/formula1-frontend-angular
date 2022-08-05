@@ -1,17 +1,15 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {NewsRoutingModule} from './news-routing.module';
-import {NewsComponent} from './news.component';
-import {NgxMasonryModule} from 'ngx-masonry';
-import {NgxTwitterWidgetsModule} from "ngx-twitter-widgets";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {LoadingModule} from "../../shared/page-loading-indicator/loading/loading.module";
-import {PageLoadingIndicatorModule} from "../../shared/page-loading-indicator/page-loading-indicator.module";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NewsRoutingModule } from './news-routing.module';
+import { NewsComponent } from './news.component';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingModule } from '../../shared/page-loading-indicator/loading/loading.module';
+import { PageLoadingIndicatorModule } from '../../shared/page-loading-indicator/page-loading-indicator.module';
 
 @NgModule({
-  declarations: [
-    NewsComponent
-  ],
+  declarations: [NewsComponent],
   imports: [
     CommonModule,
     NewsRoutingModule,
@@ -19,8 +17,7 @@ import {PageLoadingIndicatorModule} from "../../shared/page-loading-indicator/pa
     NgxTwitterWidgetsModule,
     MatProgressSpinnerModule,
     LoadingModule,
-    PageLoadingIndicatorModule
-  ]
+    PageLoadingIndicatorModule,
+  ],
 })
-export class NewsModule {
-}
+export class NewsModule {}

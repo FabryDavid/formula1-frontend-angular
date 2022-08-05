@@ -1,27 +1,27 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {ChartComponent} from "ng-apexcharts";
-import {ISessionResult} from "../../../interfaces/isession-result";
-import {IChartOptions} from "../../../interfaces/ichart-options";
-import resultsChartBase from "../../../helpers/results-chart-base";
-import {IRaceResult} from "../../../interfaces/irace-result";
-import {Timing} from "../../../classes/timing/timing";
-import mapTeamColor from "../../../helpers/mapTeamColor";
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
+import { ISessionResult } from '../../../interfaces/isession-result';
+import { IChartOptions } from '../../../interfaces/ichart-options';
+import resultsChartBase from '../../../helpers/results-chart-base';
+import { IRaceResult } from '../../../interfaces/irace-result';
+import { Timing } from '../../../classes/timing/timing';
+import mapTeamColor from '../../../helpers/mapTeamColor';
 
 @Component({
   selector: 'app-session-results-chart',
   templateUrl: './session-results-chart.component.html',
-  styleUrls: ['./session-results-chart.component.scss']
+  styleUrls: ['./session-results-chart.component.scss'],
 })
 export class SessionResultsChartComponent implements OnInit {
-  @Input() results: Array<ISessionResult> = []
-  @Input() raceResults: Array<IRaceResult> = []
-  @Input() isRace: Boolean = false
+  @Input() results: Array<ISessionResult> = [];
+  @Input() raceResults: Array<IRaceResult> = [];
+  @Input() isRace: Boolean = false;
 
-  @ViewChild("chart") chart!: ChartComponent
+  @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: IChartOptions;
 
   constructor() {
-    this.chartOptions = resultsChartBase
+    this.chartOptions = resultsChartBase;
   }
 
   ngOnInit(): void {
@@ -30,7 +30,9 @@ export class SessionResultsChartComponent implements OnInit {
     const colors: Array<string> = [];
 
     if (this.isRace) {
-      const fastest = this.raceResults[0].time ? this.raceResults[0].time.millis : 0;
+      const fastest = this.raceResults[0].time
+        ? this.raceResults[0].time.millis
+        : 0;
       this.raceResults.forEach((result) => {
         if (result.time && result.time?.millis > 0) {
           seriesValues.push(result.time.millis - fastest);
@@ -48,7 +50,7 @@ export class SessionResultsChartComponent implements OnInit {
 
     this.chartOptions.series = [
       {
-        name: "Results",
+        name: 'Results',
         data: seriesValues,
       },
     ];
@@ -56,10 +58,10 @@ export class SessionResultsChartComponent implements OnInit {
     const sessionResults = this.isRace ? this.raceResults : this.results;
 
     this.chartOptions.xaxis = {
-      categories: categories
-    }
+      categories: categories,
+    };
 
-    const vm = this
+    const vm = this;
 
     this.chartOptions.tooltip = {
       enabled: true,
@@ -70,7 +72,9 @@ export class SessionResultsChartComponent implements OnInit {
             const result = sessionResults[opts.dataPointIndex] as IRaceResult;
             return `${result.driver.driver.givenName} ${result.driver.driver.familyName}`;
           } else {
-            const result = sessionResults[opts.dataPointIndex] as ISessionResult;
+            const result = sessionResults[
+              opts.dataPointIndex
+            ] as ISessionResult;
             return `${result.fullName}`;
           }
         },
@@ -81,18 +85,22 @@ export class SessionResultsChartComponent implements OnInit {
             const result = sessionResults[opts.dataPointIndex] as IRaceResult;
 
             if (!result.time) {
-              return ''
+              return '';
             }
 
-            return `${Timing.msToTime(result.time.millis).toStringFormatted(true)}`;
+            return `${Timing.msToTime(result.time.millis).toStringFormatted(
+              true
+            )}`;
           } else {
-            const result = sessionResults[opts.dataPointIndex] as ISessionResult;
+            const result = sessionResults[
+              opts.dataPointIndex
+            ] as ISessionResult;
             return `${result.lapTime.toStringFormatted(true)}`;
           }
         },
       },
-    }
+    };
 
-    this.chartOptions.colors = colors
+    this.chartOptions.colors = colors;
   }
 }

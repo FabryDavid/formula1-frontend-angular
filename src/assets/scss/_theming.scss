@@ -10,19 +10,18 @@ $my-custom-typography: mat.define-typography-config(
 
 @include mat.core($my-custom-typography);
 
-
 $my-primary: mat.define-palette($primary-palette, 500);
 $my-accent: mat.define-palette($info-palette, 500);
 $my-warn: mat.define-palette($error-palette, 500);
 
 $my-theme: mat.define-light-theme(
-    (
-      color: (
-        primary: $my-primary,
-        accent: $my-accent,
-        warn: $my-warn,
-      ),
-    )
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+  )
 );
 
 @include mat.all-component-themes($my-theme);

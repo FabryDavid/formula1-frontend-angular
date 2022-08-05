@@ -1,9 +1,8 @@
-import {Directive, ViewContainerRef} from '@angular/core';
+import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[appFlagHost]'
+  selector: '[appFlagHost]',
 })
 export class FlagHostDirective {
-  constructor(public viewContainerRef: ViewContainerRef) {
-  }
+  constructor(public viewContainerRef: ViewContainerRef) {}
 }

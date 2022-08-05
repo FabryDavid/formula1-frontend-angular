@@ -8,9 +8,8 @@ describe('TelemetryPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TelemetryPanelComponent ]
-    })
-    .compileComponents();
+      declarations: [TelemetryPanelComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

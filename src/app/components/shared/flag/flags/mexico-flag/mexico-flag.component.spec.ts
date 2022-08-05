@@ -8,9 +8,8 @@ describe('MexicoFlagComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MexicoFlagComponent ]
-    })
-    .compileComponents();
+      declarations: [MexicoFlagComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

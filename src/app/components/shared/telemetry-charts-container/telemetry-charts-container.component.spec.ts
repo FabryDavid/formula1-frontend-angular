@@ -8,9 +8,8 @@ describe('TelemetryChartsContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TelemetryChartsContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [TelemetryChartsContainerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

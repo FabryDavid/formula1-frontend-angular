@@ -1,23 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {ScheduleServiceService} from "../../../services/schedule-service/schedule-service.service";
-import {IWeekendSchedule} from "../../../interfaces/iweekend-schedule";
+import { Component, OnInit } from '@angular/core';
+import { ScheduleServiceService } from '../../../services/schedule-service/schedule-service.service';
+import { IWeekendSchedule } from '../../../interfaces/iweekend-schedule';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss']
+  styleUrls: ['./schedule.component.scss'],
 })
 export class ScheduleComponent implements OnInit {
-  searchQuery = ""
-  schedules: Array<IWeekendSchedule> = []
-  isLoading = false
+  searchQuery = '';
+  schedules: Array<IWeekendSchedule> = [];
+  isLoading = false;
 
   get filteredSchedule() {
     if (!this.searchQuery) {
-      return this.schedules
+      return this.schedules;
     }
 
-    const search = this.searchQuery.toLowerCase()
+    const search = this.searchQuery.toLowerCase();
     return this.schedules.filter((item) => {
       return (
         item.circuit.Location.country.toLowerCase().indexOf(search) > -1 ||
@@ -28,15 +28,13 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
-  constructor(private scheduleService: ScheduleServiceService) {
-  }
+  constructor(private scheduleService: ScheduleServiceService) {}
 
   ngOnInit(): void {
-    this.isLoading = true
+    this.isLoading = true;
     this.scheduleService.getCurrentSchedule().subscribe((data) => {
-      this.schedules = data
-      this.isLoading = false
-    })
+      this.schedules = data;
+      this.isLoading = false;
+    });
   }
-
 }

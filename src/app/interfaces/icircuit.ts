@@ -1,10 +1,10 @@
-import {ILocation} from "./ilocation";
-import {ICircuitDetails} from "./icircuit-details";
+import { ILocation } from './ilocation';
+import { ICircuitDetails } from './icircuit-details';
 
 export interface ICircuit {
-  circuitId: string,
-  circuitName: string,
-  Location: ILocation,
-  url: string,
-  details: null | ICircuitDetails
+  circuitId: string;
+  circuitName: string;
+  Location: ILocation;
+  url: string;
+  details: null | ICircuitDetails;
 }

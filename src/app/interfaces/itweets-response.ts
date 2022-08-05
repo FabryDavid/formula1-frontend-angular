@@ -1,4 +1,4 @@
-import {ITweet} from "./itweet";
+import { ITweet } from './itweet';
 
 export interface ITweetsResponse {
   data: Array<ITweet>;
@@ -6,6 +6,6 @@ export interface ITweetsResponse {
     newestId: string;
     nextToken: string;
     oldestId: string;
-    resultCount: number
-  }
+    resultCount: number;
+  };
 }

@@ -5,12 +5,12 @@ import {
   Directive,
   Input,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
-import {PageLoadingIndicatorComponent} from "../page-loading-indicator.component";
+import { PageLoadingIndicatorComponent } from '../page-loading-indicator.component';
 
 @Directive({
-  selector: '[appLoading]'
+  selector: '[appLoading]',
 })
 export class LoadingDirective {
   loadingFactory: ComponentFactory<PageLoadingIndicatorComponent>;
@@ -29,8 +29,14 @@ export class LoadingDirective {
     }
   }
 
-  constructor(private templateRef: TemplateRef<any>, private vcRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private vcRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {
     // Create resolver for loading component
-    this.loadingFactory = this.componentFactoryResolver.resolveComponentFactory(PageLoadingIndicatorComponent);
+    this.loadingFactory = this.componentFactoryResolver.resolveComponentFactory(
+      PageLoadingIndicatorComponent
+    );
   }
 }

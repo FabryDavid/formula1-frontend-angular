@@ -1,46 +1,57 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TelemetryChartMode} from "../../../../enums/telemetry-chart-mode";
-import {IChartOptions} from "../../../../interfaces/ichart-options";
-import {Timing} from "../../../../classes/timing/timing";
-import {Session} from "../../../../enums/session";
-import {TelemetryServiceService} from "../../../../services/telemetry-service/telemetry-service.service";
-import {ApexAxisChartSeries} from "ng-apexcharts";
-import {IDriverLapTelemetries} from "../../../../interfaces/idriver-lap-telemetries";
-import telemetryChartBase from "../../../../helpers/telemetry-chart-base";
-import mapTeamColor from "../../../../helpers/mapTeamColor";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { TelemetryChartMode } from '../../../../enums/telemetry-chart-mode';
+import { IChartOptions } from '../../../../interfaces/ichart-options';
+import { Timing } from '../../../../classes/timing/timing';
+import { Session } from '../../../../enums/session';
+import { TelemetryServiceService } from '../../../../services/telemetry-service/telemetry-service.service';
+import { ApexAxisChartSeries } from 'ng-apexcharts';
+import { IDriverLapTelemetries } from '../../../../interfaces/idriver-lap-telemetries';
+import telemetryChartBase from '../../../../helpers/telemetry-chart-base';
+import mapTeamColor from '../../../../helpers/mapTeamColor';
 
 @Component({
   selector: 'app-full-session-chart',
   templateUrl: './full-session-chart.component.html',
-  styleUrls: ['./full-session-chart.component.scss']
+  styleUrls: ['./full-session-chart.component.scss'],
 })
 export class FullSessionChartComponent implements OnInit, OnChanges {
-  @Input() round!: string | number
-  @Input() session!: Session
-  @Input() chartMode!: TelemetryChartMode
+  @Input() round!: string | number;
+  @Input() session!: Session;
+  @Input() chartMode!: TelemetryChartMode;
 
-  isLoading = false
-  driversTelemetry: IDriverLapTelemetries = {}
-  chartOptions: IChartOptions = telemetryChartBase
+  isLoading = false;
+  driversTelemetry: IDriverLapTelemetries = {};
+  chartOptions: IChartOptions = telemetryChartBase;
 
-  constructor(private telemetryServiceService: TelemetryServiceService) {
-  }
+  constructor(private telemetryServiceService: TelemetryServiceService) {}
 
   ngOnInit(): void {
-    this.telemetryServiceService.getSessionLapsTelemetry(this.round, this.session).subscribe((data) => {
-      this.driversTelemetry = data
+    this.telemetryServiceService
+      .getSessionLapsTelemetry(this.round, this.session)
+      .subscribe((data) => {
+        this.driversTelemetry = data;
 
-      const [colors, categories, series] = this.getChartDatas(this.driversTelemetry);
+        const [colors, categories, series] = this.getChartDatas(
+          this.driversTelemetry
+        );
 
-      this.chartOptions.series = series
-      this.chartOptions.xaxis.categories = categories
-      this.chartOptions.colors = colors
-    })
+        this.chartOptions.series = series;
+        this.chartOptions.xaxis.categories = categories;
+        this.chartOptions.colors = colors;
+      });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.chartMode) {
-      const [colors, categories, series] = this.getChartDatas(this.driversTelemetry);
+      const [colors, categories, series] = this.getChartDatas(
+        this.driversTelemetry
+      );
 
       let title;
       let formatter;
@@ -48,36 +59,44 @@ export class FullSessionChartComponent implements OnInit, OnChanges {
         case TelemetryChartMode.SECTOR1:
         case TelemetryChartMode.SECTOR2:
         case TelemetryChartMode.SECTOR3:
-          title = "Time";
-          formatter = (val: number) => Timing.msToTime(val).toStringFormatted(true);
+          title = 'Time';
+          formatter = (val: number) =>
+            Timing.msToTime(val).toStringFormatted(true);
           break;
         case TelemetryChartMode.S1_SPEED_TRAP:
         case TelemetryChartMode.S2_SPEED_TRAP:
-          title = "Speed (km/h)";
+          title = 'Speed (km/h)';
           formatter = (val: number) => `${val} km/h`;
           break;
         default:
-          title = "Time";
-          formatter = (val: number) => Timing.msToTime(val).toStringFormatted(true);
+          title = 'Time';
+          formatter = (val: number) =>
+            Timing.msToTime(val).toStringFormatted(true);
           break;
       }
 
-      this.chartOptions.series = series
-      this.chartOptions.xaxis.categories = categories
+      this.chartOptions.series = series;
+      this.chartOptions.xaxis.categories = categories;
       this.chartOptions.yaxis.title = {
-        text: title
-      }
+        text: title,
+      };
       this.chartOptions.yaxis.labels = {
-        formatter
-      }
+        formatter,
+      };
       this.chartOptions.tooltip.y = {
-        formatter
-      }
-      this.chartOptions.colors = colors
+        formatter,
+      };
+      this.chartOptions.colors = colors;
     }
   }
 
-  private getChartDatas(driverLapTelemetries: IDriverLapTelemetries): [colors: Array<string>, categories: Array<number>, series: ApexAxisChartSeries] {
+  private getChartDatas(
+    driverLapTelemetries: IDriverLapTelemetries
+  ): [
+    colors: Array<string>,
+    categories: Array<number>,
+    series: ApexAxisChartSeries
+  ] {
     const series: ApexAxisChartSeries = [];
     const categories: Array<number> = [];
     const colors: Array<string> = [];
@@ -161,7 +180,7 @@ export class FullSessionChartComponent implements OnInit, OnChanges {
     for (let i = 0; i < series.length; i++) {
       while (series[i].data.length < maxLength) {
         // @ts-ignore
-        series[i].data.push(null)
+        series[i].data.push(null);
       }
     }
 

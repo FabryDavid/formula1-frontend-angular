@@ -8,9 +8,8 @@ describe('LeftSideTabsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LeftSideTabsComponent ]
-    })
-    .compileComponents();
+      declarations: [LeftSideTabsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

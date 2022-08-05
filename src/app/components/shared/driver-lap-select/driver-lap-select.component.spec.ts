@@ -8,9 +8,8 @@ describe('DriverLapSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DriverLapSelectComponent ]
-    })
-    .compileComponents();
+      declarations: [DriverLapSelectComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

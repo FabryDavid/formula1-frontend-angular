@@ -1,7 +1,7 @@
 <div
   [class.result-podium]="result.position <= 3"
   [class.result-dnf]="result.status !== 'Finished'"
-  [class.fastest-lap]="result.fastestLap.rank===1"
+  [class.fastest-lap]="result.fastestLap.rank === 1"
   class="result-card"
   (click)="isExpanded = !isExpanded"
 >
@@ -10,7 +10,7 @@
       src="assets/images/session-result-card-corner.svg"
       alt="session corner"
       class="corner-image"
-    >
+    />
 
     <div class="position-text">
       {{ result.position }}{{ getNumberTextSuffix(result.position) }}
@@ -45,10 +45,7 @@
       </ng-template>
 
       <ng-template #minus>
-        <fa-icon
-          [icon]="faMinus"
-          size="2x"
-        ></fa-icon>
+        <fa-icon [icon]="faMinus" size="2x"></fa-icon>
       </ng-template>
       <div class="time ms-2">{{ gainedPositionsAbs }}</div>
     </div>
@@ -59,7 +56,7 @@
       [src]="driverImage"
       [alt]="result.driver.driver.code"
       class="driver-image"
-    >
+    />
   </div>
 
   <mat-accordion>

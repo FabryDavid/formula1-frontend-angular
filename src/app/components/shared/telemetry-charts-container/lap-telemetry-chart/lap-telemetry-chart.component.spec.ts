@@ -8,9 +8,8 @@ describe('LapTelemetryChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LapTelemetryChartComponent ]
-    })
-    .compileComponents();
+      declarations: [LapTelemetryChartComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

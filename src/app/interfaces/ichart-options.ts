@@ -8,8 +8,8 @@ import {
   ApexStroke,
   ApexTooltip,
   ApexXAxis,
-  ApexYAxis
-} from "ng-apexcharts";
+  ApexYAxis,
+} from 'ng-apexcharts';
 
 export interface IChartOptions {
   series: ApexAxisChartSeries;
@@ -22,5 +22,5 @@ export interface IChartOptions {
   dataLabels: ApexDataLabels;
   tooltip: ApexTooltip;
   colors: string[];
-  responsive: ApexResponsive[]
+  responsive: ApexResponsive[];
 }

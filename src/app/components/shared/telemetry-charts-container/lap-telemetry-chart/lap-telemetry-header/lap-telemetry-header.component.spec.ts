@@ -8,9 +8,8 @@ describe('LapTelemetryHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LapTelemetryHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [LapTelemetryHeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

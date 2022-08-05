@@ -8,9 +8,8 @@ describe('SpeedAndGearshiftMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpeedAndGearshiftMapComponent ]
-    })
-    .compileComponents();
+      declarations: [SpeedAndGearshiftMapComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -8,9 +8,8 @@ describe('CircuitInfosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CircuitInfosComponent ]
-    })
-    .compileComponents();
+      declarations: [CircuitInfosComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

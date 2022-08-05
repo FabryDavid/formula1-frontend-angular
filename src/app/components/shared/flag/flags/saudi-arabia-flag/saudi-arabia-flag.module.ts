@@ -1,14 +1,10 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {SaudiArabiaFlagComponent} from "./saudi-arabia-flag.component";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SaudiArabiaFlagComponent } from './saudi-arabia-flag.component';
 
 @NgModule({
   declarations: [SaudiArabiaFlagComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SaudiArabiaFlagComponent]
+  imports: [CommonModule],
+  exports: [SaudiArabiaFlagComponent],
 })
-export class SaudiArabiaFlagModule {
-}
+export class SaudiArabiaFlagModule {}

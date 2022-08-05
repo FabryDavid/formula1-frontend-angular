@@ -1,16 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-russia-flag',
   templateUrl: './russia-flag.component.html',
-  styleUrls: ['./russia-flag.component.scss']
+  styleUrls: ['./russia-flag.component.scss'],
 })
 export class RussiaFlagComponent implements OnInit {
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -8,9 +8,8 @@ describe('SessionResultsChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SessionResultsChartComponent ]
-    })
-    .compileComponents();
+      declarations: [SessionResultsChartComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

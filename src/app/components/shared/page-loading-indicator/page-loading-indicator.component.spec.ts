@@ -8,9 +8,8 @@ describe('PageLoadingIndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageLoadingIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [PageLoadingIndicatorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

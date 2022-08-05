@@ -1,14 +1,10 @@
 <div class="container pt-5 circuit-infos">
-
   <!--  HEADER  -->
   <div
     class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-start"
   >
     <div class="flag">
-      <span
-        class="flag-icon"
-        [ngClass]="'flag-icon-'+countryCode"
-      ></span>
+      <span class="flag-icon" [ngClass]="'flag-icon-' + countryCode"></span>
     </div>
     <div class="ms-3">
       <div class="gp-name">{{ weekend.raceName }}</div>
@@ -20,10 +16,14 @@
   <div class="row mt-5">
     <div class="col-12 col-md-6 col-lg-8">
       <img
-        [src]="'assets/images/circuit-layout-detailed/'+ weekend.circuit.circuitId +'.png'"
+        [src]="
+          'assets/images/circuit-layout-detailed/' +
+          weekend.circuit.circuitId +
+          '.png'
+        "
         [alt]="weekend.circuit.circuitName"
         class="circuit-detailed-image"
-      >
+      />
     </div>
 
     <div class="col-12 col-md-6 col-lg-4">

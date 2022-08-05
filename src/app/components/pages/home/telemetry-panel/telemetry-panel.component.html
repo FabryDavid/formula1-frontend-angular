@@ -11,9 +11,7 @@
       </div>
     </div>
 
-    <div
-      class="car-parallax d-none d-md-block"
-    >
+    <div class="car-parallax d-none d-md-block">
       <img
         class="parallax-car"
         src="assets/images/aston_martin_top.png"
@@ -25,10 +23,14 @@
       src="assets/images/cars/aston_martin.png"
       class="d-block d-md-none mobile-image mx-auto mt-5"
       alt="Aston Martin"
-      [style]="{transform:'translateX('+mobileCarOffset+'%)'}"
+      [style]="{ transform: 'translateX(' + mobileCarOffset + '%)' }"
       #mobileCar
     />
 
-    <img class="telemetry-dots" src="assets/images/dots-pattern.svg" alt="Dots">
+    <img
+      class="telemetry-dots"
+      src="assets/images/dots-pattern.svg"
+      alt="Dots"
+    />
   </div>
 </div>

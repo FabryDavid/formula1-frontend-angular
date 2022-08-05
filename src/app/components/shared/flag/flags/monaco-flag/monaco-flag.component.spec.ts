@@ -8,9 +8,8 @@ describe('MonacoFlagComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonacoFlagComponent ]
-    })
-    .compileComponents();
+      declarations: [MonacoFlagComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

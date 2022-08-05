@@ -1,19 +1,17 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'sectorColor'
+  name: 'sectorColor',
 })
 export class SectorColorPipe implements PipeTransform {
-
   transform(value: 1 | 2 | 3): string {
     switch (value) {
       case 1:
-        return "#b41619";
+        return '#b41619';
       case 2:
-        return "#1884a5";
+        return '#1884a5';
       default:
-        return "#ffd200";
+        return '#ffd200';
     }
   }
-
 }

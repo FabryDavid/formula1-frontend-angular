@@ -1,6 +1,6 @@
 <div class="mb-5 row justify-content-center" *appLoading="isLoading">
   <div class="col-12 col-md-5 d-flex align-items-center">
-    <span class="white-space-no-wrap me-3">Lap {{selectedLap}}</span>
+    <span class="white-space-no-wrap me-3">Lap {{ selectedLap }}</span>
 
     <mat-slider
       thumbLabel
@@ -13,27 +13,19 @@
     ></mat-slider>
   </div>
   <div class="col-12 col-md-5 d-flex align-items-center">
-    <mat-form-field
-      class="w-100"
-      appearance="outline"
-      color="primary"
-    >
+    <mat-form-field class="w-100" appearance="outline" color="primary">
       <mat-label>Drivers</mat-label>
-      <mat-select
-        [(ngModel)]="selectedDriver"
-        [disabled]="isLoading"
-      >
-        <mat-option
-          *ngFor="let driver of driversList" [value]="driver.code"
-        >
+      <mat-select [(ngModel)]="selectedDriver" [disabled]="isLoading">
+        <mat-option *ngFor="let driver of driversList" [value]="driver.code">
           <span
             class="select-driver-name"
             [style]="{
-                  backgroundColor:driver.color==='#ffffff'?'#f4f4f4':driver.color,
-                  color:driver.color==='#ffffff'?'black':'white'
-               }"
+              backgroundColor:
+                driver.color === '#ffffff' ? '#f4f4f4' : driver.color,
+              color: driver.color === '#ffffff' ? 'black' : 'white'
+            }"
           >
-            {{driver.fullName}}
+            {{ driver.fullName }}
           </span>
         </mat-option>
       </mat-select>

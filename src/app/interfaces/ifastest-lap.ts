@@ -1,9 +1,9 @@
 export interface IFastestLap {
   averageSpeed: {
-    speed: number,
-    units: string
+    speed: number;
+    units: string;
   };
-  time: string
+  time: string;
   lap: number;
-  rank: number
+  rank: number;
 }

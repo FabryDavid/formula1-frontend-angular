@@ -1,5 +1,5 @@
 <div
-  [class.result-podium]="result.position+1 <= 3"
+  [class.result-podium]="result.position + 1 <= 3"
   [class.result-dnf]="result.lapTimeBase === null"
   class="result-card"
   (click)="isExpanded = !isExpanded"
@@ -9,7 +9,7 @@
       src="assets/images/session-result-card-corner.svg"
       alt="session corner"
       class="corner-image"
-    >
+    />
 
     <div class="position-text">
       {{ result.position + 1 }}{{ getNumberTextSuffix(result.position + 1) }}
@@ -29,10 +29,7 @@
     </div>
 
     <div class="text-center text-md-end mt-3 mt-sm-0">
-      <div
-        *ngIf="result.lapTimeBase;else dnf"
-        class="time"
-      >
+      <div *ngIf="result.lapTimeBase; else dnf" class="time">
         {{ result.lapTime.toStringFormatted(true) }}
       </div>
       <div
@@ -54,7 +51,7 @@
   </div>
 
   <div class="driver-image-container d-none d-md-flex">
-    <img [src]="driverImage" alt="Driver" class="driver-image">
+    <img [src]="driverImage" alt="Driver" class="driver-image" />
   </div>
 
   <mat-accordion>
@@ -65,7 +62,8 @@
             <div class="details-item">
               <div class="details-item-title">Sector 1</div>
               <div class="details-item-value">
-                {{ result.sector1Time.toStringFormatted(true) }}<span class="kmh">sec</span>
+                {{ result.sector1Time.toStringFormatted(true)
+                }}<span class="kmh">sec</span>
               </div>
             </div>
           </div>
@@ -73,7 +71,8 @@
             <div class="details-item">
               <div class="details-item-title">Sector 2</div>
               <div class="details-item-value">
-                {{ result.sector3Time.toStringFormatted(true) }}<span class="kmh">sec</span>
+                {{ result.sector3Time.toStringFormatted(true)
+                }}<span class="kmh">sec</span>
               </div>
             </div>
           </div>
@@ -81,7 +80,8 @@
             <div class="details-item">
               <div class="details-item-title">Sector 3</div>
               <div class="details-item-value">
-                {{ result.sector2Time.toStringFormatted(true) }}<span class="kmh">sec</span>
+                {{ result.sector2Time.toStringFormatted(true)
+                }}<span class="kmh">sec</span>
               </div>
             </div>
           </div>
@@ -91,7 +91,10 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="details-item">
               <div class="details-item-title">Sector 1<br />speed trap</div>
-              <div *ngIf="!result.speedI1; else speed1Found" class="details-item-value">
+              <div
+                *ngIf="!result.speedI1; else speed1Found"
+                class="details-item-value"
+              >
                 No data
               </div>
               <ng-template #speed1Found>
@@ -104,7 +107,10 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="details-item">
               <div class="details-item-title">Sector 2<br />speed trap</div>
-              <div *ngIf="!result.speedI2; else speed2Found" class="details-item-value">
+              <div
+                *ngIf="!result.speedI2; else speed2Found"
+                class="details-item-value"
+              >
                 No data
               </div>
               <ng-template #speed2Found>
@@ -117,7 +123,10 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="details-item">
               <div class="details-item-title">Speed at finish line</div>
-              <div *ngIf="!result.speedFl; else speedFlFound" class="details-item-value">
+              <div
+                *ngIf="!result.speedFl; else speedFlFound"
+                class="details-item-value"
+              >
                 No data
               </div>
               <ng-template #speedFlFound>
@@ -130,7 +139,10 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="details-item">
               <div class="details-item-title">Speed at longest straight</div>
-              <div *ngIf="!result.speedSt; else speedStFound" class="details-item-value">
+              <div
+                *ngIf="!result.speedSt; else speedStFound"
+                class="details-item-value"
+              >
                 No data
               </div>
               <ng-template #speedStFound>
@@ -143,14 +155,16 @@
         </div>
 
         <div class="mt-5">
-          <div class="details-item d-flex justify-content-center align-items-center">
+          <div
+            class="details-item d-flex justify-content-center align-items-center"
+          >
             <div class="details-item-title">Tire used:</div>
             <img
               *ngIf="tireImagePath; else noCompound"
               [src]="tireImagePath"
               [alt]="result.compound.toLowerCase()"
               class="tire-used-image ms-5"
-            >
+            />
 
             <ng-template #noCompound>
               <div class="ms-5 details-item-value">No data</div>

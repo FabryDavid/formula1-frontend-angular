@@ -1,5 +1,5 @@
-import {IConstructorData} from "./iconstructor-data";
-import {IColors} from "./icolors";
+import { IConstructorData } from './iconstructor-data';
+import { IColors } from './icolors';
 
 export interface IConstructor {
   team: IConstructorData;
@@ -8,7 +8,7 @@ export interface IConstructor {
   nameExtended: {
     fullName: string;
     shortName: string;
-  },
+  };
   points: number;
   position: number;
   positionText: string;

@@ -8,9 +8,8 @@ describe('SectorTimeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SectorTimeComponent ]
-    })
-    .compileComponents();
+      declarations: [SectorTimeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

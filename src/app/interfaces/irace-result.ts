@@ -1,5 +1,5 @@
-import {IDriver} from "./idriver";
-import {IFastestLap} from "./ifastest-lap";
+import { IDriver } from './idriver';
+import { IFastestLap } from './ifastest-lap';
 
 export interface IRaceResult {
   driver: IDriver;

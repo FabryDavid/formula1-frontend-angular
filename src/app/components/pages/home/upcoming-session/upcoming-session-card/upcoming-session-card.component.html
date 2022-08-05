@@ -1,11 +1,11 @@
 <div class="upcoming-session-card mx-auto ms-lg-0">
   <div *ngIf="weekend; else loader">
     <div class="session-name text-capitalize mb-2">
-      {{weekend.raceName}}
+      {{ weekend.raceName }}
     </div>
 
     <div class="session-type mb-4 text-uppercase">
-      {{nextSession.name}}
+      {{ nextSession.name }}
     </div>
 
     <div class="row w-100 mx-0">
@@ -13,33 +13,25 @@
         <div class="time">
           {{ nextSession.remainingTime.days | numberAbs }}
         </div>
-        <div class="label">
-          days
-        </div>
+        <div class="label">days</div>
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
           {{ nextSession.remainingTime.hours | numberAbs }}
         </div>
-        <div class="label">
-          hours
-        </div>
+        <div class="label">hours</div>
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
           {{ nextSession.remainingTime.minutes | numberAbs }}
         </div>
-        <div class="label">
-          minutes
-        </div>
+        <div class="label">minutes</div>
       </div>
       <div class="col-6 col-sm-3">
         <div class="time">
           {{ nextSession.remainingTime.seconds | numberAbs }}
         </div>
-        <div class="label">
-          seconds
-        </div>
+        <div class="label">seconds</div>
       </div>
     </div>
 
@@ -52,7 +44,9 @@
   </div>
 
   <ng-template #loader>
-    <div class="loader-container d-flex justify-content-center align-items-center">
+    <div
+      class="loader-container d-flex justify-content-center align-items-center"
+    >
       <mat-spinner color="accent"></mat-spinner>
     </div>
   </ng-template>

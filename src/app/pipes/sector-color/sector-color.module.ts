@@ -1,14 +1,10 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {SectorColorPipe} from "./sector-color.pipe";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SectorColorPipe } from './sector-color.pipe';
 
 @NgModule({
   declarations: [SectorColorPipe],
-  imports: [
-    CommonModule
-  ],
-  exports: [SectorColorPipe]
+  imports: [CommonModule],
+  exports: [SectorColorPipe],
 })
-export class SectorColorModule {
-}
+export class SectorColorModule {}

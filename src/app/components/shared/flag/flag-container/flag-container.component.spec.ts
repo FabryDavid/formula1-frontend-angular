@@ -8,9 +8,8 @@ describe('FlagContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlagContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [FlagContainerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

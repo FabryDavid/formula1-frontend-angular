@@ -1,26 +1,22 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ChartDisplayModeSelectComponent} from './chart-display-mode-select.component';
-import {SwitchButtonModule} from "../../switch-button/switch-button.module";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatSelectModule} from "@angular/material/select";
-import {MatOptionModule} from "@angular/material/core";
-import {FormsModule} from "@angular/forms";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChartDisplayModeSelectComponent } from './chart-display-mode-select.component';
+import { SwitchButtonModule } from '../../switch-button/switch-button.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    ChartDisplayModeSelectComponent
-  ],
+  declarations: [ChartDisplayModeSelectComponent],
   imports: [
     CommonModule,
     SwitchButtonModule,
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    FormsModule
+    FormsModule,
   ],
-  exports: [ChartDisplayModeSelectComponent]
+  exports: [ChartDisplayModeSelectComponent],
 })
-export class ChartDisplayModeSelectModule {
-}
+export class ChartDisplayModeSelectModule {}

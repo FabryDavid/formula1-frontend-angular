@@ -2,12 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import {EnvironmentInterface} from "./environment.interface";
+import { EnvironmentInterface } from './environment.interface';
 
 export const environment: EnvironmentInterface = {
   production: false,
-  appName: "Formula 1",
-  apiUrl: "http://127.0.0.1:5000/api/",
+  appName: 'Formula 1',
+  apiUrl: 'http://127.0.0.1:5000/api/',
 };
 
 /*

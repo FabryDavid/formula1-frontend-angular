@@ -8,9 +8,8 @@ describe('UpcomingSessionCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpcomingSessionCardComponent ]
-    })
-    .compileComponents();
+      declarations: [UpcomingSessionCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
