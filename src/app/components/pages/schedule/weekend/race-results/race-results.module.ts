@@ -5,6 +5,9 @@ import {LeftSideTabsModule} from "../left-side-tabs/left-side-tabs.module";
 import {LoadingModule} from "../../../../shared/page-loading-indicator/loading/loading.module";
 import {RaceResultsContainerModule} from "./race-results-container/race-results-container.module";
 import {SessionResultsChartModule} from "../../../../shared/session-results-chart/session-results-chart.module";
+import {
+    TelemetryChartsContainerModule
+} from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import {SessionResultsChartModule} from "../../../../shared/session-results-char
         LeftSideTabsModule,
         LoadingModule,
         RaceResultsContainerModule,
-        SessionResultsChartModule
+        SessionResultsChartModule,
+        TelemetryChartsContainerModule
     ],
   exports: [RaceResultsComponent]
 })

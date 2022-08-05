@@ -20,5 +20,14 @@
         <app-session-results-chart [raceResults]="raceResults" [isRace]="true"></app-session-results-chart>
       </div>
     </div>
+
+    <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 2">
+      <div class="w-100">
+        <app-telemetry-charts-container
+          [session]="session.R"
+          [round]="round"
+        ></app-telemetry-charts-container>
+      </div>
+    </div>
   </div>
 </div>
