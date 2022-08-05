@@ -32,19 +32,21 @@
 
     <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 3">
       <div class="w-100">
-        <app-gear-shifts-telemetry
+        <app-speed-and-gearshift-map
           [session]="session"
           [round]="round"
-        ></app-gear-shifts-telemetry>
+          mode="gearshift"
+        ></app-speed-and-gearshift-map>
       </div>
     </div>
 
     <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 4">
       <div class="w-100">
-        <app-speed-map-telemetry
+        <app-speed-and-gearshift-map
           [session]="session"
           [round]="round"
-        ></app-speed-map-telemetry>
+          mode="speed"
+        ></app-speed-and-gearshift-map>
       </div>
     </div>
   </div>

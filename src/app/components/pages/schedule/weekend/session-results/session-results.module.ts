@@ -7,27 +7,25 @@ import {RouterModule} from "@angular/router";
 import {ResultModule} from "./result/result.module";
 import {SessionResultsChartModule} from "../../../../shared/session-results-chart/session-results-chart.module";
 import {
-    TelemetryChartsContainerModule
+  TelemetryChartsContainerModule
 } from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
-import {GearShiftsTelemetryModule} from "../../../../shared/gear-shifts-telemetry/gear-shifts-telemetry.module";
-import {SpeedMapTelemetryModule} from "../../../../shared/speed-map-telemetry/speed-map-telemetry.module";
+import {SpeedAndGearshiftMapModule} from "../../../../shared/speed-and-gearshift-map/speed-and-gearshift-map.module";
 
 
 @NgModule({
   declarations: [
     SessionResultsComponent
   ],
-    imports: [
-        CommonModule,
-        LeftSideTabsModule,
-        LoadingModule,
-        RouterModule,
-        ResultModule,
-        SessionResultsChartModule,
-        TelemetryChartsContainerModule,
-        GearShiftsTelemetryModule,
-        SpeedMapTelemetryModule
-    ],
+  imports: [
+    CommonModule,
+    LeftSideTabsModule,
+    LoadingModule,
+    RouterModule,
+    ResultModule,
+    SessionResultsChartModule,
+    TelemetryChartsContainerModule,
+    SpeedAndGearshiftMapModule
+  ],
   exports: [SessionResultsComponent]
 })
 export class SessionResultsModule {
