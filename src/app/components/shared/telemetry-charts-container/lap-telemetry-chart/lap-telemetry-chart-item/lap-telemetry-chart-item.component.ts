@@ -4,19 +4,6 @@ import {ApexAxisChartSeries} from "ng-apexcharts";
 import mapTeamColor from "../../../../../helpers/mapTeamColor";
 import lightenDarkenColor from "../../../../../helpers/lightenDarkenColor";
 import {ILapTelemetryChartData} from "../../../../../interfaces/ilap-telemetry-chart-data";
-import telemetryChartBase from "../../../../../helpers/telemetry-chart-base";
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexLegend,
-  ApexPlotOptions,
-  ApexResponsive,
-  ApexStroke,
-  ApexTooltip,
-  ApexXAxis,
-  ApexYAxis
-} from "ng-apexcharts";
 
 @Component({
   selector: 'app-lap-telemetry-chart-item',
@@ -26,37 +13,68 @@ import {
 export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
   @Input() lapTelemetry: Array<ILapDetailedTelemetry> = []
 
-  speedChartOptions = telemetryChartBase
-  throttleChartOptions = telemetryChartBase
-  brakeChartOptions = telemetryChartBase
-  rpmChartOptions = telemetryChartBase
-  gearChartOptions = telemetryChartBase
-  drsChartOptions = telemetryChartBase
+  speedChartOptions: any = {
+    chart: {
+      id: "speed",
+      group: "telemetry",
+      height: 400,
+    },
+    legend: {
+      show: false
+    },
+  }
+  throttleChartOptions: any = {
+    chart: {
+      id: "throttle",
+      group: "telemetry",
+      height: 200,
+    },
+    legend: {
+      show: false
+    },
+  }
+  brakeChartOptions: any = {
+    chart: {
+      id: "brake",
+      group: "telemetry",
+      height: 200,
+    },
+    legend: {
+      show: false
+    },
+  }
+  rpmChartOptions: any = {
+    chart: {
+      id: "rpm",
+      group: "telemetry",
+      height: 400,
+    },
+    legend: {
+      show: false
+    },
+  }
+  gearChartOptions: any = {
+    chart: {
+      id: "gear",
+      group: "telemetry",
+      height: 300,
+    },
+    legend: {
+      show: false
+    },
+  }
+  drsChartOptions: any = {
+    chart: {
+      id: "drs",
+      group: "telemetry",
+      height: 200,
+    },
+    legend: {
+      show: false
+    },
+  }
 
   constructor() {
-    this.speedChartOptions.chart.id = "speedChart"
-    this.speedChartOptions.chart.group = "telemetry"
-    this.speedChartOptions.legend.show = false
-
-    this.throttleChartOptions.chart.id = "throttleChart"
-    this.throttleChartOptions.chart.group = "telemetry"
-    this.throttleChartOptions.legend.show = false
-
-    this.brakeChartOptions.chart.id = "brakeChart"
-    this.brakeChartOptions.chart.group = "telemetry"
-    this.brakeChartOptions.legend.show = false
-
-    this.rpmChartOptions.chart.id = "rpmChart"
-    this.rpmChartOptions.chart.group = "telemetry"
-    this.rpmChartOptions.legend.show = false
-
-    this.gearChartOptions.chart.id = "gearChart"
-    this.gearChartOptions.chart.group = "telemetry"
-    this.gearChartOptions.legend.show = false
-
-    this.drsChartOptions.chart.id = "drsChart"
-    this.drsChartOptions.chart.group = "telemetry"
-    this.drsChartOptions.legend.show = false
   }
 
   ngOnInit(): void {
@@ -67,7 +85,7 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       const telemetry = changes.lapTelemetry.currentValue
 
       const chartData: ILapTelemetryChartData = this.getChartDatas(telemetry)
-      // this.setChartDatas(chartData)
+      this.setChartDatas(chartData)
     }
   }
 
@@ -217,11 +235,32 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
         enabled: false,
       },
     }
+    const chartAnimationOptions = {
+      enabled: true,
+      easing: "easeout",
+      speed: 300,
+      animateGradually: {
+        enabled: false,
+      },
+      dynamicAnimation: {
+        enabled: false,
+      },
+    };
+    const dataLabelsOptions = {
+      enabled: false,
+    };
+    const legendOptions = {
+      show: false,
+      showForSingleSeries: false,
+      position: "left",
+      fontFamily: "Poppins",
+    };
+
 
     this.speedChartOptions.xaxis = xAxisOptions
     this.speedChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return `${val} km/h`;
         },
       },
@@ -235,11 +274,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "smooth"
     }
     this.speedChartOptions.series = chartData.speedSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
 
     this.throttleChartOptions.xaxis = xAxisOptions
     this.throttleChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return `${val} %`;
         },
       },
@@ -254,11 +296,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "smooth"
     }
     this.throttleChartOptions.series = chartData.throttleSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
 
     this.brakeChartOptions.xaxis = xAxisOptions
     this.brakeChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return `${val} %`;
         },
       },
@@ -273,11 +318,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "stepline"
     }
     this.brakeChartOptions.series = chartData.brakeSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
 
     this.rpmChartOptions.xaxis = xAxisOptions
     this.rpmChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return `${val} RPM`;
         },
       },
@@ -291,11 +339,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "smooth"
     }
     this.rpmChartOptions.series = chartData.rpmSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
 
     this.gearChartOptions.xaxis = xAxisOptions
     this.gearChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return val.toString();
         },
       },
@@ -310,11 +361,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "stepline"
     }
     this.gearChartOptions.series = chartData.gearSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
 
     this.drsChartOptions.xaxis = xAxisOptions
     this.drsChartOptions.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val: number) {
           return val <= 8 ? "OFF" : "ON";
         },
       },
@@ -328,5 +382,8 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: "stepline"
     }
     this.drsChartOptions.series = chartData.drsSeries
+    this.speedChartOptions.chart.animations = chartAnimationOptions
+    this.speedChartOptions.dataLabels = dataLabelsOptions
+    this.speedChartOptions.legend = legendOptions
   }
 }
