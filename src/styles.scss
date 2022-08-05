@@ -73,3 +73,13 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.white-space-no-wrap {
+  white-space: nowrap;
+}
+
+.select-driver-name {
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-weight: bold;
+}

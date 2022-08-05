@@ -9,6 +9,7 @@ import {SessionResultsChartModule} from "../../../../shared/session-results-char
 import {
     TelemetryChartsContainerModule
 } from "../../../../shared/telemetry-charts-container/telemetry-charts-container.module";
+import {GearShiftsTelemetryModule} from "../../../../shared/gear-shifts-telemetry/gear-shifts-telemetry.module";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {
         RouterModule,
         ResultModule,
         SessionResultsChartModule,
-        TelemetryChartsContainerModule
+        TelemetryChartsContainerModule,
+        GearShiftsTelemetryModule
     ],
   exports: [SessionResultsComponent]
 })

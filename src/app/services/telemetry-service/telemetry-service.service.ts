@@ -9,13 +9,15 @@ import {Timing} from "../../classes/timing/timing";
 import {IDriverLapTelemetries} from "../../interfaces/idriver-lap-telemetries";
 import {ILapDetailedTelemetry} from "../../interfaces/ilap-detailed-telemetry";
 import {ITelemetryCarData} from "../../interfaces/itelemetry-car-data";
+import {IImageData} from "../../interfaces/iimage-data";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TelemetryServiceService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
   }
 
   getSessionLapsTelemetry(gp: string | number, session: Session): Observable<IDriverLapTelemetries> {
@@ -102,6 +104,25 @@ export class TelemetryServiceService {
           })
 
           return result
+        }),
+        catchError(this.handleError.bind(this))
+      )
+    )
+  }
+
+  getGearshifts(gp: string | number, session: Session, lap: number, driver: string): Observable<IImageData> {
+    return this.http.get(
+      `${environment.apiUrl}/gear-shifts-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
+      {observe: 'response', responseType: 'blob'}
+    ).pipe(
+      map((data => {
+          const blob = data.body
+          const objectURL = URL.createObjectURL(blob);
+
+          return {
+            data: this.sanitizer.bypassSecurityTrustUrl(objectURL),
+            url: `${environment.apiUrl}/gear-shifts-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
+          }
         }),
         catchError(this.handleError.bind(this))
       )

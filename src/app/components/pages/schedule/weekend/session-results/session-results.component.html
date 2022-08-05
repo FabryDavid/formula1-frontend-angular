@@ -29,5 +29,14 @@
         ></app-telemetry-charts-container>
       </div>
     </div>
+
+    <div class="col-12 col-md-8 col-lg-9" *ngIf="activeTab === 3">
+      <div class="w-100">
+        <app-gear-shifts-telemetry
+          [session]="session"
+          [round]="round"
+        ></app-gear-shifts-telemetry>
+      </div>
+    </div>
   </div>
 </div>

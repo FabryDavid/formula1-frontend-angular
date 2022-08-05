@@ -20,9 +20,8 @@
     >
       <mat-label>Drivers</mat-label>
       <mat-select
-        [(ngModel)]="selectedDrivers"
+        [(ngModel)]="selectedDriver"
         [disabled]="isLoading"
-        multiple
       >
         <mat-option
           *ngFor="let driver of driversList" [value]="driver.code"
