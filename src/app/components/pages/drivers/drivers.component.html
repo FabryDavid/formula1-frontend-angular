@@ -1,0 +1,13 @@
+<div class="container my-5" *appLoading="isLoading">
+  <div
+    class="row justify-content-center"
+    *ngFor="let drivers of driverGroups"
+  >
+    <div
+      *ngFor="let driver of drivers"
+      class="col-10 col-md-6 col-lg-5 col-xl-4 p-4"
+    >
+      <app-driver-card [driver]="driver"></app-driver-card>
+    </div>
+  </div>
+</div>

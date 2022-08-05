@@ -1,0 +1,115 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
+@import "src/assets/scss/mixins";
+
+.driver-card {
+  @include card;
+  overflow: hidden;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 365px;
+  }
+
+  .card-background {
+    position: absolute;
+    left: -18%;
+    top: -13%;
+    width: 138%;
+    transform: rotate(-35deg);
+    z-index: 0;
+  }
+
+  .card-content {
+    z-index: 2;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    .first-name {
+      font-weight: 700;
+      font-size: 25px;
+      text-transform: uppercase;
+      color: #4b4b4b;
+      letter-spacing: 1.2px;
+      text-shadow: $base-shadow;
+    }
+
+    .driver-image {
+      position: absolute;
+      bottom: 0;
+      height: 215px;
+      //right: -14%;
+      right: 50%;
+      transform: translateX(50%);
+      transition: 0.2s all ease-out;
+      z-index: 10;
+
+      @include media-breakpoint-up(sm) {
+        right: -7%;
+        transform: none;
+      }
+
+      @include media-breakpoint-up(md) {
+        right: -14%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        height: 225px;
+      }
+    }
+
+    .driver-infos {
+      width: 0;
+      overflow: hidden;
+      transition: 0.3s all ease-out;
+
+      .card-info-title {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .card-info-data {
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .constructor-logo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    filter: invert(100%);
+    opacity: 0.15;
+    z-index: 0;
+    max-height: 90%;
+    aspect-ratio: 1/1;
+
+    @include media-breakpoint-up(sm) {
+      width: 40%;
+    }
+  }
+
+  &:hover {
+    .driver-image {
+      height: 215px !important;
+
+      @include media-breakpoint-up(sm) {
+        height: 240px !important;
+      }
+
+      @include media-breakpoint-up(lg) {
+        height: 250px !important;
+      }
+    }
+
+    .driver-infos {
+      width: 100% !important;;
+    }
+  }
+}

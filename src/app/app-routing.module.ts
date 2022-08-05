@@ -23,6 +23,13 @@ const routes: Routes = [
         (module) => module.NewsModule
       ),
   },
+  {
+    path: 'drivers',
+    loadChildren: () =>
+      import('./components/pages/drivers/drivers.module').then(
+        (module) => module.DriversModule
+      ),
+  },
 ];
 
 @NgModule({

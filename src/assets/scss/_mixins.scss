@@ -1,3 +1,6 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 @import "variables";
 
 @mixin setResultCardToWhite {
@@ -15,6 +18,38 @@
 
     .details-item-title {
       border-bottom-color: white !important;
+    }
+  }
+}
+
+
+@mixin card {
+  background-color: white;
+  box-shadow: $base-shadow;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  min-height: 230px;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include media-breakpoint-up(lg) {
+    min-height: 270px;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 40px;
+      text-shadow: $base-shadow;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 50px;
+      }
     }
   }
 }

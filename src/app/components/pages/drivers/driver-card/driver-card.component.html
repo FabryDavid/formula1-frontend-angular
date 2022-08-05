@@ -1,0 +1,61 @@
+<a
+  class="driver-card text-decoration-none d-block position-relative"
+  [routerLink]="driver.driver.driverId"
+>
+  <div class="card-content w-100 h-100 px-4">
+    <div class="first-name">
+      {{ driverInfos.givenName }}
+    </div>
+    <h2 [ngStyle]="{ color: constructorInfos.color.primary }" class="">
+      {{ driverInfos.familyName }}
+    </h2>
+
+    <img [alt]="'driverInfos.code'" [src]="driverImage" class="driver-image" />
+
+    <div class="d-flex flex-row flex-md-column flex-lg-row mt-3 driver-infos">
+      <div class="">
+        <div
+          [ngStyle]="{ color: constructorInfos.color.tertiary }"
+          class="card-info-title"
+        >
+          Wins
+        </div>
+        <div
+          [ngStyle]="{ color: constructorInfos.color.secondary }"
+          class="card-info-data"
+        >
+          {{ driver.wins }}
+        </div>
+      </div>
+
+      <div class="ms-5 ms-md-0 ms-lg-5">
+        <div
+          [ngStyle]="{ color: constructorInfos.color.tertiary }"
+          class="card-info-title"
+        >
+          Points
+        </div>
+        <div
+          [ngStyle]="{ color: constructorInfos.color.secondary }"
+          class="card-info-data"
+        >
+          {{ driver.points }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img
+    [src]="'assets/images/logos/'+this.constructorInfos.team.constructorId+'.svg'"
+    alt="Logo"
+    class="constructor-logo"
+  />
+
+  <div class="card-background">
+    <app-card-background
+      [primary]="constructorInfos.color.primary"
+      [secondary]="constructorInfos.color.secondary"
+      [tertiary]="constructorInfos.color.tertiary"
+    ></app-card-background>
+  </div>
+</a>
