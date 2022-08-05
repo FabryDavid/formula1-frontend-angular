@@ -5,6 +5,7 @@ import {IChartOptions} from "../../../interfaces/ichart-options";
 import resultsChartBase from "../../../helpers/results-chart-base";
 import {IRaceResult} from "../../../interfaces/irace-result";
 import {Timing} from "../../../classes/timing/timing";
+import mapTeamColor from "../../../helpers/mapTeamColor";
 
 @Component({
   selector: 'app-session-results-chart',
@@ -41,7 +42,7 @@ export class SessionResultsChartComponent implements OnInit {
       this.results.forEach((result) => {
         seriesValues.push(result.lapTimeDeltaBase);
         categories.push(result.driverCode);
-        colors.push(result.color === "#ffffff" ? "#d4d4d4" : result.color);
+        colors.push(mapTeamColor(result.color));
       });
     }
 

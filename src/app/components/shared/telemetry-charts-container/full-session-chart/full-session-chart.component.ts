@@ -7,6 +7,7 @@ import {TelemetryServiceService} from "../../../../services/telemetry-service/te
 import {ApexAxisChartSeries} from "ng-apexcharts";
 import {IDriverLapTelemetries} from "../../../../interfaces/idriver-lap-telemetries";
 import telemetryChartBase from "../../../../helpers/telemetry-chart-base";
+import mapTeamColor from "../../../../helpers/mapTeamColor";
 
 @Component({
   selector: 'app-full-session-chart',
@@ -153,7 +154,7 @@ export class FullSessionChartComponent implements OnInit, OnChanges {
         data: seriesValues,
       });
 
-      colors.push(!color || color === "#ffffff" ? "#d4d4d4" : color);
+      colors.push(mapTeamColor(color));
 
       if (seriesValues.length > maxLength) {
         maxLength = seriesValues.length;
