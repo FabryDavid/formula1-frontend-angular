@@ -5,11 +5,11 @@ import {ITweetUrls} from "./itweet-urls";
 export interface ITweet {
   id: string,
   text: string,
-  created_at: Date,
+  createdAt: Date,
   attachments: {
-    media_keys: Array<string>
+    mediaKeys: Array<string>
   },
-  public_metrics: ITweetMetrics,
+  publicMetrics: ITweetMetrics,
   entities: {
     hashtags: Array<ITweetHashtags>
     urls: Array<ITweetUrls>

@@ -4,6 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {catchError, map} from "rxjs/operators";
 import {ITweetsResponse} from "../../interfaces/itweets-response";
+import {ServerResponseConverter} from "../../classes/server-response-converter/server-response-converter";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class NewsServiceService {
 
     return this.http.get<ITweetsResponse>(`${environment.apiUrl}/get-tweets`, {params: queryParams}).pipe(
       map((response: ITweetsResponse) => {
-        return response;
+        return ServerResponseConverter.tweetResponse(response);
       }),
       catchError(this.handleError.bind(this))
     )

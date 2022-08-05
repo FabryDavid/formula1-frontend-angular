@@ -11,7 +11,7 @@ import {NgxMasonryComponent, NgxMasonryOptions} from "ngx-masonry";
 export class NewsComponent implements OnInit {
   news: Array<ITweet> = []
   nextToken: null | string = null
-  tweetLimit = 10
+  tweetLimit = 6
   masonryOptions: NgxMasonryOptions = {
     gutter: 20,
   };
@@ -29,7 +29,7 @@ export class NewsComponent implements OnInit {
 
   loadNews() {
     this.newsService.getNews(this.tweetLimit, this.nextToken).subscribe((response) => {
-      this.nextToken = response.meta.next_token
+      this.nextToken = response.meta.nextToken
 
       const newsIds = response.data.map((n) => n.id)
       this.loadingNews = this.loadingNews.concat(newsIds)
