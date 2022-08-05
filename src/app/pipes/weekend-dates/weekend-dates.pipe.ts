@@ -8,7 +8,7 @@ import sessionTimeToDate from "../../helpers/session-time-to-date";
 export class WeekendDatesPipe implements PipeTransform {
 
   transform(value: IWeekendSchedule): unknown {
-    const fp1 = sessionTimeToDate(value.FirstPractice)
+    const fp1 = sessionTimeToDate(value.firstPractice)
     const race = new Date(
       `${value.date}T${value.time}`
     )

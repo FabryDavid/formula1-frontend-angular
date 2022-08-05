@@ -47,17 +47,17 @@ export class UpcomingSessionCardComponent implements OnInit {
 
     sessionTimes.push({
       session: "Fp1",
-      time: sessionTimeToDate(schedule.FirstPractice)
+      time: sessionTimeToDate(schedule.firstPractice)
     })
 
     sessionTimes.push({
       session: "Fp2",
-      time: sessionTimeToDate(schedule.SecondPractice)
+      time: sessionTimeToDate(schedule.secondPractice)
     })
 
     sessionTimes.push({
       session: "Qualifying",
-      time: sessionTimeToDate(schedule.Qualifying)
+      time: sessionTimeToDate(schedule.qualifying)
     })
 
     sessionTimes.push({
@@ -65,17 +65,17 @@ export class UpcomingSessionCardComponent implements OnInit {
       time: new Date(`${schedule.date}T${schedule.time}`)
     })
 
-    if (schedule.ThirdPractice) {
+    if (schedule.thirdPractice) {
       sessionTimes.push({
         session: "Fp3",
-        time: sessionTimeToDate(schedule.ThirdPractice)
+        time: sessionTimeToDate(schedule.thirdPractice)
       })
     }
 
-    if (schedule.Sprint) {
+    if (schedule.sprint) {
       sessionTimes.push({
         session: "Fp3",
-        time: sessionTimeToDate(schedule.Sprint)
+        time: sessionTimeToDate(schedule.sprint)
       })
     }
 

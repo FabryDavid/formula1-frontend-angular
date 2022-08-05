@@ -12,7 +12,7 @@
     </div>
     <div class="ms-3">
       <div class="gp-name">{{ weekend.raceName }}</div>
-      <div class="circuit-name mt-n2">{{ weekend.Circuit.circuitName }}</div>
+      <div class="circuit-name mt-n2">{{ weekend.circuit.circuitName }}</div>
     </div>
   </div>
 
@@ -20,27 +20,27 @@
   <div class="row mt-5">
     <div class="col-12 col-md-6 col-lg-8">
       <img
-        [src]="'assets/images/circuit-layout-detailed/'+ weekend.Circuit.circuitId +'.png'"
-        [alt]="weekend.Circuit.circuitName"
+        [src]="'assets/images/circuit-layout-detailed/'+ weekend.circuit.circuitId +'.png'"
+        [alt]="weekend.circuit.circuitName"
         class="circuit-detailed-image"
       >
     </div>
 
     <div class="col-12 col-md-6 col-lg-4">
       <!--      CIRCUIT INFO     -->
-      <div class="row" *ngIf="weekend.Circuit.details">
+      <div class="row" *ngIf="weekend.circuit.details">
         <div class="col-12 col-sm-6">
           <div class="gp-info-item text-center text-sm-start">
             <div class="gp-info-item-title">First<br />Grand Prix</div>
             <div class="gp-info-item-value">
-              {{ weekend.Circuit.details.first_gp }}
+              {{ weekend.circuit.details.first_gp }}
             </div>
           </div>
 
           <div class="gp-info-item text-center text-sm-start">
             <div class="gp-info-item-title">Circuit<br />Length</div>
             <div class="gp-info-item-value">
-              {{ weekend.Circuit.details.length }} km
+              {{ weekend.circuit.details.length }} km
             </div>
           </div>
         </div>
@@ -49,14 +49,14 @@
           <div class="gp-info-item text-center text-sm-start">
             <div class="gp-info-item-title">Number Of<br />Laps</div>
             <div class="gp-info-item-value">
-              {{ weekend.Circuit.details.number_of_laps }}
+              {{ weekend.circuit.details.number_of_laps }}
             </div>
           </div>
 
           <div class="gp-info-item text-center text-sm-start">
             <div class="gp-info-item-title">Race<br />Distance</div>
             <div class="gp-info-item-value">
-              {{ weekend.Circuit.details.race_distance.toFixed(1) }} km
+              {{ weekend.circuit.details.race_distance.toFixed(1) }} km
             </div>
           </div>
         </div>
@@ -114,9 +114,9 @@
     </div>
   </div>
 
-  <div class="mt-5" *ngIf="weekend.Circuit.details">
+  <div class="mt-5" *ngIf="weekend.circuit.details">
     <app-geo-map
-      [geojsonFileName]="weekend.Circuit.details.gjson_map"
+      [geojsonFileName]="weekend.circuit.details.gjson_map"
     ></app-geo-map>
   </div>
 </div>

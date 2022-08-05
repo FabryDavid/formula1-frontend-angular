@@ -2,6 +2,7 @@ import {IDriver} from "../../interfaces/idriver";
 import {ITweetsResponse} from "../../interfaces/itweets-response";
 import {ITweet} from "../../interfaces/itweet";
 import {IRaceResult} from "../../interfaces/irace-result";
+import {IWeekendSchedule} from "../../interfaces/iweekend-schedule";
 
 export class ServerResponseConverter {
   static driver(response: any): IDriver {
@@ -146,5 +147,22 @@ export class ServerResponseConverter {
     });
 
     return results
+  }
+
+  static weekendSchedule(response: any): IWeekendSchedule {
+    return {
+      circuit: response.Circuit,
+      firstPractice: response.FirstPractice,
+      secondPractice: response.SecondPractice,
+      thirdPractice: response.ThirdPractice,
+      qualifying: response.Qualifying,
+      sprint: response.Sprint,
+      date: response.date,
+      time: response.time,
+      raceName: response.raceName,
+      round: response.round,
+      season: response.season,
+      url: response.url,
+    }
   }
 }

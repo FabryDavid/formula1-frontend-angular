@@ -40,23 +40,23 @@ export class WeekendComponent implements OnInit {
 
       const today = new Date()
 
-      if (sessionTimeToDate(this.weekendData.FirstPractice) > today) {
+      if (sessionTimeToDate(this.weekendData.firstPractice) > today) {
         this.sessionsInTheFuture.push(Session.FP1)
       }
 
-      if (sessionTimeToDate(this.weekendData.SecondPractice) > today) {
+      if (sessionTimeToDate(this.weekendData.secondPractice) > today) {
         this.sessionsInTheFuture.push(Session.FP2)
       }
 
-      if (this.weekendData.ThirdPractice && sessionTimeToDate(this.weekendData.ThirdPractice) > today) {
+      if (this.weekendData.thirdPractice && sessionTimeToDate(this.weekendData.thirdPractice) > today) {
         this.sessionsInTheFuture.push(Session.FP3)
       }
 
-      if (sessionTimeToDate(this.weekendData.Qualifying) > today) {
+      if (sessionTimeToDate(this.weekendData.qualifying) > today) {
         this.sessionsInTheFuture.push(Session.Q)
       }
 
-      if (this.weekendData.Sprint && sessionTimeToDate(this.weekendData.Sprint) > today) {
+      if (this.weekendData.sprint && sessionTimeToDate(this.weekendData.sprint) > today) {
         this.sessionsInTheFuture.push(Session.SPRINT)
       }
 

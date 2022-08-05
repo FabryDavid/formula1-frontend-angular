@@ -20,8 +20,8 @@ export class ScheduleComponent implements OnInit {
     const search = this.searchQuery.toLowerCase()
     return this.schedules.filter((item) => {
       return (
-        item.Circuit.Location.country.toLowerCase().indexOf(search) > -1 ||
-        item.Circuit.circuitName.toLowerCase().indexOf(search) > -1 ||
+        item.circuit.Location.country.toLowerCase().indexOf(search) > -1 ||
+        item.circuit.circuitName.toLowerCase().indexOf(search) > -1 ||
         item.raceName.toLowerCase().indexOf(search) > -1 ||
         parseInt(item.round) === parseInt(search)
       );

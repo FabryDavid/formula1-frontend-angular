@@ -1,20 +1,20 @@
 <a [routerLink]="[weekend.round]" class="text-decoration-none">
   <div class="schedule-item py-5 position-relative">
     <div class="flag">
-      <app-flag-container [country]="weekend.Circuit.Location.country"></app-flag-container>
+      <app-flag-container [country]="weekend.circuit.Location.country"></app-flag-container>
     </div>
 
     <div class="base d-flex flex-column align-items-center">
       <div class="circuit-layout-container">
         <img
-          [alt]="weekend.Circuit.circuitName"
-          [src]="'assets/images/circuit-layout-minimal/'+weekend.Circuit.circuitId+'.png'"
+          [alt]="weekend.circuit.circuitName"
+          [src]="'assets/images/circuit-layout-minimal/'+weekend.circuit.circuitId+'.png'"
           class="circuit-layout-image"
         />
       </div>
 
       <h2 class="text-center">
-        {{ weekend.Circuit.Location.country }}
+        {{ weekend.circuit.Location.country }}
       </h2>
 
       <div class="date mt-5">
@@ -24,8 +24,8 @@
 
     <div class="overlay">
       <img
-        [alt]="weekend.Circuit.circuitName"
-        [src]="'assets/images/circuit-photos/'+weekend.Circuit.circuitId+'.jpg'"
+        [alt]="weekend.circuit.circuitName"
+        [src]="'assets/images/circuit-photos/'+weekend.circuit.circuitId+'.jpg'"
         class="circuit-photo"
       />
 

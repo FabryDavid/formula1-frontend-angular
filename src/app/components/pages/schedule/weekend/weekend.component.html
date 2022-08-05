@@ -1,19 +1,19 @@
 <div class="weekend mb-5" *appLoading="isLoading">
   <div *ngIf="weekendData">
-    <app-banner [circuit]="weekendData.Circuit"></app-banner>
+    <app-banner [circuit]="weekendData.circuit"></app-banner>
 
     <mat-tab-group preserveContent mat-align-tabs="center" class="tabs" selectedIndex="0">
       <mat-tab label="Free Practice 1">
         <ng-template matTabContent>
           <app-upcoming-session-display
             *ngIf="sessionsInTheFuture.includes(session.FP1); else fp1InPast"
-            [sessionDate]="weekendData.FirstPractice"
+            [sessionDate]="weekendData.firstPractice"
           ></app-upcoming-session-display>
 
           <ng-template #fp1InPast>
             <app-session-results
-              [round]="weekendData.Circuit.Location.country"
-              [sessionDate]="weekendData.FirstPractice"
+              [round]="weekendData.circuit.Location.country"
+              [sessionDate]="weekendData.firstPractice"
               [session]="session.FP1"
             ></app-session-results>
           </ng-template>
@@ -24,30 +24,30 @@
         <ng-template matTabContent>
           <app-upcoming-session-display
             *ngIf="sessionsInTheFuture.includes(session.FP2); else fp2InPast"
-            [sessionDate]="weekendData.SecondPractice"
+            [sessionDate]="weekendData.secondPractice"
           ></app-upcoming-session-display>
 
           <ng-template #fp2InPast>
             <app-session-results
-              [round]="weekendData.Circuit.Location.country"
-              [sessionDate]="weekendData.SecondPractice"
+              [round]="weekendData.circuit.Location.country"
+              [sessionDate]="weekendData.secondPractice"
               [session]="session.FP2"
             ></app-session-results>
           </ng-template>
         </ng-template>
       </mat-tab>
 
-      <mat-tab *ngIf="weekendData.ThirdPractice" label="Free Practice 3">
+      <mat-tab *ngIf="weekendData.thirdPractice" label="Free Practice 3">
         <ng-template matTabContent>
           <app-upcoming-session-display
             *ngIf="sessionsInTheFuture.includes(session.FP3); else fp3InPast"
-            [sessionDate]="weekendData.ThirdPractice"
+            [sessionDate]="weekendData.thirdPractice"
           ></app-upcoming-session-display>
 
           <ng-template #fp3InPast>
             <app-session-results
-              [round]="weekendData.Circuit.Location.country"
-              [sessionDate]="weekendData.ThirdPractice"
+              [round]="weekendData.circuit.Location.country"
+              [sessionDate]="weekendData.thirdPractice"
               [session]="session.FP3"
             ></app-session-results>
           </ng-template>
@@ -58,30 +58,30 @@
         <ng-template matTabContent>
           <app-upcoming-session-display
             *ngIf="sessionsInTheFuture.includes(session.Q); else qInPast"
-            [sessionDate]="weekendData.Qualifying"
+            [sessionDate]="weekendData.qualifying"
           ></app-upcoming-session-display>
 
           <ng-template #qInPast>
             <app-session-results
-              [round]="weekendData.Circuit.Location.country"
-              [sessionDate]="weekendData.Qualifying"
+              [round]="weekendData.circuit.Location.country"
+              [sessionDate]="weekendData.qualifying"
               [session]="session.Q"
             ></app-session-results>
           </ng-template>
         </ng-template>
       </mat-tab>
 
-      <mat-tab *ngIf="weekendData.Sprint" label="Sprint">
+      <mat-tab *ngIf="weekendData.sprint" label="Sprint">
         <ng-template matTabContent>
           <app-upcoming-session-display
             *ngIf="sessionsInTheFuture.includes(session.SPRINT); else sInPast"
-            [sessionDate]="weekendData.Sprint"
+            [sessionDate]="weekendData.sprint"
           ></app-upcoming-session-display>
 
           <ng-template #sInPast>
             <app-session-results
-              [round]="weekendData.Circuit.Location.country"
-              [sessionDate]="weekendData.Sprint"
+              [round]="weekendData.circuit.Location.country"
+              [sessionDate]="weekendData.sprint"
               [session]="session.SPRINT"
             ></app-session-results>
           </ng-template>

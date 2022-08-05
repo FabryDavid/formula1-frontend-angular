@@ -19,7 +19,7 @@ export class CircuitInfosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.countryCode = getCountryCode(this.weekend.Circuit.Location.country) ?? ""
+    this.countryCode = getCountryCode(this.weekend.circuit.Location.country) ?? ""
 
     this.sessionTimesService.getFastestSessionsInWeekend(parseInt(this.weekend.round)).subscribe((data) => {
       this.sectorTimes = data
