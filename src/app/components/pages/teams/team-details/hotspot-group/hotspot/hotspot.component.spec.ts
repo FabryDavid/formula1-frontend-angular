@@ -8,9 +8,8 @@ describe('HotspotComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HotspotComponent ]
-    })
-    .compileComponents();
+      declarations: [HotspotComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

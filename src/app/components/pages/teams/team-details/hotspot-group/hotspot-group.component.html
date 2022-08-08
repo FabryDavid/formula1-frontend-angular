@@ -1,6 +1,6 @@
 <app-hotspot
-  *ngFor="let item of items;let index = index"
+  *ngFor="let item of items; let index = index"
   [item]="item"
   [show]="open[index]"
-  (showChange)="toggleItem(index,$event)"
+  (showChange)="toggleItem(index, $event)"
 ></app-hotspot>

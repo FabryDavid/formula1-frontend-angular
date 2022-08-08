@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {TeamsComponent} from "./teams.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TeamsComponent } from './teams.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TeamsComponent
+    component: TeamsComponent,
   },
   {
     path: ':teamId',
@@ -18,7 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TeamsRoutingModule {
-}
+export class TeamsRoutingModule {}

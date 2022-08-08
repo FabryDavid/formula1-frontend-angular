@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {DriversService} from '../../../../services/drivers-service/drivers.service';
-import {IDriver} from '../../../../interfaces/idriver';
-import {SafeUrl} from '@angular/platform-browser';
-import {forkJoin} from 'rxjs';
-import {NavbarServiceService} from "../../../../services/navbar-service/navbar-service.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DriversService } from '../../../../services/drivers-service/drivers.service';
+import { IDriver } from '../../../../interfaces/idriver';
+import { SafeUrl } from '@angular/platform-browser';
+import { forkJoin } from 'rxjs';
+import { NavbarServiceService } from '../../../../services/navbar-service/navbar-service.service';
 
 @Component({
   selector: 'app-driver-details',
@@ -33,10 +33,10 @@ export class DriverDetailsComponent implements OnInit {
     private driverService: DriversService,
     private navbarService: NavbarServiceService
   ) {
-    NavbarServiceService.show = true
+    NavbarServiceService.show = true;
     this.navbarSub = navbarService.backAnnounced$.subscribe(() => {
-      this.router.navigate(['/drivers'])
-    })
+      this.router.navigate(['/drivers']);
+    });
   }
 
   ngOnInit(): void {

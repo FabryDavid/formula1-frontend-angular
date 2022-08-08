@@ -1,9 +1,6 @@
 <div class="my-5 container" *appLoading="isLoading">
   <div class="row justify-content-center">
-    <div
-      *ngFor="let constructor of teams"
-      class="col-10 col-md-6 p-4"
-    >
+    <div *ngFor="let constructor of teams" class="col-10 col-md-6 p-4">
       <app-team-card [team]="constructor"></app-team-card>
     </div>
   </div>

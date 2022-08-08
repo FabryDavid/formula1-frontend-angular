@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-background',
@@ -10,7 +10,7 @@ export class CardBackgroundComponent implements OnInit {
   @Input() secondary!: string;
   @Input() tertiary!: string;
 
-  maxDelay = 500
+  maxDelay = 500;
 
   delays = {
     lineDelay1: `${Math.floor(Math.random() * this.maxDelay)}ms`,
@@ -22,11 +22,9 @@ export class CardBackgroundComponent implements OnInit {
     lineDelay7: `${Math.floor(Math.random() * this.maxDelay)}ms`,
     lineDelay8: `${Math.floor(Math.random() * this.maxDelay)}ms`,
     lineDelay9: `${Math.floor(Math.random() * this.maxDelay)}ms`,
-  }
+  };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

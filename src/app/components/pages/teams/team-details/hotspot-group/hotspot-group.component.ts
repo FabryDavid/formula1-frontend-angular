@@ -1,24 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IHotspotItem} from "../../../../../interfaces/ihotspot-item";
+import { Component, Input, OnInit } from '@angular/core';
+import { IHotspotItem } from '../../../../../interfaces/ihotspot-item';
 
 @Component({
   selector: 'app-hotspot-group',
   templateUrl: './hotspot-group.component.html',
-  styleUrls: ['./hotspot-group.component.scss']
+  styleUrls: ['./hotspot-group.component.scss'],
 })
 export class HotspotGroupComponent implements OnInit {
-  @Input() items: Array<IHotspotItem> = []
-  @Input() allowMultipleOpen?: boolean = false
+  @Input() items: Array<IHotspotItem> = [];
+  @Input() allowMultipleOpen?: boolean = false;
 
-  open: Array<boolean> = []
+  open: Array<boolean> = [];
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.items.forEach(() => {
-      this.open.push(false)
-    })
+      this.open.push(false);
+    });
   }
 
   toggleItem(index: number, value: boolean) {

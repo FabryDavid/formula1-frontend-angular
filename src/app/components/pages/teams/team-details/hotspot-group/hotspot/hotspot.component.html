@@ -1,6 +1,16 @@
 <div
   [ngClass]="position"
-  [style]="'--hotspot-color: '+this.item.color+'; --secondary-color: '+this.item.secondaryColor+'; top:'+ this.item.top+'%; left: '+this.item.left+'%'"
+  [style]="
+    '--hotspot-color: ' +
+    this.item.color +
+    '; --secondary-color: ' +
+    this.item.secondaryColor +
+    '; top:' +
+    this.item.top +
+    '%; left: ' +
+    this.item.left +
+    '%'
+  "
   class="hotspot-container"
   (click)="showHotspot = !showHotspot"
 >

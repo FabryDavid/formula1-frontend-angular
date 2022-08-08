@@ -1,15 +1,18 @@
-<div class="container-fluid constructor-details p-0 overflow-hidden" *appLoading="isLoading">
+<div
+  class="container-fluid constructor-details p-0 overflow-hidden"
+  *appLoading="isLoading"
+>
   <div
     [ngClass]="{ 'flex-nowrap': showCarDetails }"
     class="my-0 mx-3 row content-row"
   >
     <div
       [ngClass]="{
-          'constructor-name-col-hidden': showCarDetails,
-          'inner-div-overflow-hide': showCarDetails,
-          'col-2': showCarDetails,
-          'col-12': !showCarDetails
-        }"
+        'constructor-name-col-hidden': showCarDetails,
+        'inner-div-overflow-hide': showCarDetails,
+        'col-2': showCarDetails,
+        'col-12': !showCarDetails
+      }"
       class="col-md-2 d-flex align-items-end transition order-first"
     >
       <div class="constructor-name">
@@ -23,14 +26,14 @@
     </div>
     <div
       [ngClass]="{
-              'background-container-full': showCarDetails,
-              'justify-space-between': showCarDetails,
-              'justify-end': !showCarDetails,
-              'col-8': showCarDetails,
-              'col-12': !showCarDetails,
-              'order-first': showCarDetails,
-              'order-last': !showCarDetails
-            }"
+        'background-container-full': showCarDetails,
+        'justify-space-between': showCarDetails,
+        'justify-end': !showCarDetails,
+        'col-8': showCarDetails,
+        'col-12': !showCarDetails,
+        'order-first': showCarDetails,
+        'order-last': !showCarDetails
+      }"
       class="d-flex flex-column align-items-center justify-content-md-end pb-0 background-container col-transition mt-0 col-md-8 order-md-first"
     >
       <!--      <v-expansion-panels-->
@@ -58,20 +61,14 @@
     </div>
     <div
       [ngClass]="{
-          'inner-div-overflow-hide': showCarDetails,
-          'col-2': showCarDetails,
-          'col-12': !showCarDetails
-          }"
+        'inner-div-overflow-hide': showCarDetails,
+        'col-2': showCarDetails,
+        'col-12': !showCarDetails
+      }"
       class="d-flex align-items-end justify-content-center justify-content-md-end col-transition col-md-2"
     >
       <div
-        class="
-         stats w-100
-         d-flex flex-column flex-sm-row flex-md-column
-         align-items-center align-items-md-end
-         justify-content-center justify-content-sm-between justify-content-md-center
-         text-center text-sm-start text-md-end
-"
+        class="stats w-100 d-flex flex-column flex-sm-row flex-md-column align-items-center align-items-md-end justify-content-center justify-content-sm-between justify-content-md-center text-center text-sm-start text-md-end"
       >
         <div class="stat-item">
           <div [style]="{ color: team.color.tertiary }" class="stat-title">
@@ -107,24 +104,24 @@
     <div class="row justify-content-center">
       <div
         [ngClass]="{
-           'bottom-container-full': showCarDetails,
-           'col-7':showCarDetails,
-           'col-10':!showCarDetails
-           }"
+          'bottom-container-full': showCarDetails,
+          'col-7': showCarDetails,
+          'col-10': !showCarDetails
+        }"
         class="pa-0 position-relative col-transition col-md-7"
       >
         <div *ngIf="showCarDetails">
           <app-hotspot-group [items]="hotspotItems"></app-hotspot-group>
         </div>
         <img
-          [alt]="team.team.name +' Car'"
+          [alt]="team.team.name + ' Car'"
           [src]="carImage"
           class="car-image"
-          (click)="showCarDetails=true"
+          (click)="showCarDetails = true"
         />
         <div class="car-reflection-wrapper">
           <img
-            [alt]="team.team.name +' Car reflection'"
+            [alt]="team.team.name + ' Car reflection'"
             [src]="carImage"
             class="car-image-reflection"
           />
@@ -137,14 +134,14 @@
           *ngIf="!showCarDetails"
           class="drivers d-flex align-items-end justify-content-between"
         >
-          <a [routerLink]="'/drivers/'+team.drivers[0].id">
+          <a [routerLink]="'/drivers/' + team.drivers[0].id">
             <img
               [alt]="team.drivers[0].code"
               [src]="driver1Image"
               class="driver-image"
             />
           </a>
-          <a [routerLink]="'/drivers/'+team.drivers[1].id">
+          <a [routerLink]="'/drivers/' + team.drivers[1].id">
             <img
               [alt]="team.drivers[1].code"
               [src]="driver2Image"

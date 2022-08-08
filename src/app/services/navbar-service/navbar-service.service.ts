@@ -1,15 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Subject} from "rxjs";
-import {NavigationStart, Router} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { NavigationStart, Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavbarServiceService {
   private backButtonSource = new Subject<string>();
 
   backAnnounced$ = this.backButtonSource.asObservable();
-  static show = false
+  static show = false;
 
   back() {
     this.backButtonSource.next();
@@ -18,8 +18,8 @@ export class NavbarServiceService {
   constructor(private router: Router) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
-        NavbarServiceService.show = false
+        NavbarServiceService.show = false;
       }
-    })
+    });
   }
 }
