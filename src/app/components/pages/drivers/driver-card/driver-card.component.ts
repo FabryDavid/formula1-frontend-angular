@@ -12,7 +12,7 @@ import { TeamService } from '../../../../services/team-service/team.service';
 export class DriverCardComponent implements OnInit {
   @Input() driver!: IDriver;
 
-  driverImage: SafeUrl | string = '';
+  driverImage: SafeUrl | string = 'assets/images/drivers/no-driver-image.png';
 
   get constructorInfos() {
     return this.driver.teams;

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, throwError} from "rxjs";
+import {Observable, of, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {catchError, map} from "rxjs/operators";
 import {IConstructor} from "../../interfaces/iconstructor";
@@ -19,13 +19,27 @@ export class TeamService {
       .get<Array<any>>(`${environment.apiUrl}/constructors-standing`)
       .pipe(
         map((response: Array<any>) => {
-          const drivers: Array<IConstructor> = response.map((x) => {
-            return ServerResponseConverter.(x);
+          return response.map((x) => {
+            return ServerResponseConverter.team(x);
           });
-
-          return response;
         }),
         catchError(this.handleError.bind(this))
+      );
+  }
+
+  getCarImage(constructorId: string): Observable<SafeUrl | string> {
+    const filePath = `assets/images/cars/${constructorId}.png`;
+    return this.http
+      .get(filePath, {observe: 'response', responseType: 'blob'})
+      .pipe(
+        map((response) => {
+          const blob = response.body;
+          const objectURL = URL.createObjectURL(blob);
+          return this.sanitizer.bypassSecurityTrustUrl(objectURL);
+        }),
+        catchError((error) => {
+          return of('assets/images/cars/no-car-image.png');
+        })
       );
   }
 

@@ -1,0 +1,63 @@
+<a
+  [routerLink]="team.team.constructorId"
+  class="text-decoration-none constructor-card d-block position-relative"
+>
+  <div class="inner w-100 px-4">
+    <div class="card-content">
+      <h2 [style]="{ color: team.color.primary }">
+        {{ this.team.nameExtended.shortName }}
+      </h2>
+      <div class="name-second-part">
+        {{ getConstructorNameSecondPart(team.nameExtended.fullName) }}
+      </div>
+
+      <div class="d-flex mt-3 constructor-infos">
+        <div class="">
+          <div
+            [style]="{ color: team.color.tertiary }"
+            class="card-info-title"
+          >
+            Wins
+          </div>
+          <div
+            [style]="{ color: team.color.secondary }"
+            class="card-info-data"
+          >
+            {{ team.wins }}
+          </div>
+        </div>
+
+        <div class="ms-5">
+          <div
+            [style]="{ color: team.color.tertiary }"
+            class="card-info-title"
+          >
+            Points
+          </div>
+          <div
+            [style]="{ color: team.color.secondary }"
+            class="card-info-data"
+          >
+            {{ team.points }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-background-container">
+    <div class="card-background">
+      <app-card-background
+        [primary]="team.color.primary"
+        [secondary]="team.color.secondary"
+        [tertiary]="team.color.tertiary"
+      ></app-card-background>
+    </div>
+  </div>
+
+  <img
+    [src]="carImage"
+    alt="Car"
+    class="car-image"
+  />
+</a>

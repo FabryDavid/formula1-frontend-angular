@@ -22,28 +22,7 @@ export class ServerResponseConverter {
 
   static driver(response: any): IDriver {
     return {
-      teams: {
-        team: {
-          constructorId: response.Constructors.Constructor.constructorId,
-          name: response.Constructors.Constructor.name,
-          nationality: response.Constructors.Constructor.nationality,
-          url: response.Constructors.Constructor.url,
-        },
-        color: {
-          primary: response.Constructors.color.primary,
-          secondary: response.Constructors.color.secondary,
-          tertiary: response.Constructors.color.tertiary,
-        },
-        drivers: response.Constructors.drivers,
-        nameExtended: {
-          fullName: response.Constructors.nameExtended.fullName,
-          shortName: response.Constructors.nameExtended.shortName,
-        },
-        points: parseFloat(response.Constructors.points),
-        position: parseInt(response.Constructors.position),
-        positionText: response.Constructors.positionText,
-        wins: parseInt(response.Constructors.wins),
-      },
+      teams: ServerResponseConverter.team(response.Constructors),
       driver: {
         code: response.Driver.code,
         dateOfBirth: response.Driver.dateOfBirth,
@@ -61,8 +40,29 @@ export class ServerResponseConverter {
     };
   }
 
-  static constructor(response: any): IConstructor {
-
+  static team(response: any): IConstructor {
+    return {
+      team: {
+        constructorId: response.Constructor.constructorId,
+        name: response.Constructor.name,
+        nationality: response.Constructor.nationality,
+        url: response.Constructor.url,
+      },
+      color: {
+        primary: response.color.primary,
+        secondary: response.color.secondary,
+        tertiary: response.color.tertiary,
+      },
+      drivers: response.drivers,
+      nameExtended: {
+        fullName: response.nameExtended.fullName,
+        shortName: response.nameExtended.shortName,
+      },
+      points: parseFloat(response.points),
+      position: parseInt(response.position),
+      positionText: response.positionText,
+      wins: parseInt(response.wins),
+    }
   }
 
   static tweetResponse(response: any): ITweetsResponse {
