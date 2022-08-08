@@ -24,7 +24,7 @@ export class TeamDetailsComponent implements OnInit {
   carImage: SafeUrl | string = ""
   driver1Image: SafeUrl | string = ""
   driver2Image: SafeUrl | string = ""
-  showCarDetails = true
+  showCarDetails = false
   hotspotItems: Array<IHotspotItem> = []
 
   constructor(

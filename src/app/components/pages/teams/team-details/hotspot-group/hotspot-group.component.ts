@@ -21,9 +21,10 @@ export class HotspotGroupComponent implements OnInit {
     })
   }
 
-  openItem(index: number) {
-    if (this.allowMultipleOpen) {
-      this.open[index] = true;
+  toggleItem(index: number, value: boolean) {
+    this.open[index] = value;
+
+    if (this.allowMultipleOpen || !value) {
       return;
     }
 
