@@ -36,20 +36,19 @@
       }"
       class="d-flex flex-column align-items-center justify-content-md-end pb-0 background-container col-transition mt-0 col-md-8 order-md-first"
     >
-      <!--      <v-expansion-panels-->
-      <!--        :class="{ 'd-none': !showCarDetails }"-->
-      <!--        class="d-md-none"-->
-      <!--      >-->
-      <!--        <v-expansion-panel v-for="(item, index) in hotspotItems" :key="index">-->
-      <!--          <v-expansion-panel-header>-->
-      <!--            <b>{{ item.title }}</b>-->
-      <!--          </v-expansion-panel-header>-->
-      <!--          <v-expansion-panel-content-->
-      <!--            class="py-2 px-6 text-justify"-->
-      <!--            v-html="item.text"-->
-      <!--          />-->
-      <!--        </v-expansion-panel>-->
-      <!--      </v-expansion-panels>-->
+      <div [class.d-none]="!showCarDetails" class="d-md-none mt-5">
+        <mat-accordion>
+          <mat-expansion-panel hideToggle *ngFor="let item of hotspotItems">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{item.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="" [innerHtml]="item.text"></div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
 
       <div class="constructor-details-background">
         <app-team-details-background
@@ -110,7 +109,7 @@
         }"
         class="pa-0 position-relative col-transition col-md-7"
       >
-        <div *ngIf="showCarDetails">
+        <div *ngIf="showCarDetails" class="d-none d-md-block">
           <app-hotspot-group [items]="hotspotItems"></app-hotspot-group>
         </div>
         <img

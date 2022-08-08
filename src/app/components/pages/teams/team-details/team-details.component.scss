@@ -135,9 +135,9 @@
         margin-top: -17px;
         transition: all 0.3s ease;
         mask-image: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.1),
-          rgba(0, 0, 0, 0)
+            to top,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0)
         );
         pointer-events: none;
       }
@@ -178,9 +178,22 @@
     width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+      padding-bottom: 115px !important;
+    }
 
     .constructor-details-background {
-      margin-top: -250px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      pointer-events: none;
+
+      @include media-breakpoint-up(md) {
+        margin-top: -250px;
+        position: unset;
+      }
     }
   }
 

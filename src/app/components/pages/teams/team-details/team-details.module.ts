@@ -6,6 +6,7 @@ import { TeamDetailsComponent } from './team-details.component';
 import { LoadingModule } from '../../../shared/page-loading-indicator/loading/loading.module';
 import { TeamDetailsBackgroundModule } from './team-details-background/team-details-background.module';
 import { HotspotGroupModule } from './hotspot-group/hotspot-group.module';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [TeamDetailsComponent],
@@ -15,6 +16,7 @@ import { HotspotGroupModule } from './hotspot-group/hotspot-group.module';
     LoadingModule,
     TeamDetailsBackgroundModule,
     HotspotGroupModule,
+    MatExpansionModule,
   ],
 })
 export class TeamDetailsModule {}
