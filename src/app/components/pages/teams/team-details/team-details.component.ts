@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TeamService} from "../../../../services/team-service/team.service";
 import {IConstructor} from "../../../../interfaces/iconstructor";
 import {SafeUrl} from "@angular/platform-browser";
@@ -8,6 +8,7 @@ import getConstructorNameSecondPart from "../../../../helpers/get-constructor-na
 import {forkJoin} from "rxjs";
 import {IHotspotItem} from "../../../../interfaces/ihotspot-item";
 import {HotspotAlign} from "../../../../enums/hotspot-align";
+import {NavbarServiceService} from "../../../../services/navbar-service/navbar-service.service";
 
 @Component({
   selector: 'app-team-details',
@@ -16,6 +17,7 @@ import {HotspotAlign} from "../../../../enums/hotspot-align";
 })
 export class TeamDetailsComponent implements OnInit {
   private sub: any;
+  private navbarSub: any;
   getConstructorNameSecondPart = getConstructorNameSecondPart
   isLoading = false
   imagesLoading = false
@@ -29,9 +31,15 @@ export class TeamDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private teamService: TeamService,
-    private driverService: DriversService
+    private driverService: DriversService,
+    private navbarService: NavbarServiceService
   ) {
+    NavbarServiceService.show = true
+    this.navbarSub = navbarService.backAnnounced$.subscribe(() => {
+      this.backButtonClick()
+    })
   }
 
   ngOnInit(): void {
@@ -107,8 +115,17 @@ export class TeamDetailsComponent implements OnInit {
     });
   }
 
+  backButtonClick() {
+    if (this.showCarDetails) {
+      this.showCarDetails = false
+    } else {
+      this.router.navigate(['/constructors'])
+    }
+  }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.navbarSub.unsubscribe();
   }
 
 }

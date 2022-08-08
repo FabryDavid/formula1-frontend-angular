@@ -28,6 +28,18 @@ header {
     height: 50px;
   }
 
+  .back-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transform-origin: left center;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      transform: scaleX(1.5);
+    }
+  }
+
   .navbar-top {
     background-color: white;
     position: relative;

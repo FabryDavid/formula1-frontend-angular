@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DriversService } from '../../../../services/drivers-service/drivers.service';
-import { IDriver } from '../../../../interfaces/idriver';
-import { SafeUrl } from '@angular/platform-browser';
-import { forkJoin } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DriversService} from '../../../../services/drivers-service/drivers.service';
+import {IDriver} from '../../../../interfaces/idriver';
+import {SafeUrl} from '@angular/platform-browser';
+import {forkJoin} from 'rxjs';
+import {NavbarServiceService} from "../../../../services/navbar-service/navbar-service.service";
 
 @Component({
   selector: 'app-driver-details',
@@ -12,6 +13,7 @@ import { forkJoin } from 'rxjs';
 })
 export class DriverDetailsComponent implements OnInit {
   private sub: any;
+  private navbarSub: any;
   isLoading = false;
   driverId!: string;
   driver!: IDriver;
@@ -27,8 +29,15 @@ export class DriverDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private driverService: DriversService
-  ) {}
+    private router: Router,
+    private driverService: DriversService,
+    private navbarService: NavbarServiceService
+  ) {
+    NavbarServiceService.show = true
+    this.navbarSub = navbarService.backAnnounced$.subscribe(() => {
+      this.router.navigate(['/drivers'])
+    })
+  }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -49,5 +58,6 @@ export class DriverDetailsComponent implements OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.navbarSub.unsubscribe();
   }
 }
