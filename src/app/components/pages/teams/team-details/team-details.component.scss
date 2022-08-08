@@ -1,0 +1,222 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/assets/scss/variables";
+@import "src/assets/scss/mixins";
+
+.constructor-details {
+  $floor-height: 115px;
+  min-height: 93vh;
+
+  .content-row {
+    min-height: calc(93vh - #{$floor-height});
+  }
+
+  .constructor-name {
+    transform: unset;
+    writing-mode: unset;
+    text-orientation: unset;
+    max-height: 70vh;
+    position: relative;
+    z-index: 10;
+
+    @include media-breakpoint-up(md) {
+      transform: scale(-1);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    h2,
+    .name-second-part {
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: $base-shadow;
+    }
+
+    h2 {
+      font-size: 19vw;
+      line-height: 100%;
+      margin: 0;
+
+      @include media-breakpoint-up(sm) {
+        font-size: 100px;
+        line-height: 80px;
+      }
+    }
+
+    .name-second-part {
+      font-size: 40px;
+      line-height: 60px;
+    }
+  }
+
+  .driver-codes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 40%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .stats {
+    @include media-breakpoint-up(md) {
+      direction: rtl;
+    }
+
+    .stat-item {
+      text-transform: uppercase;
+      margin-top: 0;
+      filter: drop-shadow(2px 0px 11px rgba(0, 0, 0, 0.2));
+
+      @include media-breakpoint-up(md) {
+        margin-top: 50px;
+        width: 100%;
+      }
+
+      .stat-title {
+        font-size: 30px;
+      }
+
+      .stat-value {
+        margin-top: -30px;
+        font-weight: 900;
+        font-size: 70px;
+      }
+    }
+  }
+
+  .background-container {
+    transition: all 0.3s;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: -10%;
+    }
+  }
+
+  .bottom {
+    min-height: $floor-height;
+    box-shadow: 0px -3px 41px rgba(0, 0, 0, 0.19);
+    background-color: white;
+
+    .car-image {
+      position: relative;
+      z-index: 15;
+      width: 100%;
+      margin-top: -21%;
+      filter: drop-shadow(2px 1px 11px rgba(0, 0, 0, 0.47));
+      cursor: pointer;
+      transform-origin: bottom center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+
+        & + .car-reflection-wrapper {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .car-reflection-wrapper {
+      transform-origin: top center;
+      transition: all 0.3s ease;
+
+      .car-image-reflection {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        transform: scaleY(-1);
+        margin-top: -17px;
+        transition: all 0.3s ease;
+        mask-image: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0)
+        );
+        pointer-events: none;
+      }
+    }
+
+    .click-text {
+      font-weight: 300;
+      font-size: 14px;
+      opacity: 0.5;
+      position: absolute;
+      top: 20px;
+    }
+
+    .drivers {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      bottom: 100%;
+
+      .driver-image {
+        width: 100%;
+        cursor: pointer;
+        transform-origin: bottom center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .constructor-details-background {
+    width: 100%;
+  }
+
+  .background-container-full {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+
+    .constructor-details-background {
+      margin-top: -250px;
+    }
+  }
+
+  .bottom-container-full {
+    width: 90% !important;
+    max-width: 90% !important;
+    flex: 0 0 90% !important;
+
+    .car-image {
+      &:hover {
+        cursor: default;
+        transform: unset;
+
+        & + .car-reflection-wrapper {
+          transform: unset;
+        }
+      }
+    }
+  }
+
+  .col-transition {
+    transition: all 0.3s;
+  }
+
+  .constructor-name-col-hidden {
+    margin-left: -16.6666666667%;
+  }
+
+  .inner-div-overflow-hide {
+    div {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}
+
+.transition {
+  transition: all 0.2s ease;
+}

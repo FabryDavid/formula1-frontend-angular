@@ -1,0 +1,18 @@
+<app-hotspot
+  *ngFor="let item of items;let index = index"
+  [item]="item"
+  [(show)]="open[index]"
+></app-hotspot>
+<!--  <hotspot-->
+<!--    v-for="(item, index) in items"-->
+<!--    :key="index"-->
+<!--    v-model="open[index]"-->
+<!--    :color="item.color"-->
+<!--    :left="item.left"-->
+<!--    :secondary-color="item.secondaryColor"-->
+<!--    :text="item.text"-->
+<!--    :title="item.title"-->
+<!--    :top="item.top"-->
+<!--    :position="item.position"-->
+<!--    @input="itemStateChange(index)"-->
+<!--  />-->

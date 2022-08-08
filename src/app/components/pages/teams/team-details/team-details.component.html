@@ -1,0 +1,163 @@
+<div class="container-fluid constructor-details p-0 overflow-hidden" *appLoading="isLoading">
+  <div
+    [ngClass]="{ 'flex-nowrap': showCarDetails }"
+    class="my-0 mx-3 row content-row"
+  >
+    <div
+      [ngClass]="{
+          'constructor-name-col-hidden': showCarDetails,
+          'inner-div-overflow-hide': showCarDetails,
+          'col-2': showCarDetails,
+          'col-12': !showCarDetails
+        }"
+      class="col-md-2 d-flex align-items-end transition order-first"
+    >
+      <div class="constructor-name">
+        <h2 [style]="{ color: team.color.primary }">
+          {{ this.team.nameExtended.shortName }}
+        </h2>
+        <div [style]="{ color: team.color.tertiary }" class="name-second-part">
+          {{ getConstructorNameSecondPart(team.nameExtended.fullName) }}
+        </div>
+      </div>
+    </div>
+    <div
+      [ngClass]="{
+              'background-container-full': showCarDetails,
+              'justify-space-between': showCarDetails,
+              'justify-end': !showCarDetails,
+              'col-8': showCarDetails,
+              'col-12': !showCarDetails,
+              'order-first': showCarDetails,
+              'order-last': !showCarDetails
+            }"
+      class="d-flex flex-column align-items-center justify-content-md-end pb-0 background-container col-transition mt-0 col-md-8 order-md-first"
+    >
+      <!--      <v-expansion-panels-->
+      <!--        :class="{ 'd-none': !showCarDetails }"-->
+      <!--        class="d-md-none"-->
+      <!--      >-->
+      <!--        <v-expansion-panel v-for="(item, index) in hotspotItems" :key="index">-->
+      <!--          <v-expansion-panel-header>-->
+      <!--            <b>{{ item.title }}</b>-->
+      <!--          </v-expansion-panel-header>-->
+      <!--          <v-expansion-panel-content-->
+      <!--            class="py-2 px-6 text-justify"-->
+      <!--            v-html="item.text"-->
+      <!--          />-->
+      <!--        </v-expansion-panel>-->
+      <!--      </v-expansion-panels>-->
+
+      <div class="constructor-details-background">
+        <app-team-details-background
+          [primary]="team.color.primary"
+          [secondary]="team.color.secondary"
+          [tertiary]="team.color.tertiary"
+        ></app-team-details-background>
+      </div>
+    </div>
+    <div
+      [ngClass]="{
+          'inner-div-overflow-hide': showCarDetails,
+          'col-2': showCarDetails,
+          'col-12': !showCarDetails
+          }"
+      class="d-flex align-items-end justify-content-center justify-content-md-end col-transition col-md-2"
+    >
+      <div
+        class="
+         stats w-100
+         d-flex flex-column flex-sm-row flex-md-column
+         align-items-center align-items-md-end
+         justify-content-center justify-content-sm-between justify-content-md-center
+         text-center text-sm-start text-md-end
+"
+      >
+        <div class="stat-item">
+          <div [style]="{ color: team.color.tertiary }" class="stat-title">
+            wins
+          </div>
+          <div [style]="{ color: team.color.primary }" class="stat-value">
+            {{ team.wins }}
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div [style]="{ color: team.color.tertiary }" class="stat-title">
+            points
+          </div>
+          <div [style]="{ color: team.color.primary }" class="stat-value">
+            {{ team.points }}
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div [style]="{ color: team.color.tertiary }" class="stat-title">
+            standing
+          </div>
+          <div [style]="{ color: team.color.primary }" class="stat-value">
+            {{ team.position }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom position-relative" *appLoading="imagesLoading">
+    <div class="row justify-content-center">
+      <div
+        [ngClass]="{
+           'bottom-container-full': showCarDetails,
+           'col-7':showCarDetails,
+           'col-10':!showCarDetails
+           }"
+        class="pa-0 position-relative col-transition col-md-7"
+      >
+        <div *ngIf="showCarDetails">
+          <app-hotspot-group [items]="hotspotItems"></app-hotspot-group>
+          <!--          <hotspot-group-->
+          <!--            :allow-multiple-open="false"-->
+          <!--            :items="hotspotItems"-->
+          <!--            class="d-none d-md-block"-->
+          <!--          />-->
+        </div>
+        <img
+          [alt]="team.team.name +' Car'"
+          [src]="carImage"
+          class="car-image"
+          (click)="showCarDetails=true"
+        />
+        <div class="car-reflection-wrapper">
+          <img
+            [alt]="team.team.name +' Car reflection'"
+            [src]="carImage"
+            class="car-image-reflection"
+          />
+        </div>
+        <div *ngIf="!showCarDetails" class="click-text">
+          Click the car to see more indept informations
+        </div>
+
+        <div
+          *ngIf="!showCarDetails"
+          class="drivers d-flex align-items-end justify-content-between"
+        >
+          <a [routerLink]="'/drivers/'+team.drivers[0].id">
+            <img
+              [alt]="team.drivers[0].code"
+              [src]="driver1Image"
+              class="driver-image"
+            />
+          </a>
+          <a [routerLink]="'/drivers/'+team.drivers[1].id">
+            <img
+              [alt]="team.drivers[1].code"
+              [src]="driver2Image"
+              class="driver-image"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

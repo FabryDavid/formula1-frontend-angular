@@ -27,6 +27,17 @@ export class TeamService {
       );
   }
 
+  getConstructorDetails(constructorId: string): Observable<IConstructor> {
+    return this.http
+      .get<any>(`${environment.apiUrl}/constructor/${constructorId}`)
+      .pipe(
+        map((response) => {
+          return ServerResponseConverter.team(response);
+        }),
+        catchError(this.handleError.bind(this))
+      );
+  }
+
   getCarImage(constructorId: string): Observable<SafeUrl | string> {
     const filePath = `assets/images/cars/${constructorId}.png`;
     return this.http

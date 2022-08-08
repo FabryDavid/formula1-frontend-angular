@@ -6,7 +6,14 @@ const routes: Routes = [
   {
     path: '',
     component: TeamsComponent
-  }
+  },
+  {
+    path: ':teamId',
+    loadChildren: () =>
+      import('./team-details/team-details.module').then(
+        (module) => module.TeamDetailsModule
+      ),
+  },
 ];
 
 @NgModule({

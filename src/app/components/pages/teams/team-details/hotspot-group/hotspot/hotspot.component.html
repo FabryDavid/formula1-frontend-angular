@@ -1,0 +1,17 @@
+<div
+  [ngClass]="position"
+  [style]="'--hotspot-color: '+this.item.color+'; --secondary-color: '+this.item.secondaryColor+'; top:'+ this.item.top+'%; left: '+this.item.left+'%'"
+  class="hotspot-container"
+  (click)="showHotspot = !showHotspot"
+>
+  <div [ngClass]="{ 'hide-title': showHotspot }" class="hotspot-title">
+    {{ item.title }}
+  </div>
+  <div class="hotspot"></div>
+  <div *ngIf="showHotspot" class="details">
+    <div class="details-title px-2 px-1">
+      {{ item.title }}
+    </div>
+    <div class="details-description px-2 px-1" [innerHTML]="item.text"></div>
+  </div>
+</div>
