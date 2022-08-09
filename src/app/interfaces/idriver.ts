@@ -1,5 +1,5 @@
-import { IConstructor } from './iconstructor';
-import { IDriverData } from './idriver-data';
+import {IConstructor} from './iconstructor';
+import {IDriverData} from './idriver-data';
 
 export interface IDriver {
   teams: IConstructor;

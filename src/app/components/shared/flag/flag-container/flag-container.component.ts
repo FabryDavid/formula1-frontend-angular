@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FlagHostDirective } from '../flag-host/flag-host.directive';
-import { Subject } from 'rxjs';
-import { FlagServiceService } from '../flag-service/flag-service.service';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {FlagHostDirective} from '../flag-host/flag-host.directive';
+import {Subject} from 'rxjs';
+import {FlagServiceService} from '../flag-service/flag-service.service';
 
 @Component({
   selector: 'app-flag-container',

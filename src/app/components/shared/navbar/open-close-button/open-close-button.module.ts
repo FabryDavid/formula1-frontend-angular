@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { OpenCloseButtonComponent } from './open-close-button.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {OpenCloseButtonComponent} from './open-close-button.component';
 
 @NgModule({
   declarations: [OpenCloseButtonComponent],

@@ -1,4 +1,4 @@
-import { FlagHostDirective } from './flag-host.directive';
+import {FlagHostDirective} from './flag-host.directive';
 
 describe('FlagHostDirective', () => {
   it('should create an instance', () => {

@@ -1,15 +1,9 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { ILapDetailedTelemetry } from '../../../../../interfaces/ilap-detailed-telemetry';
-import { ApexAxisChartSeries } from 'ng-apexcharts';
+import {Component, Input, OnChanges, OnInit, SimpleChanges,} from '@angular/core';
+import {ILapDetailedTelemetry} from '../../../../../interfaces/ilap-detailed-telemetry';
+import {ApexAxisChartSeries} from 'ng-apexcharts';
 import mapTeamColor from '../../../../../helpers/map-team-color';
 import lightenDarkenColor from '../../../../../helpers/lighten-darken-color';
-import { ILapTelemetryChartData } from '../../../../../interfaces/ilap-telemetry-chart-data';
+import {ILapTelemetryChartData} from '../../../../../interfaces/ilap-telemetry-chart-data';
 
 @Component({
   selector: 'app-lap-telemetry-chart-item',

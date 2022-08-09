@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CardBackgroundComponent } from './card-background.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CardBackgroundComponent} from './card-background.component';
 
 @NgModule({
   declarations: [CardBackgroundComponent],

@@ -1,4 +1,4 @@
-import { Timing } from '../classes/timing/timing';
+import {Timing} from '../classes/timing/timing';
 
 export interface ITelemetryCarData {
   brake: Array<number>;

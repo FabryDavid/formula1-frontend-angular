@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TelemetryChartMode } from '../../../enums/telemetry-chart-mode';
-import { Session } from '../../../enums/session';
+import {Component, Input, OnInit} from '@angular/core';
+import {TelemetryChartMode} from '../../../enums/telemetry-chart-mode';
+import {Session} from '../../../enums/session';
 
 @Component({
   selector: 'app-telemetry-charts-container',

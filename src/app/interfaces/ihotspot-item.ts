@@ -1,4 +1,4 @@
-import { HotspotAlign } from '../enums/hotspot-align';
+import {HotspotAlign} from '../enums/hotspot-align';
 
 export interface IHotspotItem {
   color: string;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SessionResultsChartComponent } from './session-results-chart.component';
+import {SessionResultsChartComponent} from './session-results-chart.component';
 
 describe('SessionResultsChartComponent', () => {
   let component: SessionResultsChartComponent;

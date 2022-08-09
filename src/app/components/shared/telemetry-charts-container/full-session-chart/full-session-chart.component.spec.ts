@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FullSessionChartComponent } from './full-session-chart.component';
+import {FullSessionChartComponent} from './full-session-chart.component';
 
 describe('FullSessionChartComponent', () => {
   let component: FullSessionChartComponent;

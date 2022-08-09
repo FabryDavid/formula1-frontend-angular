@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Session } from '../../../../enums/session';
-import { ILapDetailedTelemetry } from '../../../../interfaces/ilap-detailed-telemetry';
+import {Component, Input, OnInit} from '@angular/core';
+import {Session} from '../../../../enums/session';
+import {ILapDetailedTelemetry} from '../../../../interfaces/ilap-detailed-telemetry';
 
 @Component({
   selector: 'app-lap-telemetry-chart',

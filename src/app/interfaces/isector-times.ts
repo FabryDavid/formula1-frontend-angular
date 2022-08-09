@@ -1,4 +1,4 @@
-import { ISectorTime } from './isector-time';
+import {ISectorTime} from './isector-time';
 
 export interface ISectorTimes {
   sector1: ISectorTime;

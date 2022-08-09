@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Session } from '../../../../../enums/session';
-import { MaxLapInSessionService } from '../../../../../services/max-laps-in-session-service/max-lap-in-session.service';
-import { DriversService } from '../../../../../services/drivers-service/drivers.service';
-import { ISessionDriver } from '../../../../../interfaces/isession-driver';
-import { TelemetryServiceService } from '../../../../../services/telemetry-service/telemetry-service.service';
-import { ILapDetailedTelemetry } from '../../../../../interfaces/ilap-detailed-telemetry';
-import { forkJoin } from 'rxjs';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Session} from '../../../../../enums/session';
+import {MaxLapInSessionService} from '../../../../../services/max-laps-in-session-service/max-lap-in-session.service';
+import {DriversService} from '../../../../../services/drivers-service/drivers.service';
+import {ISessionDriver} from '../../../../../interfaces/isession-driver';
+import {TelemetryServiceService} from '../../../../../services/telemetry-service/telemetry-service.service';
+import {ILapDetailedTelemetry} from '../../../../../interfaces/ilap-detailed-telemetry';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-lap-telemetry-header',

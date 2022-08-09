@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DriverLapSelectComponent } from './driver-lap-select.component';
+import {DriverLapSelectComponent} from './driver-lap-select.component';
 
 describe('DriverLapSelectComponent', () => {
   let component: DriverLapSelectComponent;

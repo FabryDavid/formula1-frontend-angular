@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SwitchButtonComponent } from './switch-button.component';
+import {SwitchButtonComponent} from './switch-button.component';
 
 describe('SwitchButtonComponent', () => {
   let component: SwitchButtonComponent;

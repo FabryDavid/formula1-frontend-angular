@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TelemetryChartMode } from '../../../../enums/telemetry-chart-mode';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TelemetryChartMode} from '../../../../enums/telemetry-chart-mode';
 
 @Component({
   selector: 'app-chart-display-mode-select',

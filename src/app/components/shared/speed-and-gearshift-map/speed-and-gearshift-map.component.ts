@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Session } from '../../../enums/session';
-import { SafeUrl } from '@angular/platform-browser';
-import { TelemetryServiceService } from '../../../services/telemetry-service/telemetry-service.service';
-import { IDriverLapData } from '../../../interfaces/idriver-lap-data';
+import {Component, Input, OnInit} from '@angular/core';
+import {Session} from '../../../enums/session';
+import {SafeUrl} from '@angular/platform-browser';
+import {TelemetryServiceService} from '../../../services/telemetry-service/telemetry-service.service';
+import {IDriverLapData} from '../../../interfaces/idriver-lap-data';
 
 @Component({
   selector: 'app-speed-and-gearshift-map',
