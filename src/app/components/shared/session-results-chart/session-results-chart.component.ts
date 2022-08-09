@@ -5,7 +5,7 @@ import { IChartOptions } from '../../../interfaces/ichart-options';
 import resultsChartBase from '../../../helpers/results-chart-base';
 import { IRaceResult } from '../../../interfaces/irace-result';
 import { Timing } from '../../../classes/timing/timing';
-import mapTeamColor from '../../../helpers/mapTeamColor';
+import mapTeamColor from '../../../helpers/map-team-color';
 
 @Component({
   selector: 'app-session-results-chart',
