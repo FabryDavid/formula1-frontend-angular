@@ -67,7 +67,7 @@ export class WeekendComponent implements OnInit {
           this.weekendData.sprint &&
           sessionTimeToDate(this.weekendData.sprint) > today
         ) {
-          this.sessionsInTheFuture.push(Session.SPRINT);
+          this.sessionsInTheFuture.push(Session.SQ);
         }
 
         if (sessionTimeToDate(this.raceDate) > today) {

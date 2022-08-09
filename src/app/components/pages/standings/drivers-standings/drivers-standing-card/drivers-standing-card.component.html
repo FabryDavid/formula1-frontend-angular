@@ -1,0 +1,43 @@
+<a [routerLink]="'/drivers/' + driver.driver.driverId" class="text-decoration-none">
+  <div [ngClass]="{ 'result-podium': driver.position === 1 }" class="result-card">
+    <div class="corner-image-container">
+      <img
+        class="corner-image"
+        src="assets/images/session-result-card-corner.svg"
+        alt="Corner"
+      />
+
+      <div class="position-text">
+        {{ driver.position }}{{ getNumberTextSuffix(driver.position) }}
+      </div>
+    </div>
+
+    <div
+      class="text-container d-flex flex-column flex-md-row align-items-center justify-content-between"
+    >
+      <div class="text-end text-md-start w-100">
+        <div class="select-driver-name p-0">
+          {{ driver.driver.givenName }} {{driver.driver.familyName}}
+        </div>
+        <div class="constructor-name">
+          {{ driver.teams.team.name }}
+        </div>
+      </div>
+
+      <div class="text-center text-md-right mt-3 mt-sm-0">
+        <div class="time white-space-no-wrap">{{ driver.points }} pt</div>
+        <div class="delta-difference text-center text-md-end white-space-no-wrap">
+          {{ driver.wins }} win
+        </div>
+      </div>
+    </div>
+
+    <div class="driver-image-container d-none d-md-flex">
+      <img
+        [alt]="driver.driver.code"
+        [src]="driverImage"
+        class="driver-image"
+      />
+    </div>
+  </div>
+</a>

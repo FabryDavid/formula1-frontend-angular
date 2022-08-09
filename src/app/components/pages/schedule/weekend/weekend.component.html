@@ -79,7 +79,7 @@
       <mat-tab *ngIf="weekendData.sprint" label="Sprint">
         <ng-template matTabContent>
           <app-upcoming-session-display
-            *ngIf="sessionsInTheFuture.includes(session.SPRINT); else sInPast"
+            *ngIf="sessionsInTheFuture.includes(session.SQ); else sInPast"
             [sessionDate]="weekendData.sprint"
           ></app-upcoming-session-display>
 
@@ -87,7 +87,7 @@
             <app-session-results
               [round]="weekendData.circuit.Location.country"
               [sessionDate]="weekendData.sprint"
-              [session]="session.SPRINT"
+              [session]="session.SQ"
             ></app-session-results>
           </ng-template>
         </ng-template>

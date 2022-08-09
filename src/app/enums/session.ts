@@ -3,6 +3,6 @@ export enum Session {
   'FP2' = 'FP2',
   'FP3' = 'FP3',
   'Q' = 'Q',
-  'SPRINT' = 'SPRINT',
+  'SQ' = 'SQ',
   'R' = 'R',
 }
