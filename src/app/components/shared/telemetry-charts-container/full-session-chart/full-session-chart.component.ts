@@ -13,7 +13,7 @@ import { TelemetryServiceService } from '../../../../services/telemetry-service/
 import { ApexAxisChartSeries } from 'ng-apexcharts';
 import { IDriverLapTelemetries } from '../../../../interfaces/idriver-lap-telemetries';
 import telemetryChartBase from '../../../../helpers/telemetry-chart-base';
-import mapTeamColor from '../../../../helpers/mapTeamColor';
+import mapTeamColor from '../../../../helpers/map-team-color';
 
 @Component({
   selector: 'app-full-session-chart',

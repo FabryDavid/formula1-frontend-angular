@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { ILapDetailedTelemetry } from '../../../../../interfaces/ilap-detailed-telemetry';
 import { ApexAxisChartSeries } from 'ng-apexcharts';
-import mapTeamColor from '../../../../../helpers/mapTeamColor';
-import lightenDarkenColor from '../../../../../helpers/lightenDarkenColor';
+import mapTeamColor from '../../../../../helpers/map-team-color';
+import lightenDarkenColor from '../../../../../helpers/lighten-darken-color';
 import { ILapTelemetryChartData } from '../../../../../interfaces/ilap-telemetry-chart-data';
 
 @Component({
