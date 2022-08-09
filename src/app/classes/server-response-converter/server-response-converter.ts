@@ -1,23 +1,25 @@
-import { IDriver } from '../../interfaces/idriver';
-import { ITweetsResponse } from '../../interfaces/itweets-response';
-import { ITweet } from '../../interfaces/itweet';
-import { IRaceResult } from '../../interfaces/irace-result';
-import { IWeekendSchedule } from '../../interfaces/iweekend-schedule';
-import { ISessionResult } from '../../interfaces/isession-result';
-import { Timing } from '../timing/timing';
-import { IDriverLapTelemetries } from '../../interfaces/idriver-lap-telemetries';
-import { ILapTelemetry } from '../../interfaces/ilap-telemetry';
-import { ITelemetryCarData } from '../../interfaces/itelemetry-car-data';
-import { IImageData } from '../../interfaces/iimage-data';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Injectable } from '@angular/core';
-import { IConstructor } from '../../interfaces/iconstructor';
+import {IDriver} from '../../interfaces/idriver';
+import {ITweetsResponse} from '../../interfaces/itweets-response';
+import {ITweet} from '../../interfaces/itweet';
+import {IRaceResult} from '../../interfaces/irace-result';
+import {IWeekendSchedule} from '../../interfaces/iweekend-schedule';
+import {ISessionResult} from '../../interfaces/isession-result';
+import {Timing} from '../timing/timing';
+import {IDriverLapTelemetries} from '../../interfaces/idriver-lap-telemetries';
+import {ILapTelemetry} from '../../interfaces/ilap-telemetry';
+import {ITelemetryCarData} from '../../interfaces/itelemetry-car-data';
+import {IImageData} from '../../interfaces/iimage-data';
+import {DomSanitizer} from '@angular/platform-browser';
+import {Injectable} from '@angular/core';
+import {IConstructor} from '../../interfaces/iconstructor';
+import {IFastestLap} from "../../interfaces/ifastest-lap";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServerResponseConverter {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   static driver(response: any): IDriver {
     return {
@@ -100,12 +102,26 @@ export class ServerResponseConverter {
     const results: Array<IRaceResult> = [];
 
     response.forEach((dataItem: any) => {
+      let fastestLap: IFastestLap | null = null
+
+      if (dataItem.FastestLap) {
+        fastestLap = {
+          averageSpeed: {
+            speed: parseFloat(dataItem.FastestLap.AverageSpeed.speed),
+            units: dataItem.FastestLap.AverageSpeed.units,
+          },
+          time: dataItem.FastestLap.Time.time,
+          lap: parseInt(dataItem.FastestLap.lap),
+          rank: parseInt(dataItem.FastestLap.rank),
+        }
+      }
+
       const r: IRaceResult = {
         driver: {
           teams: {
             team: {
               constructorId:
-                dataItem.Driver.Constructors.Constructor.constructorId,
+              dataItem.Driver.Constructors.Constructor.constructorId,
               name: dataItem.Driver.Constructors.Constructor.name,
               nationality: dataItem.Driver.Constructors.Constructor.nationality,
               url: dataItem.Driver.Constructors.Constructor.url,
@@ -140,20 +156,12 @@ export class ServerResponseConverter {
           positionText: dataItem.Driver.points,
           wins: parseFloat(dataItem.Driver.wins),
         },
-        fastestLap: {
-          averageSpeed: {
-            speed: parseFloat(dataItem.FastestLap.AverageSpeed.speed),
-            units: dataItem.FastestLap.AverageSpeed.units,
-          },
-          time: dataItem.FastestLap.Time.time,
-          lap: parseInt(dataItem.FastestLap.lap),
-          rank: parseInt(dataItem.FastestLap.rank),
-        },
+        fastestLap: fastestLap,
         time: dataItem.Time
           ? {
-              millis: parseInt(dataItem.Time.millis),
-              time: dataItem.Time.time,
-            }
+            millis: parseInt(dataItem.Time.millis),
+            time: dataItem.Time.time,
+          }
           : null,
         grid: parseInt(dataItem.grid),
         laps: parseInt(dataItem.laps),

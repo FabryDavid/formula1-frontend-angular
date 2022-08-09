@@ -1,7 +1,7 @@
 <div
   [class.result-podium]="result.position <= 3"
-  [class.result-dnf]="result.status !== 'Finished'"
-  [class.fastest-lap]="result.fastestLap.rank === 1"
+  [class.result-dnf]="!this.isFinished"
+  [class.fastest-lap]="!!result.fastestLap && result.fastestLap.rank === 1"
   class="result-card"
   (click)="isExpanded = !isExpanded"
 >
