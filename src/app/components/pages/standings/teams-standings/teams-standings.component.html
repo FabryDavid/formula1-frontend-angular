@@ -1,0 +1,5 @@
+<div class="card-container" *appLoading="isLoading">
+  <div class="col-12 col-xxl-8 mx-auto mb-5 pb-5" *ngFor="let team of teams">
+    <app-team-standing-card [team]="team"></app-team-standing-card>
+  </div>
+</div>

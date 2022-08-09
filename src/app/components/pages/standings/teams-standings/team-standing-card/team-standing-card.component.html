@@ -1,0 +1,47 @@
+<a
+  [routerLink]="'/constructors/' + team.team.constructorId"
+  class="text-decoration-none mx-auto d-block outside"
+  [class.champion]="team.position===1"
+>
+  <div class="card-container pb-3 position-relative">
+    <div class="top-section position-relative">
+      <div class="top-section-bg p-3">
+        <div class="driver-given-name">
+          {{team.nameExtended.shortName}}
+        </div>
+        <div class="driver-family-name">
+          {{getConstructorNameSecondPart(team.nameExtended.fullName)}}
+        </div>
+      </div>
+      <img [src]="teamLogo" [alt]="team.team.name" class="team-image driver-image d-none d-sm-block">
+
+      <div class="position">
+        {{team.position}}
+      </div>
+
+      <div class="cutout"></div>
+    </div>
+
+    <div class="px-3">
+      <div class="d-flex align-items-center justify-content-between mt-3">
+        <div class="label">
+          Wins
+        </div>
+
+        <div class="value">
+          {{team.wins}}
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="label">
+          Points
+        </div>
+
+        <div class="value">
+          {{team.points}}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
