@@ -88,7 +88,7 @@ export class TeamDetailsComponent implements OnInit {
               left: 68.8,
               top: -54.8,
               title: 'Engine',
-              text: 'The formula-1 cars use an 1.6-litre turbo-hybrid units. The power units uses fuel that contains 5.75% bio-components in order to make more sustainable fuel.<br>The cars ar equipped with an 8-speed seami-automatic paddle-shift sequential gearbox.',
+              text: 'The formula-1 cars use an 1.6-liter turbo-hybrid units. The power units uses fuel that contains 5.75% bio-components in order to make more sustainable fuel.<br>The cars ar equipped with an 8-speed seami-automatic paddle-shift sequential gearbox.',
             },
             {
               color: this.team.color.secondary,
