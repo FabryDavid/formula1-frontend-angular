@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IDriver} from "../../../../../interfaces/idriver";
-import getNumberTextSuffix from "../../../../../helpers/get-number-text-suffix";
 import {SafeUrl} from "@angular/platform-browser";
 import {DriversService} from "../../../../../services/drivers-service/drivers.service";
+import {TeamService} from "../../../../../services/team-service/team.service";
 
 @Component({
   selector: 'app-drivers-standing-card',
@@ -11,16 +11,19 @@ import {DriversService} from "../../../../../services/drivers-service/drivers.se
 })
 export class DriversStandingCardComponent implements OnInit {
   @Input() driver!: IDriver
-
-  getNumberTextSuffix = getNumberTextSuffix
   driverImage: SafeUrl | string = "assets/images/drivers/no-driver-image.png"
+  teamLogo: SafeUrl | string = ""
 
-  constructor(private driverService: DriversService) {
+  constructor(private driverService: DriversService, private teamService: TeamService) {
   }
 
   ngOnInit(): void {
     this.driverService.getDriverImage(this.driver.driver.driverId).subscribe((data) => {
       this.driverImage = data
+    })
+
+    this.teamService.getTeamLogo(this.driver.teams.team.constructorId).subscribe((data) => {
+      this.teamLogo = data
     })
   }
 
