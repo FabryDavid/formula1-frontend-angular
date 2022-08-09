@@ -21,7 +21,7 @@ export class SessionResultsComponent implements OnInit {
   navigationOptions: Array<string> = [
     'Result',
     'Chart',
-    'Telemetry Chats',
+    'Telemetry Charts',
     'Gearshifts',
     'Speed',
   ];
