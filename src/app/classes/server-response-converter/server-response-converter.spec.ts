@@ -1,4 +1,4 @@
-import { ServerResponseConverter } from './server-response-converter';
+import {ServerResponseConverter} from './server-response-converter';
 
 describe('ServerResponseConverter', () => {
   it('should create an instance', () => {

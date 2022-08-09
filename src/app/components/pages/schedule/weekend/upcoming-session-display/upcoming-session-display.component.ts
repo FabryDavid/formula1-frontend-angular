@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ISessionTime } from '../../../../../interfaces/isession-time';
+import {Component, Input, OnInit} from '@angular/core';
+import {ISessionTime} from '../../../../../interfaces/isession-time';
 import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
 
 @Component({

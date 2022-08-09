@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MexicoFlagComponent } from './mexico-flag.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MexicoFlagComponent} from './mexico-flag.component';
 
 @NgModule({
   declarations: [MexicoFlagComponent],

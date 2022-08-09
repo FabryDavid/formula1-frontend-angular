@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UpcomingSessionComponent } from './upcoming-session.component';
+import {UpcomingSessionComponent} from './upcoming-session.component';
 
 describe('UpcomingSessionComponent', () => {
   let component: UpcomingSessionComponent;

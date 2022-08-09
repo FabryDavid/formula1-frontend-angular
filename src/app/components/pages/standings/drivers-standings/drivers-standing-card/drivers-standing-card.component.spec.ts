@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DriversStandingCardComponent } from './drivers-standing-card.component';
+import {DriversStandingCardComponent} from './drivers-standing-card.component';
 
 describe('DriversStandingCardComponent', () => {
   let component: DriversStandingCardComponent;

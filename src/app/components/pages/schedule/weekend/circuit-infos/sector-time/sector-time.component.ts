@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ISectorTime } from '../../../../../../interfaces/isector-time';
+import {Component, Input, OnInit} from '@angular/core';
+import {ISectorTime} from '../../../../../../interfaces/isector-time';
 
 @Component({
   selector: 'app-sector-time',

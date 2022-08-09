@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TeamStandingCardComponent } from './team-standing-card.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TeamStandingCardComponent} from './team-standing-card.component';
 import {RouterModule} from "@angular/router";
-
 
 
 @NgModule({

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { TeamsRoutingModule } from './teams-routing.module';
-import { TeamsComponent } from './teams.component';
-import { LoadingModule } from '../../shared/page-loading-indicator/loading/loading.module';
-import { TeamCardModule } from './team-card/team-card.module';
+import {TeamsRoutingModule} from './teams-routing.module';
+import {TeamsComponent} from './teams.component';
+import {LoadingModule} from '../../shared/page-loading-indicator/loading/loading.module';
+import {TeamCardModule} from './team-card/team-card.module';
 
 @NgModule({
   declarations: [TeamsComponent],

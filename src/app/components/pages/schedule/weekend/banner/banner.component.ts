@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ICircuit } from '../../../../../interfaces/icircuit';
+import {Component, Input, OnInit} from '@angular/core';
+import {ICircuit} from '../../../../../interfaces/icircuit';
 
 @Component({
   selector: 'app-banner',

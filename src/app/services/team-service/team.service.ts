@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, of, throwError} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
 import {IConstructor} from '../../interfaces/iconstructor';

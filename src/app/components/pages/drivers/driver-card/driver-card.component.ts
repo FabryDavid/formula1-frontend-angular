@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IDriver } from '../../../../interfaces/idriver';
-import { DriversService } from '../../../../services/drivers-service/drivers.service';
-import { SafeUrl } from '@angular/platform-browser';
-import { TeamService } from '../../../../services/team-service/team.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {IDriver} from '../../../../interfaces/idriver';
+import {DriversService} from '../../../../services/drivers-service/drivers.service';
+import {SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-driver-card',

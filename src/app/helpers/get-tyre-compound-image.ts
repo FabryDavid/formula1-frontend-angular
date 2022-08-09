@@ -1,4 +1,4 @@
-import { TireCompound } from '../enums/tire-compound';
+import {TireCompound} from '../enums/tire-compound';
 
 export default function (compound: TireCompound) {
   switch (compound) {

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ISessionResult } from '../../../../../../interfaces/isession-result';
+import {Component, Input, OnInit} from '@angular/core';
+import {ISessionResult} from '../../../../../../interfaces/isession-result';
 
 @Component({
   selector: 'app-result',

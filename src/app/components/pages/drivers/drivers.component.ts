@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DriversService } from '../../../services/drivers-service/drivers.service';
-import { IDriver } from '../../../interfaces/idriver';
+import {Component, OnInit} from '@angular/core';
+import {DriversService} from '../../../services/drivers-service/drivers.service';
+import {IDriver} from '../../../interfaces/idriver';
 
 @Component({
   selector: 'app-drivers',

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { IWeekendSchedule } from '../../interfaces/iweekend-schedule';
-import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {IWeekendSchedule} from '../../interfaces/iweekend-schedule';
+import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
 import handleError from "../../helpers/service-handle-error";
 
 @Injectable({

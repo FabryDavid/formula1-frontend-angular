@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IConstructor } from '../../../../interfaces/iconstructor';
-import { TeamService } from '../../../../services/team-service/team.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {IConstructor} from '../../../../interfaces/iconstructor';
+import {TeamService} from '../../../../services/team-service/team.service';
 import getConstructorNameSecondPart from '../../../../helpers/get-constructor-name-second-part';
-import { SafeUrl } from '@angular/platform-browser';
+import {SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-team-card',

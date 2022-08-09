@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SessionResultsComponent } from './session-results.component';
+import {SessionResultsComponent} from './session-results.component';
 
 describe('SessionResultsComponent', () => {
   let component: SessionResultsComponent;

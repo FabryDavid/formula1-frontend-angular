@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ISessionTime } from '../../../../../interfaces/isession-time';
-import { Session } from '../../../../../enums/session';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ISessionTime} from '../../../../../interfaces/isession-time';
+import {Session} from '../../../../../enums/session';
 import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
 
 @Component({

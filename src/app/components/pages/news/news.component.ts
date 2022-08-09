@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NewsServiceService } from '../../../services/news-service/news-service.service';
-import { ITweet } from '../../../interfaces/itweet';
-import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NewsServiceService} from '../../../services/news-service/news-service.service';
+import {ITweet} from '../../../interfaces/itweet';
+import {NgxMasonryComponent, NgxMasonryOptions} from 'ngx-masonry';
 
 @Component({
   selector: 'app-news',

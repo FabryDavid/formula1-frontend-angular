@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SectorTimeComponent } from './sector-time.component';
+import {SectorTimeComponent} from './sector-time.component';
 
 describe('SectorTimeComponent', () => {
   let component: SectorTimeComponent;

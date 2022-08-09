@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LeftSideTabsComponent } from './left-side-tabs.component';
+import {LeftSideTabsComponent} from './left-side-tabs.component';
 
 describe('LeftSideTabsComponent', () => {
   let component: LeftSideTabsComponent;

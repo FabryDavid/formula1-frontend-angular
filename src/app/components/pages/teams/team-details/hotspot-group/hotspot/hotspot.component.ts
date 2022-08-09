@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IHotspotItem } from '../../../../../../interfaces/ihotspot-item';
-import { HotspotAlign } from '../../../../../../enums/hotspot-align';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {IHotspotItem} from '../../../../../../interfaces/ihotspot-item';
+import {HotspotAlign} from '../../../../../../enums/hotspot-align';
 
 @Component({
   selector: 'app-hotspot',

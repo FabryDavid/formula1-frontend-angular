@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild,} from '@angular/core';
 import clamp from '../../../../helpers/clamp';
 
 @Component({

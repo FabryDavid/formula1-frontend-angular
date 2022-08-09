@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GeoMapComponent } from './geo-map.component';
+import {GeoMapComponent} from './geo-map.component';
 
 describe('GeoMapComponent', () => {
   let component: GeoMapComponent;

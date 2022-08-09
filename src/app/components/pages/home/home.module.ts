@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
-import { NumberAbsModule } from '../../../pipes/number-abs/number-abs.module';
-import { HeroModule } from './hero/hero.module';
-import { UpcomingSessionModule } from './upcoming-session/upcoming-session.module';
-import { StandingsPanelModule } from './standings-panel/standings-panel.module';
-import { TelemetryPanelModule } from './telemetry-panel/telemetry-panel.module';
-import { NewsPanelModule } from './news-panel/news-panel.module';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HomeRoutingModule} from './home-routing.module';
+import {HomeComponent} from './home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
+import {NumberAbsModule} from '../../../pipes/number-abs/number-abs.module';
+import {HeroModule} from './hero/hero.module';
+import {UpcomingSessionModule} from './upcoming-session/upcoming-session.module';
+import {StandingsPanelModule} from './standings-panel/standings-panel.module';
+import {TelemetryPanelModule} from './telemetry-panel/telemetry-panel.module';
+import {NewsPanelModule} from './news-panel/news-panel.module';
 
 @NgModule({
   declarations: [HomeComponent],

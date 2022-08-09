@@ -1,4 +1,4 @@
-import { NumberAbsPipe } from './number-abs.pipe';
+import {NumberAbsPipe} from './number-abs.pipe';
 
 describe('NumberAbsPipe', () => {
   it('create an instance', () => {

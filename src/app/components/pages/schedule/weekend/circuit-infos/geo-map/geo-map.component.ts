@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import * as L from 'leaflet';
-import { LoadFileService } from '../../../../../../services/load-file-service/load-file.service';
+import {LoadFileService} from '../../../../../../services/load-file-service/load-file.service';
 
 @Component({
   selector: 'app-geo-map',

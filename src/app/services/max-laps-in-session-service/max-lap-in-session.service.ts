@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { catchError, map } from 'rxjs/operators';
-import { Session } from '../../enums/session';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {catchError, map} from 'rxjs/operators';
+import {Session} from '../../enums/session';
 import handleError from "../../helpers/service-handle-error";
 
 @Injectable({

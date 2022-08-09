@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../../../services/team-service/team.service';
-import { IConstructor } from '../../../interfaces/iconstructor';
+import {Component, OnInit} from '@angular/core';
+import {TeamService} from '../../../services/team-service/team.service';
+import {IConstructor} from '../../../interfaces/iconstructor';
 
 @Component({
   selector: 'app-teams',

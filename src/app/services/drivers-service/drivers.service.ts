@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { catchError, map } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Session } from '../../enums/session';
-import { environment } from '../../../environments/environment';
-import { ISessionDriver } from '../../interfaces/isession-driver';
-import { IDriver } from '../../interfaces/idriver';
-import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {catchError, map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Session} from '../../enums/session';
+import {environment} from '../../../environments/environment';
+import {ISessionDriver} from '../../interfaces/isession-driver';
+import {IDriver} from '../../interfaces/idriver';
+import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
 import handleError from "../../helpers/service-handle-error";
 
 @Injectable({

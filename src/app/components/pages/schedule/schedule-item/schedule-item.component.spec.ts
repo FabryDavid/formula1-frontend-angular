@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ScheduleItemComponent } from './schedule-item.component';
+import {ScheduleItemComponent} from './schedule-item.component';
 
 describe('ScheduleItemComponent', () => {
   let component: ScheduleItemComponent;

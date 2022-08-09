@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ScheduleServiceService } from '../../../services/schedule-service/schedule-service.service';
-import { IWeekendSchedule } from '../../../interfaces/iweekend-schedule';
+import {Component, OnInit} from '@angular/core';
+import {ScheduleServiceService} from '../../../services/schedule-service/schedule-service.service';
+import {IWeekendSchedule} from '../../../interfaces/iweekend-schedule';
 
 @Component({
   selector: 'app-schedule',
