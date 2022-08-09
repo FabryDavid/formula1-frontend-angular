@@ -1,0 +1,11 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.card-container {
+  margin-top: 50px;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 130px;
+  }
+}

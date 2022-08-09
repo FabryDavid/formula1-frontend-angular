@@ -1,8 +1,19 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 @import "src/assets/scss/variables";
 @import "src/assets/scss/mixins";
 
 .outside {
-  width: 50%;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 75%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 50%;
+  }
 
   &.champion {
     .card-container {
