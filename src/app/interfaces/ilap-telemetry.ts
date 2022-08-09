@@ -1,5 +1,5 @@
-import {TireCompound} from '../enums/tire-compound';
-import {Timing} from '../classes/timing/timing';
+import { TireCompound } from '../enums/tire-compound';
+import { Timing } from '../classes/timing/timing';
 
 export interface ILapTelemetry {
   color: string;

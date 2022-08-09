@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Session} from '../../../enums/session';
-import {ISessionDriver} from '../../../interfaces/isession-driver';
-import {MaxLapInSessionService} from '../../../services/max-laps-in-session-service/max-lap-in-session.service';
-import {DriversService} from '../../../services/drivers-service/drivers.service';
-import {forkJoin} from 'rxjs';
-import {IDriverLapData} from '../../../interfaces/idriver-lap-data';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Session } from '../../../enums/session';
+import { ISessionDriver } from '../../../interfaces/isession-driver';
+import { MaxLapInSessionService } from '../../../services/max-laps-in-session-service/max-lap-in-session.service';
+import { DriversService } from '../../../services/drivers-service/drivers.service';
+import { forkJoin } from 'rxjs';
+import { IDriverLapData } from '../../../interfaces/idriver-lap-data';
 
 @Component({
   selector: 'app-driver-lap-select',
@@ -26,18 +26,17 @@ export class DriverLapSelectComponent implements OnInit {
   selectedDriver: string | Array<string> = this.multipleDriver ? [] : '';
 
   get isLoading() {
-    return this.isLoadingLocale || this.loading
+    return this.isLoadingLocale || this.loading;
   }
 
   set isLoading(value) {
-    this.isLoadingLocale = value
+    this.isLoadingLocale = value;
   }
 
   constructor(
     private maxLapInSessionService: MaxLapInSessionService,
     private driversService: DriversService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;

@@ -1,5 +1,5 @@
-import {ICircuit} from './icircuit';
-import {ISessionTime} from './isession-time';
+import { ICircuit } from './icircuit';
+import { ISessionTime } from './isession-time';
 
 export interface IWeekendSchedule {
   circuit: ICircuit;

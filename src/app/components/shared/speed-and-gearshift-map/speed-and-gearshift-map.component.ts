@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Session} from '../../../enums/session';
-import {SafeUrl} from '@angular/platform-browser';
-import {TelemetryServiceService} from '../../../services/telemetry-service/telemetry-service.service';
-import {IDriverLapData} from '../../../interfaces/idriver-lap-data';
+import { Component, Input, OnInit } from '@angular/core';
+import { Session } from '../../../enums/session';
+import { SafeUrl } from '@angular/platform-browser';
+import { TelemetryServiceService } from '../../../services/telemetry-service/telemetry-service.service';
+import { IDriverLapData } from '../../../interfaces/idriver-lap-data';
 
 @Component({
   selector: 'app-speed-and-gearshift-map',
@@ -18,17 +18,16 @@ export class SpeedAndGearshiftMapComponent implements OnInit {
   message = '';
   isLoading = false;
 
-  constructor(private telemetryService: TelemetryServiceService) {
-  }
+  constructor(private telemetryService: TelemetryServiceService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   loadMap(data: IDriverLapData) {
     this.isLoading = true;
 
     if (this.mode === 'speed') {
-      const driver = typeof data.driver === "string" ? data.driver : data.driver[0]
+      const driver =
+        typeof data.driver === 'string' ? data.driver : data.driver[0];
 
       this.telemetryService
         .getSpeedMap(this.round, this.session, data.lap, driver)
@@ -42,7 +41,8 @@ export class SpeedAndGearshiftMapComponent implements OnInit {
           }
         );
     } else {
-      const driver = typeof data.driver === "string" ? data.driver : data.driver[0]
+      const driver =
+        typeof data.driver === 'string' ? data.driver : data.driver[0];
 
       this.telemetryService
         .getGearshifts(this.round, this.session, data.lap, driver)
@@ -50,10 +50,11 @@ export class SpeedAndGearshiftMapComponent implements OnInit {
           (data) => {
             this.imageUrl = data.data;
           },
-          () => this.handleError(),
-        ).add(() => {
-        this.isLoading = false;
-      });
+          () => this.handleError()
+        )
+        .add(() => {
+          this.isLoading = false;
+        });
     }
   }
 

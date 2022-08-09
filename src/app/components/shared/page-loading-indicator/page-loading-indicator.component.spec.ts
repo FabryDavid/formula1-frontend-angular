@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PageLoadingIndicatorComponent} from './page-loading-indicator.component';
+import { PageLoadingIndicatorComponent } from './page-loading-indicator.component';
 
 describe('PageLoadingIndicatorComponent', () => {
   let component: PageLoadingIndicatorComponent;

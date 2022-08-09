@@ -1,21 +1,20 @@
-import {Injectable} from '@angular/core';
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {IConstructor} from '../../interfaces/iconstructor';
-import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
-import handleError from "../../helpers/service-handle-error";
+import { Injectable } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { IConstructor } from '../../interfaces/iconstructor';
+import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from '../../helpers/service-handle-error';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamService {
-  public static noCarImagePath = 'assets/images/cars/no-car-image.png'
+  public static noCarImagePath = 'assets/images/cars/no-car-image.png';
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
-  }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
   getConstructors(): Observable<Array<IConstructor>> {
     return this.http
@@ -44,7 +43,7 @@ export class TeamService {
   getCarImage(constructorId: string): Observable<SafeUrl | string> {
     const filePath = `assets/images/cars/${constructorId}.png`;
     return this.http
-      .get(filePath, {observe: 'response', responseType: 'blob'})
+      .get(filePath, { observe: 'response', responseType: 'blob' })
       .pipe(
         map((response) => {
           const blob = response.body;
@@ -60,7 +59,7 @@ export class TeamService {
   getTeamLogo(constructorId: string): Observable<SafeUrl | string> {
     const filePath = `assets/images/logos/${constructorId}.svg`;
     return this.http
-      .get(filePath, {observe: 'response', responseType: 'blob'})
+      .get(filePath, { observe: 'response', responseType: 'blob' })
       .pipe(
         map((response) => {
           const blob = response.body;

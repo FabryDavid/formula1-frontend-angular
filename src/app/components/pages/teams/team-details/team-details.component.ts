@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {TeamService} from '../../../../services/team-service/team.service';
-import {IConstructor} from '../../../../interfaces/iconstructor';
-import {SafeUrl} from '@angular/platform-browser';
-import {DriversService} from '../../../../services/drivers-service/drivers.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TeamService } from '../../../../services/team-service/team.service';
+import { IConstructor } from '../../../../interfaces/iconstructor';
+import { SafeUrl } from '@angular/platform-browser';
+import { DriversService } from '../../../../services/drivers-service/drivers.service';
 import getConstructorNameSecondPart from '../../../../helpers/get-constructor-name-second-part';
-import {forkJoin} from 'rxjs';
-import {IHotspotItem} from '../../../../interfaces/ihotspot-item';
-import {HotspotAlign} from '../../../../enums/hotspot-align';
-import {NavbarServiceService} from '../../../../services/navbar-service/navbar-service.service';
+import { forkJoin } from 'rxjs';
+import { IHotspotItem } from '../../../../interfaces/ihotspot-item';
+import { HotspotAlign } from '../../../../enums/hotspot-align';
+import { NavbarServiceService } from '../../../../services/navbar-service/navbar-service.service';
 
 @Component({
   selector: 'app-team-details',

@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Session} from '../../../../../enums/session';
-import {TelemetryServiceService} from '../../../../../services/telemetry-service/telemetry-service.service';
-import {ILapDetailedTelemetry} from '../../../../../interfaces/ilap-detailed-telemetry';
-import {IDriverLapData} from "../../../../../interfaces/idriver-lap-data";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Session } from '../../../../../enums/session';
+import { TelemetryServiceService } from '../../../../../services/telemetry-service/telemetry-service.service';
+import { ILapDetailedTelemetry } from '../../../../../interfaces/ilap-detailed-telemetry';
+import { IDriverLapData } from '../../../../../interfaces/idriver-lap-data';
 
 @Component({
   selector: 'app-lap-telemetry-header',
@@ -27,30 +27,23 @@ export class LapTelemetryHeaderComponent implements OnInit {
     this.isLoadingChange.emit(value);
   }
 
-  constructor(
-    private telemetryService: TelemetryServiceService
-  ) {
-  }
+  constructor(private telemetryService: TelemetryServiceService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   loadLapData(data: IDriverLapData) {
     this.isLoading = true;
 
-    const driver = typeof data.driver === "string" ? [data.driver] : data.driver
+    const driver =
+      typeof data.driver === 'string' ? [data.driver] : data.driver;
 
     this.telemetryService
-      .getSessionSingleLapTelemetry(
-        this.round,
-        this.session,
-        data.lap,
-        driver
-      )
+      .getSessionSingleLapTelemetry(this.round, this.session, data.lap, driver)
       .subscribe((data) => {
         this.telemetryData.emit(data);
-      }).add(() => {
-      this.isLoading = false
-    });
+      })
+      .add(() => {
+        this.isLoading = false;
+      });
   }
 }

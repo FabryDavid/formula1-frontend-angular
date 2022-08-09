@@ -1,5 +1,5 @@
-import {ILocation} from './ilocation';
-import {ICircuitDetails} from './icircuit-details';
+import { ILocation } from './ilocation';
+import { ICircuitDetails } from './icircuit-details';
 
 export interface ICircuit {
   circuitId: string;

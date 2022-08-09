@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {StandingsPanelComponent} from './standings-panel.component';
+import { StandingsPanelComponent } from './standings-panel.component';
 
 describe('StandingsPanelComponent', () => {
   let component: StandingsPanelComponent;

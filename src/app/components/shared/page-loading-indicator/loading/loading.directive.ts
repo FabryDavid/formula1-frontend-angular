@@ -7,9 +7,9 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import {PageLoadingIndicatorComponent} from '../page-loading-indicator.component';
-import {IRequestError} from "../../../../interfaces/irequest-error";
-import {ErrorComponent} from "../error/error.component";
+import { PageLoadingIndicatorComponent } from '../page-loading-indicator.component';
+import { IRequestError } from '../../../../interfaces/irequest-error';
+import { ErrorComponent } from '../error/error.component';
 
 @Directive({
   selector: '[appLoading]',
@@ -21,18 +21,18 @@ export class LoadingDirective {
   errorFactory: ComponentFactory<ErrorComponent>;
   errorComponent!: ComponentRef<ErrorComponent>;
 
-  isLoading = false
-  error: IRequestError | null | string = null
+  isLoading = false;
+  error: IRequestError | null | string = null;
 
   @Input()
   set appLoading(loading: boolean) {
-    this.isLoading = loading
-    this.setView()
+    this.isLoading = loading;
+    this.setView();
   }
 
   @Input() set appLoadingError(error: IRequestError | null | string) {
-    this.error = error
-    this.setView()
+    this.error = error;
+    this.setView();
   }
 
   constructor(
@@ -44,9 +44,8 @@ export class LoadingDirective {
     this.loadingFactory = this.componentFactoryResolver.resolveComponentFactory(
       PageLoadingIndicatorComponent
     );
-    this.errorFactory = this.componentFactoryResolver.resolveComponentFactory(
-      ErrorComponent
-    );
+    this.errorFactory =
+      this.componentFactoryResolver.resolveComponentFactory(ErrorComponent);
   }
 
   private setView() {
@@ -58,7 +57,7 @@ export class LoadingDirective {
     } else if (this.error) {
       // embed the contents of the host template
       this.errorComponent = this.vcRef.createComponent(this.errorFactory);
-      this.errorComponent.instance.error = this.error
+      this.errorComponent.instance.error = this.error;
     } else {
       // embed the contents of the host template
       this.vcRef.createEmbeddedView(this.templateRef);

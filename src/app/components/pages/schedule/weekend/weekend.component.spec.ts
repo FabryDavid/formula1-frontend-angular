@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {WeekendComponent} from './weekend.component';
+import { WeekendComponent } from './weekend.component';
 
 describe('WeekendComponent', () => {
   let component: WeekendComponent;

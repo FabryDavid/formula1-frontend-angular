@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {UaeFlagComponent} from './uae-flag.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { UaeFlagComponent } from './uae-flag.component';
 
 @NgModule({
   declarations: [UaeFlagComponent],

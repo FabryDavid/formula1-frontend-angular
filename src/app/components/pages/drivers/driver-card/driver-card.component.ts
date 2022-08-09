@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IDriver} from '../../../../interfaces/idriver';
-import {DriversService} from '../../../../services/drivers-service/drivers.service';
-import {SafeUrl} from '@angular/platform-browser';
+import { Component, Input, OnInit } from '@angular/core';
+import { IDriver } from '../../../../interfaces/idriver';
+import { DriversService } from '../../../../services/drivers-service/drivers.service';
+import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-driver-card',

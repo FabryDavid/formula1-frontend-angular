@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ISessionTime} from '../../../../../interfaces/isession-time';
-import {RaceResultService} from '../../../../../services/race-result-service/race-result.service';
-import {Session} from '../../../../../enums/session';
-import {IRaceResult} from '../../../../../interfaces/irace-result';
-import {IRequestError} from "../../../../../interfaces/irequest-error";
+import { Component, Input, OnInit } from '@angular/core';
+import { ISessionTime } from '../../../../../interfaces/isession-time';
+import { RaceResultService } from '../../../../../services/race-result-service/race-result.service';
+import { Session } from '../../../../../enums/session';
+import { IRaceResult } from '../../../../../interfaces/irace-result';
+import { IRequestError } from '../../../../../interfaces/irequest-error';
 
 @Component({
   selector: 'app-race-results',
@@ -15,7 +15,7 @@ export class RaceResultsComponent implements OnInit {
   @Input() sessionDate!: ISessionTime;
 
   isLoading = false;
-  error: IRequestError | string | null = null
+  error: IRequestError | string | null = null;
   raceResults: Array<IRaceResult> = [];
   navigationOptions: Array<string> = [
     'Result',
@@ -27,20 +27,22 @@ export class RaceResultsComponent implements OnInit {
   activeTab = 0;
   session = Session;
 
-  constructor(private raceResultService: RaceResultService) {
-  }
+  constructor(private raceResultService: RaceResultService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.raceResultService.getRaceResult(this.round).subscribe(
-      (data) => {
-        this.raceResults = data;
-      },
-      (error) => {
-        this.error = error as IRequestError
-      }
-    ).add(() => {
-      this.isLoading = false
-    });
+    this.raceResultService
+      .getRaceResult(this.round)
+      .subscribe(
+        (data) => {
+          this.raceResults = data;
+        },
+        (error) => {
+          this.error = error as IRequestError;
+        }
+      )
+      .add(() => {
+        this.isLoading = false;
+      });
   }
 }

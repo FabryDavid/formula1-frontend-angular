@@ -1,15 +1,15 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {Session} from '../../enums/session';
-import {IDriverLapTelemetries} from '../../interfaces/idriver-lap-telemetries';
-import {ILapDetailedTelemetry} from '../../interfaces/ilap-detailed-telemetry';
-import {ITelemetryCarData} from '../../interfaces/itelemetry-car-data';
-import {IImageData} from '../../interfaces/iimage-data';
-import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
-import handleError from "../../helpers/service-handle-error";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { Session } from '../../enums/session';
+import { IDriverLapTelemetries } from '../../interfaces/idriver-lap-telemetries';
+import { ILapDetailedTelemetry } from '../../interfaces/ilap-detailed-telemetry';
+import { ITelemetryCarData } from '../../interfaces/itelemetry-car-data';
+import { IImageData } from '../../interfaces/iimage-data';
+import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from '../../helpers/service-handle-error';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,7 @@ export class TelemetryServiceService {
   constructor(
     private http: HttpClient,
     private serverResponseConverter: ServerResponseConverter
-  ) {
-  }
+  ) {}
 
   getSessionLapsTelemetry(
     gp: string | number,
@@ -77,7 +76,7 @@ export class TelemetryServiceService {
     return this.http
       .get(
         `${environment.apiUrl}/gear-shifts-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
-        {observe: 'response', responseType: 'blob'}
+        { observe: 'response', responseType: 'blob' }
       )
       .pipe(
         map((data) => {
@@ -95,7 +94,7 @@ export class TelemetryServiceService {
     return this.http
       .get(
         `${environment.apiUrl}/speed-on-lap/${lap}/${driver}/${gp}/${session}/2022`,
-        {observe: 'response', responseType: 'blob'}
+        { observe: 'response', responseType: 'blob' }
       )
       .pipe(
         map((data) => {

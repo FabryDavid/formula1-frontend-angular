@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {MexicoFlagComponent} from './mexico-flag.component';
+import { MexicoFlagComponent } from './mexico-flag.component';
 
 describe('MexicoFlagComponent', () => {
   let component: MexicoFlagComponent;

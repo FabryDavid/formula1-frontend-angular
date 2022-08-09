@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {HotspotComponent} from './hotspot.component';
+import { HotspotComponent } from './hotspot.component';
 
 describe('HotspotComponent', () => {
   let component: HotspotComponent;

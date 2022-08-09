@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faFacebookSquare,
   faInstagramSquare,
   faTwitterSquare,
-  faYoutubeSquare
+  faYoutubeSquare,
 } from '@fortawesome/free-brands-svg-icons';
 
 @Component({

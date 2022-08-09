@@ -1,5 +1,5 @@
-import {IChartOptions} from '../interfaces/ichart-options';
-import {Timing} from '../classes/timing/timing';
+import { IChartOptions } from '../interfaces/ichart-options';
+import { Timing } from '../classes/timing/timing';
 
 const telemetryChartBase: IChartOptions = {
   chart: {

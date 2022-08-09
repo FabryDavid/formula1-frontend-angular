@@ -1,4 +1,4 @@
-import {ITweet} from './itweet';
+import { ITweet } from './itweet';
 
 export interface ITweetsResponse {
   data: Array<ITweet>;

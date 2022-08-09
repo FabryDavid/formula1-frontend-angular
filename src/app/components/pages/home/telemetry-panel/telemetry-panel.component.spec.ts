@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {TelemetryPanelComponent} from './telemetry-panel.component';
+import { TelemetryPanelComponent } from './telemetry-panel.component';
 
 describe('TelemetryPanelComponent', () => {
   let component: TelemetryPanelComponent;

@@ -1,4 +1,4 @@
-import {ITiming} from '../../interfaces/itiming';
+import { ITiming } from '../../interfaces/itiming';
 
 export class Timing implements ITiming {
   hours: number;

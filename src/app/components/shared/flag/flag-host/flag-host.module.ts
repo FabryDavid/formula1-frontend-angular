@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FlagHostDirective} from './flag-host.directive';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FlagHostDirective } from './flag-host.directive';
 
 @NgModule({
   declarations: [FlagHostDirective],

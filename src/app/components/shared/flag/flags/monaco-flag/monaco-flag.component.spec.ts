@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {MonacoFlagComponent} from './monaco-flag.component';
+import { MonacoFlagComponent } from './monaco-flag.component';
 
 describe('MonacoFlagComponent', () => {
   let component: MonacoFlagComponent;

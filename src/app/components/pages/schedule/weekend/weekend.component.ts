@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {IWeekendSchedule} from '../../../../interfaces/iweekend-schedule';
-import {ActivatedRoute} from '@angular/router';
-import {ScheduleServiceService} from '../../../../services/schedule-service/schedule-service.service';
-import {Session} from '../../../../enums/session';
-import {ISessionTime} from '../../../../interfaces/isession-time';
+import { Component, OnInit } from '@angular/core';
+import { IWeekendSchedule } from '../../../../interfaces/iweekend-schedule';
+import { ActivatedRoute } from '@angular/router';
+import { ScheduleServiceService } from '../../../../services/schedule-service/schedule-service.service';
+import { Session } from '../../../../enums/session';
+import { ISessionTime } from '../../../../interfaces/isession-time';
 import sessionTimeToDate from '../../../../helpers/session-time-to-date';
 
 @Component({

@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IWeekendSchedule} from '../../../../../interfaces/iweekend-schedule';
+import { Component, Input, OnInit } from '@angular/core';
+import { IWeekendSchedule } from '../../../../../interfaces/iweekend-schedule';
 import getCountryCode from '../../../../../helpers/country-codes';
-import {SessionTimeService} from '../../../../../services/session-time-service/session-time.service';
-import {ISectorTimes} from '../../../../../interfaces/isector-times';
-import sessionTimeToDate from "../../../../../helpers/session-time-to-date";
+import { SessionTimeService } from '../../../../../services/session-time-service/session-time.service';
+import { ISectorTimes } from '../../../../../interfaces/isector-times';
+import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
 
 @Component({
   selector: 'app-circuit-infos',
@@ -15,16 +15,17 @@ export class CircuitInfosComponent implements OnInit {
   countryCode: string = '';
   isLoading = false;
   sectorTimes?: ISectorTimes;
-  showSectorTimes = true
+  showSectorTimes = true;
 
-  constructor(private sessionTimesService: SessionTimeService) {
-  }
+  constructor(private sessionTimesService: SessionTimeService) {}
 
   ngOnInit(): void {
     this.countryCode =
       getCountryCode(this.weekend.circuit.Location.country) ?? '';
 
-    this.showSectorTimes = sessionTimeToDate(this.weekend.firstPractice).getTime() < new Date().getTime()
+    this.showSectorTimes =
+      sessionTimeToDate(this.weekend.firstPractice).getTime() <
+      new Date().getTime();
 
     if (this.showSectorTimes) {
       this.sessionTimesService

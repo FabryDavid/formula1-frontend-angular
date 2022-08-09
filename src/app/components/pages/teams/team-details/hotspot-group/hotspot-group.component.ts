@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IHotspotItem} from '../../../../../interfaces/ihotspot-item';
+import { Component, Input, OnInit } from '@angular/core';
+import { IHotspotItem } from '../../../../../interfaces/ihotspot-item';
 
 @Component({
   selector: 'app-hotspot-group',

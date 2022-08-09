@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {DriverBackgroundComponent} from './driver-background.component';
+import { DriverBackgroundComponent } from './driver-background.component';
 
 describe('DriverBackgroundComponent', () => {
   let component: DriverBackgroundComponent;

@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {ISectorTimes} from '../../interfaces/isector-times';
-import handleError from "../../helpers/service-handle-error";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { ISectorTimes } from '../../interfaces/isector-times';
+import handleError from '../../helpers/service-handle-error';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SpeedAndGearshiftMapComponent} from './speed-and-gearshift-map.component';
+import { SpeedAndGearshiftMapComponent } from './speed-and-gearshift-map.component';
 
 describe('SpeedAndGearshiftMapComponent', () => {
   let component: SpeedAndGearshiftMapComponent;

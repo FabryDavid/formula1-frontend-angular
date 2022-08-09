@@ -1,11 +1,17 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges,} from '@angular/core';
-import {TelemetryChartMode} from '../../../../enums/telemetry-chart-mode';
-import {IChartOptions} from '../../../../interfaces/ichart-options';
-import {Timing} from '../../../../classes/timing/timing';
-import {Session} from '../../../../enums/session';
-import {TelemetryServiceService} from '../../../../services/telemetry-service/telemetry-service.service';
-import {ApexAxisChartSeries} from 'ng-apexcharts';
-import {IDriverLapTelemetries} from '../../../../interfaces/idriver-lap-telemetries';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { TelemetryChartMode } from '../../../../enums/telemetry-chart-mode';
+import { IChartOptions } from '../../../../interfaces/ichart-options';
+import { Timing } from '../../../../classes/timing/timing';
+import { Session } from '../../../../enums/session';
+import { TelemetryServiceService } from '../../../../services/telemetry-service/telemetry-service.service';
+import { ApexAxisChartSeries } from 'ng-apexcharts';
+import { IDriverLapTelemetries } from '../../../../interfaces/idriver-lap-telemetries';
 import telemetryChartBase from '../../../../helpers/telemetry-chart-base';
 import mapTeamColor from '../../../../helpers/map-team-color';
 

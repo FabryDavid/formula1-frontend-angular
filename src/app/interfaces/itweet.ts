@@ -1,6 +1,6 @@
-import {ITweetMetrics} from './itweet-metrics';
-import {ITweetHashtags} from './itweet-hashtags';
-import {ITweetUrls} from './itweet-urls';
+import { ITweetMetrics } from './itweet-metrics';
+import { ITweetHashtags } from './itweet-hashtags';
+import { ITweetUrls } from './itweet-urls';
 
 export interface ITweet {
   id: string;

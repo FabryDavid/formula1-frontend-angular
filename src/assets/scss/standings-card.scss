@@ -35,7 +35,6 @@
     }
   }
 
-
   .card-container {
     @include card;
     min-height: unset !important;
@@ -136,5 +135,4 @@
       pointer-events: none;
     }
   }
-
 }

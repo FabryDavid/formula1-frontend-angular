@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LapTelemetryHeaderComponent} from './lap-telemetry-header.component';
+import { LapTelemetryHeaderComponent } from './lap-telemetry-header.component';
 
 describe('LapTelemetryHeaderComponent', () => {
   let component: LapTelemetryHeaderComponent;

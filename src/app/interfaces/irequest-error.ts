@@ -1,9 +1,9 @@
 export interface IRequestError {
-  status: number,
-  statusText: string,
-  ok: boolean,
-  message: string,
+  status: number;
+  statusText: string;
+  ok: boolean;
+  message: string;
   error: {
-    error: string
-  }
+    error: string;
+  };
 }

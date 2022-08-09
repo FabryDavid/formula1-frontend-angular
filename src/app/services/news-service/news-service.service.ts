@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams,} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {ITweetsResponse} from '../../interfaces/itweets-response';
-import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
-import handleError from "../../helpers/service-handle-error";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { ITweetsResponse } from '../../interfaces/itweets-response';
+import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from '../../helpers/service-handle-error';
 
 @Injectable({
   providedIn: 'root',

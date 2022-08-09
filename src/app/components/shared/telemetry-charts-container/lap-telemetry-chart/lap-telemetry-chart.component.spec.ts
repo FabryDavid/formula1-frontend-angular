@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LapTelemetryChartComponent} from './lap-telemetry-chart.component';
+import { LapTelemetryChartComponent } from './lap-telemetry-chart.component';
 
 describe('LapTelemetryChartComponent', () => {
   let component: LapTelemetryChartComponent;

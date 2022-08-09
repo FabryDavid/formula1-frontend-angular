@@ -1,49 +1,49 @@
 <a
   [routerLink]="'/drivers/' + driver.driver.driverId"
   class="text-decoration-none mx-auto d-block outside"
-  [class.champion]="driver.position===1"
+  [class.champion]="driver.position === 1"
 >
   <div class="card-container pb-3 position-relative">
     <div class="top-section-container">
       <div class="top-section position-relative">
         <div class="top-section-bg p-3">
           <div class="driver-given-name">
-            {{driver.driver.givenName}}
+            {{ driver.driver.givenName }}
           </div>
           <div class="driver-family-name">
-            {{driver.driver.familyName}}
+            {{ driver.driver.familyName }}
           </div>
         </div>
-        <img [src]="driverImage" [alt]="driver.driver.code" class="driver-image d-none d-sm-block">
+        <img
+          [src]="driverImage"
+          [alt]="driver.driver.code"
+          class="driver-image d-none d-sm-block"
+        />
 
         <div class="position">
-          {{driver.position}}
+          {{ driver.position }}
         </div>
       </div>
     </div>
 
     <div class="px-3">
       <div class="d-flex align-items-center justify-content-between mt-3">
-        <div class="label">
-          Wins
-        </div>
+        <div class="label">Wins</div>
 
         <div class="value">
-          {{driver.wins}}
+          {{ driver.wins }}
         </div>
       </div>
 
       <div class="d-flex align-items-center justify-content-between">
-        <div class="label">
-          Points
-        </div>
+        <div class="label">Points</div>
 
         <div class="value">
-          {{driver.points}}
+          {{ driver.points }}
         </div>
       </div>
     </div>
 
-    <img [src]="teamLogo" [alt]="driver.teams.team.name" class="team-logo">
+    <img [src]="teamLogo" [alt]="driver.teams.team.name" class="team-logo" />
   </div>
 </a>

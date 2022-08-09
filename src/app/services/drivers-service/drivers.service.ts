@@ -1,28 +1,27 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {catchError, map} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {Session} from '../../enums/session';
-import {environment} from '../../../environments/environment';
-import {ISessionDriver} from '../../interfaces/isession-driver';
-import {IDriver} from '../../interfaces/idriver';
-import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
-import handleError from "../../helpers/service-handle-error";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { catchError, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Session } from '../../enums/session';
+import { environment } from '../../../environments/environment';
+import { ISessionDriver } from '../../interfaces/isession-driver';
+import { IDriver } from '../../interfaces/idriver';
+import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from '../../helpers/service-handle-error';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DriversService {
-  public static noDriverImagePath = 'assets/images/drivers/no-driver-image.png'
+  public static noDriverImagePath = 'assets/images/drivers/no-driver-image.png';
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
-  }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
   getDriverImage(driverId: string): Observable<SafeUrl | string> {
     const filePath = `assets/images/drivers/2022/${driverId}.png`;
     return this.http
-      .get(filePath, {observe: 'response', responseType: 'blob'})
+      .get(filePath, { observe: 'response', responseType: 'blob' })
       .pipe(
         map((response) => {
           const blob = response.body;

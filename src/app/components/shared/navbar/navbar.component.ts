@@ -1,8 +1,8 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {INavigationLink} from '../../../interfaces/inavigation-link';
-import {NavbarServiceService} from '../../../services/navbar-service/navbar-service.service';
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-import {NavigationEnd, Router} from "@angular/router";
+import { Component, HostListener, OnInit } from '@angular/core';
+import { INavigationLink } from '../../../interfaces/inavigation-link';
+import { NavbarServiceService } from '../../../services/navbar-service/navbar-service.service';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,35 +13,37 @@ export class NavbarComponent implements OnInit {
   isElevated = false;
   drawerValue = false;
   navLinks: Array<INavigationLink> = [
-    {text: 'Schedule', url: 'schedule'},
-    {text: 'News', url: 'news'},
-    {text: 'Drivers', url: 'drivers'},
-    {text: 'Constructors', url: 'constructors'},
-    {text: 'Standings', url: 'standings'},
+    { text: 'Schedule', url: 'schedule' },
+    { text: 'News', url: 'news' },
+    { text: 'Drivers', url: 'drivers' },
+    { text: 'Constructors', url: 'constructors' },
+    { text: 'Standings', url: 'standings' },
   ];
   faArrowLeft = faArrowLeft;
   NavbarService = NavbarServiceService;
 
   get drawer() {
-    return this.drawerValue
+    return this.drawerValue;
   }
 
   set drawer(value) {
-    document.body.setAttribute('style', value ? `overflow: hidden;` : '')
+    document.body.setAttribute('style', value ? `overflow: hidden;` : '');
 
-    this.drawerValue = value
+    this.drawerValue = value;
   }
 
-  constructor(public navbarService: NavbarServiceService, private router: Router) {
+  constructor(
+    public navbarService: NavbarServiceService,
+    private router: Router
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.drawer = false
+        this.drawer = false;
       }
-    })
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @HostListener('window:scroll', [])
   onScroll() {

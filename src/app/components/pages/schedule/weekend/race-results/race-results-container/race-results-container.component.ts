@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IRaceResult} from '../../../../../../interfaces/irace-result';
+import { Component, Input, OnInit } from '@angular/core';
+import { IRaceResult } from '../../../../../../interfaces/irace-result';
 
 @Component({
   selector: 'app-race-results-container',

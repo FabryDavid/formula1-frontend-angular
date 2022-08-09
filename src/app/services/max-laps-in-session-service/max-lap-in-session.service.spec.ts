@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {MaxLapInSessionService} from './max-lap-in-session.service';
+import { MaxLapInSessionService } from './max-lap-in-session.service';
 
 describe('MaxLapInSessionService', () => {
   let service: MaxLapInSessionService;

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {NewsServiceService} from '../../../../services/news-service/news-service.service';
-import {ITweet} from '../../../../interfaces/itweet';
+import { Component, OnInit } from '@angular/core';
+import { NewsServiceService } from '../../../../services/news-service/news-service.service';
+import { ITweet } from '../../../../interfaces/itweet';
 
 @Component({
   selector: 'app-news-panel',

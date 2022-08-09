@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {CircuitInfosComponent} from './circuit-infos.component';
+import { CircuitInfosComponent } from './circuit-infos.component';
 
 describe('CircuitInfosComponent', () => {
   let component: CircuitInfosComponent;

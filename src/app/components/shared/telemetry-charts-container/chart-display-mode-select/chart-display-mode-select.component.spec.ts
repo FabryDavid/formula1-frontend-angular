@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ChartDisplayModeSelectComponent} from './chart-display-mode-select.component';
+import { ChartDisplayModeSelectComponent } from './chart-display-mode-select.component';
 
 describe('ChartDisplayModeSelectComponent', () => {
   let component: ChartDisplayModeSelectComponent;

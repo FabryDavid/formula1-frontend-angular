@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {IWeekendSchedule} from '../../interfaces/iweekend-schedule';
+import { Pipe, PipeTransform } from '@angular/core';
+import { IWeekendSchedule } from '../../interfaces/iweekend-schedule';
 import sessionTimeToDate from '../../helpers/session-time-to-date';
 
 @Pipe({

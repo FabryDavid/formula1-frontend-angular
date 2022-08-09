@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {HotspotGroupComponent} from './hotspot-group.component';
+import { HotspotGroupComponent } from './hotspot-group.component';
 
 describe('HotspotGroupComponent', () => {
   let component: HotspotGroupComponent;

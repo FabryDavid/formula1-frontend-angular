@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ScheduleServiceService} from '../../../../../services/schedule-service/schedule-service.service';
-import {IWeekendSchedule} from '../../../../../interfaces/iweekend-schedule';
+import { Component, OnInit } from '@angular/core';
+import { ScheduleServiceService } from '../../../../../services/schedule-service/schedule-service.service';
+import { IWeekendSchedule } from '../../../../../interfaces/iweekend-schedule';
 import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
-import {INextSession} from '../../../../../interfaces/inext-session';
+import { INextSession } from '../../../../../interfaces/inext-session';
 
 @Component({
   selector: 'app-upcoming-session-card',

@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {TeamDetailsRoutingModule} from './team-details-routing.module';
-import {TeamDetailsComponent} from './team-details.component';
-import {LoadingModule} from '../../../shared/page-loading-indicator/loading/loading.module';
-import {TeamDetailsBackgroundModule} from './team-details-background/team-details-background.module';
-import {HotspotGroupModule} from './hotspot-group/hotspot-group.module';
-import {MatExpansionModule} from "@angular/material/expansion";
+import { TeamDetailsRoutingModule } from './team-details-routing.module';
+import { TeamDetailsComponent } from './team-details.component';
+import { LoadingModule } from '../../../shared/page-loading-indicator/loading/loading.module';
+import { TeamDetailsBackgroundModule } from './team-details-background/team-details-background.module';
+import { HotspotGroupModule } from './hotspot-group/hotspot-group.module';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [TeamDetailsComponent],

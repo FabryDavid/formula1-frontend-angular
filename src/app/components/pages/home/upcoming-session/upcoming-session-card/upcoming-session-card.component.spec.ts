@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {UpcomingSessionCardComponent} from './upcoming-session-card.component';
+import { UpcomingSessionCardComponent } from './upcoming-session-card.component';
 
 describe('UpcomingSessionCardComponent', () => {
   let component: UpcomingSessionCardComponent;
