@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {LoadingModule} from '../../../page-loading-indicator/loading/loading.module';
+import {DriverLapSelectModule} from "../../../driver-lap-select/driver-lap-select.module";
 
 @NgModule({
   declarations: [LapTelemetryHeaderComponent],
@@ -16,6 +17,7 @@ import {LoadingModule} from '../../../page-loading-indicator/loading/loading.mod
     MatFormFieldModule,
     MatSelectModule,
     LoadingModule,
+    DriverLapSelectModule,
   ],
   exports: [LapTelemetryHeaderComponent],
 })

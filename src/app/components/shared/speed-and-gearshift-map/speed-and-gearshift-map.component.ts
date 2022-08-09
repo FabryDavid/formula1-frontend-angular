@@ -18,16 +18,20 @@ export class SpeedAndGearshiftMapComponent implements OnInit {
   message = '';
   isLoading = false;
 
-  constructor(private telemetryService: TelemetryServiceService) {}
+  constructor(private telemetryService: TelemetryServiceService) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   loadMap(data: IDriverLapData) {
     this.isLoading = true;
 
     if (this.mode === 'speed') {
+      const driver = typeof data.driver === "string" ? data.driver : data.driver[0]
+
       this.telemetryService
-        .getSpeedMap(this.round, this.session, data.lap, data.driver)
+        .getSpeedMap(this.round, this.session, data.lap, driver)
         .subscribe(
           (data) => {
             this.imageUrl = data.data;
@@ -38,17 +42,18 @@ export class SpeedAndGearshiftMapComponent implements OnInit {
           }
         );
     } else {
+      const driver = typeof data.driver === "string" ? data.driver : data.driver[0]
+
       this.telemetryService
-        .getGearshifts(this.round, this.session, data.lap, data.driver)
+        .getGearshifts(this.round, this.session, data.lap, driver)
         .subscribe(
           (data) => {
             this.imageUrl = data.data;
           },
           () => this.handleError(),
-          () => {
-            this.isLoading = false;
-          }
-        );
+        ).add(() => {
+        this.isLoading = false;
+      });
     }
   }
 

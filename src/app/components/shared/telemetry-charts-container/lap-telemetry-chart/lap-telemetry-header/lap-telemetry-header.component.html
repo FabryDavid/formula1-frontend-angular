@@ -1,39 +1,7 @@
-<div class="mb-5 row justify-content-center" *appLoading="isLoading">
-  <div class="col-12 col-md-5 d-flex align-items-center">
-    <span class="white-space-no-wrap me-3">Lap {{ selectedLap }}</span>
-
-    <mat-slider
-      thumbLabel
-      color="primary"
-      class="w-100"
-      [(ngModel)]="selectedLap"
-      [disabled]="isLoading"
-      [max]="maxLap"
-      min="1"
-    ></mat-slider>
-  </div>
-  <div class="col-12 col-md-5 d-flex align-items-center">
-    <mat-form-field class="w-100" appearance="outline" color="primary">
-      <mat-label>Drivers</mat-label>
-      <mat-select [(ngModel)]="selectedDrivers" [disabled]="isLoading" multiple>
-        <mat-option *ngFor="let driver of driversList" [value]="driver.code">
-          <span
-            class="select-driver-name"
-            [style]="{
-              backgroundColor:
-                driver.color === '#ffffff' ? '#f4f4f4' : driver.color,
-              color: driver.color === '#ffffff' ? 'black' : 'white'
-            }"
-          >
-            {{ driver.fullName }}
-          </span>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="col-12 col-md-2">
-    <button class="primary-button w-100 mt-1" (click)="loadLapData()">
-      Load
-    </button>
-  </div>
-</div>
+<app-driver-lap-select
+  [session]="session"
+  [round]="round"
+  [multipleDriver]="true"
+  [loading]="isLoading"
+  (load)="loadLapData($event)"
+></app-driver-lap-select>

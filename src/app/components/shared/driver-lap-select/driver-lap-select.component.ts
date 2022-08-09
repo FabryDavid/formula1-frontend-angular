@@ -14,19 +14,30 @@ import {IDriverLapData} from '../../../interfaces/idriver-lap-data';
 export class DriverLapSelectComponent implements OnInit {
   @Input() round!: string | number;
   @Input() session!: Session;
+  @Input() multipleDriver: boolean = false;
+  @Input() loading: boolean = false;
 
   @Output() load = new EventEmitter<IDriverLapData>();
 
-  isLoading = false;
+  isLoadingLocale = false;
   selectedLap: number = 1;
   maxLap: number = 2;
   driversList: Array<ISessionDriver> = [];
-  selectedDriver: string = '';
+  selectedDriver: string | Array<string> = this.multipleDriver ? [] : '';
+
+  get isLoading() {
+    return this.isLoadingLocale || this.loading
+  }
+
+  set isLoading(value) {
+    this.isLoadingLocale = value
+  }
 
   constructor(
     private maxLapInSessionService: MaxLapInSessionService,
     private driversService: DriversService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.isLoading = true;

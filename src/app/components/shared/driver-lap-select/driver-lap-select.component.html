@@ -15,7 +15,11 @@
   <div class="col-12 col-md-5 d-flex align-items-center">
     <mat-form-field class="w-100" appearance="outline" color="primary">
       <mat-label>Drivers</mat-label>
-      <mat-select [(ngModel)]="selectedDriver" [disabled]="isLoading">
+      <mat-select
+        [(ngModel)]="selectedDriver"
+        [disabled]="isLoading"
+        [multiple]="multipleDriver"
+      >
         <mat-option *ngFor="let driver of driversList" [value]="driver.code">
           <span
             class="select-driver-name"
