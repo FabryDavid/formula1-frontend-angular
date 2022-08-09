@@ -6,6 +6,7 @@ import {environment} from '../../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
 import {IConstructor} from '../../interfaces/iconstructor';
 import {ServerResponseConverter} from '../../classes/server-response-converter/server-response-converter';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,7 @@ export class TeamService {
             return ServerResponseConverter.team(x);
           });
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
   }
 
@@ -34,7 +35,7 @@ export class TeamService {
         map((response) => {
           return ServerResponseConverter.team(response);
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
   }
 
@@ -68,12 +69,5 @@ export class TeamService {
           return of('');
         })
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

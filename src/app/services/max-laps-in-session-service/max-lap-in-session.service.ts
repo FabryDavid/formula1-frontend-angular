@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Session } from '../../enums/session';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -23,14 +24,7 @@ export class MaxLapInSessionService {
         map((response: any) => {
           return response.largestLapNumber;
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

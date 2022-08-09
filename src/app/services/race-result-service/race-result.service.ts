@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { IRaceResult } from '../../interfaces/irace-result';
 import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -18,14 +19,7 @@ export class RaceResultService {
       .pipe(
         map((data) => {
           return ServerResponseConverter.raceResult(data);
-        }, catchError(this.handleError.bind(this)))
+        }, catchError(handleError.bind(this)))
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

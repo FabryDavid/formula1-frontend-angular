@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Session } from '../../enums/session';
 import { ISessionResult } from '../../interfaces/isession-result';
 import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -26,14 +27,7 @@ export class SessionResultsService {
           }
 
           return ServerResponseConverter.sessionResult(data);
-        }, catchError(this.handleError.bind(this)))
+        }, catchError(handleError.bind(this)))
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

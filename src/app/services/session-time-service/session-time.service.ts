@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { ISectorTimes } from '../../interfaces/isector-times';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -19,14 +20,7 @@ export class SessionTimeService {
       .pipe(
         map((response) => {
           return response;
-        }, catchError(this.handleError.bind(this)))
+        }, catchError(handleError.bind(this)))
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

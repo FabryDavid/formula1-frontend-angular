@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { IWeekendSchedule } from '../../interfaces/iweekend-schedule';
 import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class ScheduleServiceService {
         map((response: any) => {
           return ServerResponseConverter.weekendSchedule(response);
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
   }
 
@@ -35,7 +36,7 @@ export class ScheduleServiceService {
           });
 
           return schedule;
-        }, catchError(this.handleError.bind(this)))
+        }, catchError(handleError.bind(this)))
       );
   }
 
@@ -43,14 +44,7 @@ export class ScheduleServiceService {
     return this.http.get<any>(`${environment.apiUrl}/schedule/${round}`).pipe(
       map((response) => {
         return ServerResponseConverter.weekendSchedule(response);
-      }, catchError(this.handleError.bind(this)))
+      }, catchError(handleError.bind(this)))
     );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }

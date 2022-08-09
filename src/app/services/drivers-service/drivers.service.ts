@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 import { ISessionDriver } from '../../interfaces/isession-driver';
 import { IDriver } from '../../interfaces/idriver';
 import { ServerResponseConverter } from '../../classes/server-response-converter/server-response-converter';
+import handleError from "../../helpers/service-handle-error";
 
 @Injectable({
   providedIn: 'root',
@@ -57,7 +58,7 @@ export class DriversService {
 
           return response;
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
   }
 
@@ -72,7 +73,7 @@ export class DriversService {
 
           return drivers;
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
   }
 
@@ -83,14 +84,7 @@ export class DriversService {
         map((response: any) => {
           return ServerResponseConverter.driver(response);
         }),
-        catchError(this.handleError.bind(this))
+        catchError(handleError.bind(this))
       );
-  }
-
-  public handleError(
-    err: HttpErrorResponse,
-    caught: Observable<any>
-  ): Observable<any> {
-    return throwError(err);
   }
 }
