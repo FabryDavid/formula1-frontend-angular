@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Session } from '../../../enums/session';
-import { ISessionDriver } from '../../../interfaces/isession-driver';
-import { MaxLapInSessionService } from '../../../services/max-laps-in-session-service/max-lap-in-session.service';
-import { DriversService } from '../../../services/drivers-service/drivers.service';
-import { forkJoin } from 'rxjs';
-import { IDriverLapData } from '../../../interfaces/idriver-lap-data';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Session} from '../../../enums/session';
+import {ISessionDriver} from '../../../interfaces/isession-driver';
+import {MaxLapInSessionService} from '../../../services/max-laps-in-session-service/max-lap-in-session.service';
+import {DriversService} from '../../../services/drivers-service/drivers.service';
+import {forkJoin} from 'rxjs';
+import {IDriverLapData} from '../../../interfaces/idriver-lap-data';
+import {IRequestError} from "../../../interfaces/irequest-error";
 
 @Component({
   selector: 'app-driver-lap-select',
@@ -20,6 +21,7 @@ export class DriverLapSelectComponent implements OnInit {
   @Output() load = new EventEmitter<IDriverLapData>();
 
   isLoadingLocale = false;
+  error: IRequestError | string | null = null
   selectedLap: number = 1;
   maxLap: number = 2;
   driversList: Array<ISessionDriver> = [];
@@ -36,7 +38,8 @@ export class DriverLapSelectComponent implements OnInit {
   constructor(
     private maxLapInSessionService: MaxLapInSessionService,
     private driversService: DriversService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -47,9 +50,15 @@ export class DriverLapSelectComponent implements OnInit {
         this.session
       ),
       drivers: this.driversService.getSessionDrivers(this.round, this.session),
-    }).subscribe((data) => {
-      this.maxLap = data.maxLaps;
-      this.driversList = data.drivers;
+    }).subscribe(
+      (data) => {
+        this.maxLap = data.maxLaps;
+        this.driversList = data.drivers;
+      },
+      (error) => {
+        this.error = error
+      }
+    ).add(() => {
       this.isLoading = false;
     });
   }
