@@ -26,12 +26,12 @@
   }
 
   * {
-    transition: all 0.2s ease-out;
+    transition: all 0.2s $bounce-curve;
   }
 
   &:hover {
-    .card-container .top-section .driver-image {
-      right: -25px;
+    .card-container .top-section-container .top-section .driver-image {
+      right: -55px;
     }
   }
 
@@ -41,64 +41,69 @@
     min-height: unset !important;
     color: white;
 
-    .top-section {
-      .top-section-bg {
-        width: 100%;
-        min-height: 150px;
-        border-radius: 10px 10px 0 0;
-        background-color: $dark-blue;
-        color: white;
-        font-family: $f1-font;
+    .top-section-container {
+      filter: drop-shadow($base-shadow);
 
-        .driver-given-name {
-          font-weight: bold;
-          font-size: 25px;
-          line-height: 20px;
-          position: relative;
-          z-index: 2;
+      .top-section {
+        clip-path: polygon(0 -200%, 100% -200%, 100% 100%, 0 85%);
+
+        .top-section-bg {
+          width: 100%;
+          min-height: 150px;
+          border-radius: 10px 10px 0 0;
+          background-color: $dark-blue;
+          color: white;
+          font-family: $f1-font;
+
+          .driver-given-name,
+          .driver-family-name {
+            max-width: 100%;
+
+            @include media-breakpoint-up(sm) {
+              max-width: 65%;
+            }
+          }
+
+          .driver-given-name {
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 20px;
+            position: relative;
+            z-index: 2;
+          }
+
+          .driver-family-name {
+            font-weight: 900;
+            font-size: 35px;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+          }
         }
 
-        .driver-family-name {
+        .driver-image {
+          width: 50%;
+          position: absolute;
+          right: -35px;
+          bottom: 0;
+          z-index: 2;
+          pointer-events: none;
+        }
+
+        .position {
+          position: absolute;
+          bottom: 0;
+          right: 27%;
           font-weight: 900;
-          font-size: 35px;
-          -webkit-text-fill-color: transparent;
-          -webkit-text-stroke-width: 2px;
-          -webkit-text-stroke-color: white;
-          position: relative;
-          z-index: 2;
-          letter-spacing: 2px;
+          font-size: 120px;
+          line-height: 95px;
+          z-index: 1;
+          opacity: 0.6;
+          font-family: $f1-font;
         }
-      }
-
-      .driver-image {
-        width: 50%;
-        position: absolute;
-        right: -35px;
-        bottom: 0;
-        z-index: 2;
-      }
-
-      .position {
-        position: absolute;
-        bottom: 0;
-        right: 27%;
-        font-weight: 900;
-        font-size: 120px;
-        line-height: 100px;
-        z-index: 1;
-        opacity: 0.6;
-        font-family: $f1-font;
-      }
-
-      .cutout {
-        position: absolute;
-        z-index: 5;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 25px;
-        background-color: white;
-        clip-path: polygon(0 0, 100% 90%, 100% 100%, 0 100%);
       }
     }
 

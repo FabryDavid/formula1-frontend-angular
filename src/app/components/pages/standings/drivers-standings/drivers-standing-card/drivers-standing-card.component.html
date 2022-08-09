@@ -4,22 +4,22 @@
   [class.champion]="driver.position===1"
 >
   <div class="card-container pb-3 position-relative">
-    <div class="top-section position-relative">
-      <div class="top-section-bg p-3">
-        <div class="driver-given-name">
-          {{driver.driver.givenName}}
+    <div class="top-section-container">
+      <div class="top-section position-relative">
+        <div class="top-section-bg p-3">
+          <div class="driver-given-name">
+            {{driver.driver.givenName}}
+          </div>
+          <div class="driver-family-name">
+            {{driver.driver.familyName}}
+          </div>
         </div>
-        <div class="driver-family-name">
-          {{driver.driver.familyName}}
+        <img [src]="driverImage" [alt]="driver.driver.code" class="driver-image d-none d-sm-block">
+
+        <div class="position">
+          {{driver.position}}
         </div>
       </div>
-      <img [src]="driverImage" [alt]="driver.driver.code" class="driver-image d-none d-sm-block">
-
-      <div class="position">
-        {{driver.position}}
-      </div>
-
-      <div class="cutout"></div>
     </div>
 
     <div class="px-3">
