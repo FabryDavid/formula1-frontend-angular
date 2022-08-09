@@ -5,12 +5,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {NavbarModule} from './components/shared/navbar/navbar.module';
-import {FooterComponent} from './components/shared/footer/footer.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
+import {FooterModule} from "./components/shared/footer/footer.module";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,8 +19,10 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarModule,
     FontAwesomeModule,
     HttpClientModule,
+    FooterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

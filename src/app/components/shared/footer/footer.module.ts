@@ -8,4 +8,5 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   imports: [CommonModule, FontAwesomeModule],
   exports: [FooterComponent],
 })
-export class FooterModule {}
+export class FooterModule {
+}
