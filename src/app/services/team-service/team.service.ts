@@ -12,6 +12,8 @@ import handleError from "../../helpers/service-handle-error";
   providedIn: 'root',
 })
 export class TeamService {
+  public static noCarImagePath = 'assets/images/cars/no-car-image.png'
+
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
   }
 
@@ -49,8 +51,8 @@ export class TeamService {
           const objectURL = URL.createObjectURL(blob);
           return this.sanitizer.bypassSecurityTrustUrl(objectURL);
         }),
-        catchError((error) => {
-          return of('assets/images/cars/no-car-image.png');
+        catchError(() => {
+          return of(TeamService.noCarImagePath);
         })
       );
   }
@@ -65,7 +67,7 @@ export class TeamService {
           const objectURL = URL.createObjectURL(blob);
           return this.sanitizer.bypassSecurityTrustUrl(objectURL);
         }),
-        catchError((error) => {
+        catchError(() => {
           return of('');
         })
       );

@@ -11,7 +11,7 @@ import {SafeUrl} from '@angular/platform-browser';
 export class DriverCardComponent implements OnInit {
   @Input() driver!: IDriver;
 
-  driverImage: SafeUrl | string = 'assets/images/drivers/no-driver-image.png';
+  driverImage: SafeUrl | string = DriversService.noDriverImagePath;
 
   get constructorInfos() {
     return this.driver.teams;

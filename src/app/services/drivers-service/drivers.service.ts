@@ -14,20 +14,23 @@ import handleError from "../../helpers/service-handle-error";
   providedIn: 'root',
 })
 export class DriversService {
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
+  public static noDriverImagePath = 'assets/images/drivers/no-driver-image.png'
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+  }
 
   getDriverImage(driverId: string): Observable<SafeUrl | string> {
     const filePath = `assets/images/drivers/2022/${driverId}.png`;
     return this.http
-      .get(filePath, { observe: 'response', responseType: 'blob' })
+      .get(filePath, {observe: 'response', responseType: 'blob'})
       .pipe(
         map((response) => {
           const blob = response.body;
           const objectURL = URL.createObjectURL(blob);
           return this.sanitizer.bypassSecurityTrustUrl(objectURL);
         }),
-        catchError((error) => {
-          return of('assets/images/drivers/no-driver-image.png');
+        catchError(() => {
+          return of(DriversService.noDriverImagePath);
         })
       );
   }

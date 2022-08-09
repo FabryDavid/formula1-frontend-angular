@@ -11,7 +11,7 @@ import {TeamService} from "../../../../../services/team-service/team.service";
 })
 export class DriversStandingCardComponent implements OnInit {
   @Input() driver!: IDriver
-  driverImage: SafeUrl | string = "assets/images/drivers/no-driver-image.png"
+  driverImage: SafeUrl | string = DriversService.noDriverImagePath
   teamLogo: SafeUrl | string = ""
 
   constructor(private driverService: DriversService, private teamService: TeamService) {

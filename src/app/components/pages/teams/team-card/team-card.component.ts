@@ -12,7 +12,7 @@ import {SafeUrl} from '@angular/platform-browser';
 export class TeamCardComponent implements OnInit {
   @Input() team!: IConstructor;
 
-  carImage: SafeUrl | string = 'assets/images/cars/no-car-image.png';
+  carImage: SafeUrl | string = TeamService.noCarImagePath;
 
   getConstructorNameSecondPart = getConstructorNameSecondPart;
 
