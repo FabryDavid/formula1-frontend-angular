@@ -26,6 +26,9 @@ export class LeftSideTabsComponent implements OnInit {
       case Session.Q:
         this.sessionNameFormatted = 'Quali';
         break;
+      case Session.SQ:
+        this.sessionNameFormatted = 'Sprint';
+        break;
       case Session.R:
         this.sessionNameFormatted = 'Race';
         break;

@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IWeekendSchedule } from '../../../../../interfaces/iweekend-schedule';
+import {Component, Input, OnInit} from '@angular/core';
+import {IWeekendSchedule} from '../../../../../interfaces/iweekend-schedule';
 import getCountryCode from '../../../../../helpers/country-codes';
-import { SessionTimeService } from '../../../../../services/session-time-service/session-time.service';
-import { ISectorTimes } from '../../../../../interfaces/isector-times';
+import {SessionTimeService} from '../../../../../services/session-time-service/session-time.service';
+import {ISectorTimes} from '../../../../../interfaces/isector-times';
 import sessionTimeToDate from '../../../../../helpers/session-time-to-date';
 
 @Component({
@@ -16,10 +16,14 @@ export class CircuitInfosComponent implements OnInit {
   isLoading = false;
   sectorTimes?: ISectorTimes;
   showSectorTimes = true;
+  sectorTimesError: string | null = null
 
-  constructor(private sessionTimesService: SessionTimeService) {}
+  constructor(private sessionTimesService: SessionTimeService) {
+  }
 
   ngOnInit(): void {
+    this.isLoading = true
+
     this.countryCode =
       getCountryCode(this.weekend.circuit.Location.country) ?? '';
 
@@ -29,10 +33,19 @@ export class CircuitInfosComponent implements OnInit {
 
     if (this.showSectorTimes) {
       this.sessionTimesService
-        .getFastestSessionsInWeekend(parseInt(this.weekend.round))
-        .subscribe((data) => {
-          this.sectorTimes = data;
-        });
+        .getFastestSessionsInWeekend(this.weekend.circuit.Location.country)
+        .subscribe(
+          (data) => {
+            this.sectorTimes = data;
+          },
+          () => {
+            this.sectorTimesError = "Couldn't load data";
+          }
+        ).add(() => {
+        this.isLoading = false
+      });
+    } else {
+      this.isLoading = false
     }
   }
 }

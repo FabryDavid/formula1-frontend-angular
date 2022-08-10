@@ -23,12 +23,8 @@
   </div>
 
   <div class="text-center time">
-    {{ isLoading || !sectorTime ? "Loading" : sectorTime.time }}
+    {{ text }}
   </div>
 
-  <mat-spinner
-    color="primary"
-    mode="indeterminate"
-    *ngIf="isLoading"
-  ></mat-spinner>
+  <mat-progress-bar *ngIf="isLoading" [color]="progressBarColor" mode="indeterminate"></mat-progress-bar>
 </div>
