@@ -27,6 +27,12 @@ body {
 .primary-button {
   $border-radius: 5px;
 
+  &,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
   font-family: $poppins;
   font-weight: 600;
   font-size: 25px;
@@ -36,33 +42,52 @@ body {
   padding: 0 25px;
   color: white;
   background-color: $primary;
-  border: 2px solid $primary;
   box-sizing: border-box;
   border-radius: $border-radius;
   text-decoration: none;
-  transition: all 0.2s ease;
-  overflow: hidden;
+  transition: all 0.2s $bounce-curve;
   position: relative;
   z-index: 1;
 
-  &:before {
+  &:before,
+  &:after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     border-radius: $border-radius;
-    background-color: white;
+    background-color: $primary;
     height: 100%;
-    width: 0;
     z-index: -1;
-    transition: all 0.2s ease;
+    transition: all 0.2s $bounce-curve;
+  }
+
+  &:before {
+    width: 10px;
+    opacity: 0.75;
+  }
+
+  &:after {
+    width: 5px;
+    opacity: 0.5;
   }
 
   &:hover {
-    color: $primary;
+    color: white;
+    border-radius: 0;
+    transform: translateX(25px) skew(-20deg);
+
+    &:before,
+    &:after {
+      border-radius: 0;
+    }
 
     &:before {
-      width: 100%;
+      left: -15px;
+    }
+
+    &:after {
+      left: -25px;
     }
   }
 }
