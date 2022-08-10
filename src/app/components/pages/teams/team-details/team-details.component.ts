@@ -47,7 +47,7 @@ export class TeamDetailsComponent implements OnInit {
     this.imagesLoading = true;
     this.sub = this.route.params.subscribe((params) => {
       this.teamId = params['teamId'];
-      //
+
       this.teamService
         .getConstructorDetails(this.teamId)
         .subscribe((teamData) => {
