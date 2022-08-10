@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TelemetryChartMode } from '../../../enums/telemetry-chart-mode';
-import { Session } from '../../../enums/session';
+import {Component, Input, OnInit} from '@angular/core';
+import {TelemetryChartMode} from '../../../enums/telemetry-chart-mode';
+import {Session} from '../../../enums/session';
 
 @Component({
   selector: 'app-telemetry-charts-container',
@@ -11,10 +11,13 @@ export class TelemetryChartsContainerComponent implements OnInit {
   @Input() round!: string | number;
   @Input() session!: Session;
 
-  lapByLapData: boolean = true;
+  lapByLapData: boolean = false;
   currentChartMode = TelemetryChartMode.LAP_TIME;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.round)
+  }
 }

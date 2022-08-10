@@ -103,6 +103,7 @@
           <ng-template #rInPast>
             <app-race-results
               [round]="sessionRound"
+              [country]="weekendData.circuit.Location.country"
               [sessionDate]="raceDate"
             ></app-race-results>
           </ng-template>
