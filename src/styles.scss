@@ -15,6 +15,11 @@ body {
   font-family: $poppins;
 }
 
+*::selection {
+  color: white;
+  background-color: rgba(darken($primary, 5%), 0.75);
+}
+
 .text-primary-color {
   color: $primary;
 }

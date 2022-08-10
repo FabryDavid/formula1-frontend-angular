@@ -17,7 +17,7 @@ export class RaceResultCardComponent implements OnInit {
   @Input() result!: IRaceResult;
 
   isExpanded = false;
-  driverImage: any = null;
+  driverImage: any = DriversService.noDriverImagePath;
   getNumberTextSuffix = getNumberTextSuffix;
   driverFullName!: string;
   positionFromStart!: number;

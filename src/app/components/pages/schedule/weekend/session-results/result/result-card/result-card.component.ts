@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ISessionResult } from '../../../../../../../interfaces/isession-result';
+import {Component, Input, OnInit} from '@angular/core';
+import {ISessionResult} from '../../../../../../../interfaces/isession-result';
 import getNumberTextSuffix from '../../../../../../../helpers/get-number-text-suffix';
 import getTyreCompoundImage from '../../../../../../../helpers/get-tyre-compound-image';
-import { DriversService } from '../../../../../../../services/drivers-service/drivers.service';
+import {DriversService} from '../../../../../../../services/drivers-service/drivers.service';
 
 @Component({
   selector: 'app-result-card',
@@ -14,10 +14,11 @@ export class ResultCardComponent implements OnInit {
 
   isExpanded = false;
   getNumberTextSuffix = getNumberTextSuffix;
-  driverImage: any = null;
+  driverImage: any = DriversService.noDriverImagePath;
   tireImagePath: null | string = null;
 
-  constructor(private driversService: DriversService) {}
+  constructor(private driversService: DriversService) {
+  }
 
   ngOnInit(): void {
     this.tireImagePath = getTyreCompoundImage(this.result.compound);
