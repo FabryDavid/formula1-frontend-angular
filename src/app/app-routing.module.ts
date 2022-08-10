@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -8,7 +8,7 @@ const routes: Routes = [
       import('./components/pages/home/home.module').then(
         (module) => module.HomeModule
       ),
-    data: {animation: 'homePage'}
+    data: { animation: 'homePage' },
   },
   {
     path: 'schedule',
@@ -16,7 +16,7 @@ const routes: Routes = [
       import('./components/pages/schedule/schedule.module').then(
         (module) => module.ScheduleModule
       ),
-    data: {animation: 'schedulePage'}
+    data: { animation: 'schedulePage' },
   },
   {
     path: 'news',
@@ -24,7 +24,7 @@ const routes: Routes = [
       import('./components/pages/news/news.module').then(
         (module) => module.NewsModule
       ),
-    data: {animation: 'newsPage'}
+    data: { animation: 'newsPage' },
   },
   {
     path: 'drivers',
@@ -32,7 +32,7 @@ const routes: Routes = [
       import('./components/pages/drivers/drivers.module').then(
         (module) => module.DriversModule
       ),
-    data: {animation: 'driversPage'}
+    data: { animation: 'driversPage' },
   },
   {
     path: 'constructors',
@@ -40,7 +40,7 @@ const routes: Routes = [
       import('./components/pages/teams/teams.module').then(
         (module) => module.TeamsModule
       ),
-    data: {animation: 'constructorsPage'}
+    data: { animation: 'constructorsPage' },
   },
   {
     path: 'standings',
@@ -48,7 +48,7 @@ const routes: Routes = [
       import('./components/pages/standings/standings.module').then(
         (module) => module.StandingsModule
       ),
-    data: {animation: 'standingsPage'}
+    data: { animation: 'standingsPage' },
   },
   {
     path: '404',
@@ -56,17 +56,16 @@ const routes: Routes = [
       import('./components/pages/page-not-found/page-not-found.module').then(
         (module) => module.PageNotFoundModule
       ),
-    data: {animation: 'pageNotFoundPage'}
+    data: { animation: 'pageNotFoundPage' },
   },
   {
     path: '**',
-    redirectTo: '/404'
-  }
+    redirectTo: '/404',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
