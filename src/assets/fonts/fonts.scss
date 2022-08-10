@@ -23,23 +23,9 @@
 // Poppins
 @font-face {
   font-family: "Poppins";
-  font-weight: 100;
-  src: local("Poppins"), url("Poppins-Thin.ttf") format("woff2"),
-    url("Poppins-Thin.ttf") format("ttf");
-}
-
-@font-face {
-  font-family: "Poppins";
   font-weight: 200;
   src: local("Poppins"), url("Poppins-ExtraLight.ttf") format("woff2"),
     url("Poppins-ExtraLight.ttf") format("ttf");
-}
-
-@font-face {
-  font-family: "Poppins";
-  font-weight: 300;
-  src: local("Poppins"), url("Poppins-Light.ttf") format("woff2"),
-    url("Poppins-Light.ttf") format("ttf");
 }
 
 @font-face {
