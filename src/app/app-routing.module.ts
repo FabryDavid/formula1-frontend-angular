@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
@@ -44,10 +44,22 @@ const routes: Routes = [
         (module) => module.StandingsModule
       ),
   },
+  {
+    path: '404',
+    loadChildren: () =>
+      import('./components/pages/page-not-found/page-not-found.module').then(
+        (module) => module.PageNotFoundModule
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
