@@ -1,25 +1,25 @@
 $times: 12;
 
-%move-styles {
+%move-card-styles {
   transform-origin: top center;
 }
 
-@mixin move-x-list {
+@mixin move-x-card-list {
   @for $i from 1 through $times {
-    .move-#{$i}-s {
-      @extend %move-styles;
-      animation: move $i + s linear infinite alternate;
+    .move-card-#{$i}-s {
+      @extend %move-card-styles;
+      animation: move-card $i + s linear infinite alternate;
     }
-    .move-reverse-#{$i}-s {
-      @extend %move-styles;
-      animation: move-reverse $i + s linear infinite alternate;
+    .move-card-reverse-#{$i}-s {
+      @extend %move-card-styles;
+      animation: move-card-reverse $i + s linear infinite alternate;
     }
   }
 }
 
-@include move-x-list;
+@include move-x-card-list;
 
-@keyframes move {
+@keyframes move-card {
   0% {
     transform: translateX(-100%);
   }
@@ -28,7 +28,7 @@ $times: 12;
   }
 }
 
-@keyframes move-reverse {
+@keyframes move-card-reverse {
   0% {
     transform: translateX(100%);
   }
