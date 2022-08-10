@@ -2,6 +2,8 @@ import { ApexAxisChartSeries } from 'ng-apexcharts';
 
 export interface ILapTelemetryChartData {
   speedSeries: ApexAxisChartSeries;
+  driverAheadSeries: ApexAxisChartSeries;
+  driverAheadNameSeries: ApexAxisChartSeries;
   throttleSeries: ApexAxisChartSeries;
   brakeSeries: ApexAxisChartSeries;
   rpmSeries: ApexAxisChartSeries;

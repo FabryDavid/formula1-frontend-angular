@@ -61,10 +61,44 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       title: {
         text: 'Speed (km/h)',
       },
+
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
     xaxis: this.xAxisOptions,
+  };
+  driverAheadChartOptions: any = {
+    chart: {
+      id: 'driverAhead',
+      group: 'telemetry',
+      height: 400,
+      animations: this.chartAnimationOptions,
+    },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return `${val.toFixed(2)} m`;
+        },
+      },
+      title: {
+        text: 'Distance to car ahead',
+      },
+    },
+    legend: this.legendOptions,
+    dataLabels: this.dataLabelsOptions,
+    xaxis: this.xAxisOptions,
+    tooltip: {
+      enabled: true,
+      y: {
+        formatter: function (val: any) {
+          if (!val) {
+            return '-'
+          }
+
+          return `${val.toFixed(2)}m`
+        }
+      }
+    }
   };
   throttleChartOptions: any = {
     chart: {
@@ -83,6 +117,7 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       title: {
         text: 'Throttle %',
       },
+
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -105,6 +140,7 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       title: {
         text: 'Brake %',
       },
+
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -126,6 +162,7 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       title: {
         text: 'RPM',
       },
+
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -148,6 +185,7 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       title: {
         text: 'Gear',
       },
+
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -203,6 +241,8 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
 
   getChartDatas(data: Array<ILapDetailedTelemetry>): ILapTelemetryChartData {
     const speedSeries: ApexAxisChartSeries = [];
+    const driverAheadSeries: ApexAxisChartSeries = [];
+    const driverAheadNameSeries: ApexAxisChartSeries = [];
     const throttleSeries: ApexAxisChartSeries = [];
     const brakeSeries: ApexAxisChartSeries = [];
     const rpmSeries: ApexAxisChartSeries = [];
@@ -235,6 +275,8 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       const key = parseInt(keyS);
 
       let speedSeriesValues: Array<any> = [];
+      let driverAheadSeriesValues: Array<any> = [];
+      let driverAheadNameSeriesValues: Array<any> = [];
       let throttleSeriesValues: Array<any> = [];
       let brakeSeriesValues: Array<any> = [];
       let rpmSeriesValues: Array<any> = [];
@@ -252,6 +294,8 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
         const drsValue = carData.drs[i] < 8 ? -1 : (carData.drs[i] === 8 ? 0 : 1)
 
         speedSeriesValues.push([carData.distance[i], carData.speed[i]]);
+        driverAheadSeriesValues.push([carData.distance[i], carData.distanceToDriverAhead[i]]);
+        driverAheadNameSeriesValues.push([carData.distance[i], carData.driverAhead[i]]);
         throttleSeriesValues.push([carData.distance[i], carData.throttle[i]]);
         brakeSeriesValues.push([carData.distance[i], carData.brake[i]]);
         rpmSeriesValues.push([carData.distance[i], carData.rpm[i]]);
@@ -267,8 +311,17 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
 
       const name = driverName ? driverName : key.toString();
       speedSeries.push({
+          name: name,
+          data: speedSeriesValues,
+        }
+      );
+      driverAheadSeries.push({
         name: name,
-        data: speedSeriesValues,
+        data: driverAheadSeriesValues
+      });
+      driverAheadNameSeries.push({
+        name: name,
+        data: driverAheadNameSeriesValues
       });
       throttleSeries.push({
         name: name,
@@ -306,8 +359,11 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
 
     categories.sort();
 
+
     return {
       speedSeries: speedSeries,
+      driverAheadSeries: driverAheadSeries,
+      driverAheadNameSeries: driverAheadNameSeries,
       throttleSeries: throttleSeries,
       brakeSeries: brakeSeries,
       rpmSeries: rpmSeries,
@@ -328,6 +384,31 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       curve: 'smooth',
     };
     this.speedChartOptions.series = chartData.speedSeries;
+
+    this.driverAheadChartOptions.xaxis.categories = chartData.categories;
+    this.driverAheadChartOptions.colors = chartData.colors;
+    this.driverAheadChartOptions.stroke = {
+      width: strokeWidth,
+      curve: 'smooth',
+    };
+    this.driverAheadChartOptions.tooltip.y.formatter = function (val: any, opts: any) {
+
+      const driverSeriesIndex = chartData.driverAheadNameSeries.map((x) => x.name).indexOf(chartData.driverAheadSeries[opts.seriesIndex].name)
+
+      if (driverSeriesIndex !== -1) {
+        const driverAhead = chartData.driverAheadNameSeries[driverSeriesIndex].data[opts.dataPointIndex] as Array<number | string>
+
+        if (!!driverAhead && driverAhead.length > 1) {
+          const value = driverAhead[1]
+
+          if (!!value) {
+            return `${val.toFixed(2)}m behind of car ${value}`
+          }
+        }
+      }
+      return "-"
+    }
+    this.driverAheadChartOptions.series = chartData.driverAheadSeries;
 
     this.throttleChartOptions.xaxis.categories = chartData.categories;
     this.throttleChartOptions.colors = chartData.colors;
