@@ -76,19 +76,27 @@ body {
   &:hover {
     color: white;
     border-radius: 0;
-    transform: translateX(25px) skew(-20deg);
+    transform: skew(-20deg);
+  }
 
-    &:before,
-    &:after {
+  @include media-breakpoint-up(sm) {
+    &:hover {
+      color: white;
       border-radius: 0;
-    }
+      transform: translateX(25px) skew(-20deg);
 
-    &:before {
-      left: -15px;
-    }
+      &:before,
+      &:after {
+        border-radius: 0;
+      }
 
-    &:after {
-      left: -25px;
+      &:before {
+        left: -15px;
+      }
+
+      &:after {
+        left: -25px;
+      }
     }
   }
 }
