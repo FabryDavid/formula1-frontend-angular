@@ -7,9 +7,9 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import {PageLoadingIndicatorComponent} from '../page-loading-indicator.component';
-import {IRequestError} from '../../../../interfaces/irequest-error';
-import {ErrorComponent} from '../error/error.component';
+import { PageLoadingIndicatorComponent } from '../page-loading-indicator.component';
+import { IRequestError } from '../../../../interfaces/irequest-error';
+import { ErrorComponent } from '../error/error.component';
 
 @Directive({
   selector: '[appLoading]',

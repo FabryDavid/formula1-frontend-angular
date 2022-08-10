@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IRequestError} from '../../../../interfaces/irequest-error';
+import { Component, Input, OnInit } from '@angular/core';
+import { IRequestError } from '../../../../interfaces/irequest-error';
 
 @Component({
   selector: 'app-error',
@@ -11,15 +11,14 @@ export class ErrorComponent implements OnInit {
 
   message: string = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-
     if (typeof this.error === 'string') {
       this.message = this.error;
     } else {
-      this.message = (this.error as IRequestError).error.error || "Data cannot be loaded";
+      this.message =
+        (this.error as IRequestError).error.error || 'Data cannot be loaded';
     }
   }
 }

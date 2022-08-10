@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ISectorTime} from '../../../../../../interfaces/isector-time';
+import { Component, Input, OnInit } from '@angular/core';
+import { ISectorTime } from '../../../../../../interfaces/isector-time';
 
 @Component({
   selector: 'app-sector-time',
@@ -10,7 +10,7 @@ export class SectorTimeComponent implements OnInit {
   @Input() sectorTime: ISectorTime | undefined = undefined;
   @Input() sectorNumber: 1 | 2 | 3 = 1;
   @Input() isLoading: boolean = false;
-  @Input() error?: string | null = null
+  @Input() error?: string | null = null;
 
   get sessionName() {
     if (!this.sectorTime) {
@@ -46,19 +46,17 @@ export class SectorTimeComponent implements OnInit {
 
   get text() {
     if (this.error) {
-      return this.error
+      return this.error;
     }
 
     if (this.isLoading || !this.sectorTime) {
-      return "Loading"
+      return 'Loading';
     }
 
-    return this.sectorTime.time
+    return this.sectorTime.time;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

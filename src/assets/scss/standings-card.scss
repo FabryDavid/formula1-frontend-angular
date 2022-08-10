@@ -20,7 +20,11 @@
       .top-section {
         .top-section-bg {
           background: $primary !important;
-          background: linear-gradient(to right bottom, rgba(#ff524d, 1) 0%, rgba($primary, 1) 100%) !important;
+          background: linear-gradient(
+            to right bottom,
+            rgba(#ff524d, 1) 0%,
+            rgba($primary, 1) 100%
+          ) !important;
         }
       }
     }
@@ -52,7 +56,11 @@
           min-height: 150px;
           border-radius: 10px 10px 0 0;
           background: $dark-blue;
-          background: linear-gradient(to right bottom, rgba(12, 78, 112, 1) 0%, rgba($dark-blue, 1) 100%);
+          background: linear-gradient(
+            to right bottom,
+            rgba(12, 78, 112, 1) 0%,
+            rgba($dark-blue, 1) 100%
+          );
           color: white;
           font-family: $f1-font;
 

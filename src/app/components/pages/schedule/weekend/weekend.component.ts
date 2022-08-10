@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {IWeekendSchedule} from '../../../../interfaces/iweekend-schedule';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ScheduleServiceService} from '../../../../services/schedule-service/schedule-service.service';
-import {Session} from '../../../../enums/session';
-import {ISessionTime} from '../../../../interfaces/isession-time';
+import { Component, OnInit } from '@angular/core';
+import { IWeekendSchedule } from '../../../../interfaces/iweekend-schedule';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ScheduleServiceService } from '../../../../services/schedule-service/schedule-service.service';
+import { Session } from '../../../../enums/session';
+import { ISessionTime } from '../../../../interfaces/isession-time';
 import sessionTimeToDate from '../../../../helpers/session-time-to-date';
-import {NavbarServiceService} from "../../../../services/navbar-service/navbar-service.service";
+import { NavbarServiceService } from '../../../../services/navbar-service/navbar-service.service';
 
 @Component({
   selector: 'app-weekend',
@@ -28,10 +28,10 @@ export class WeekendComponent implements OnInit {
     private router: Router,
     private navbarService: NavbarServiceService
   ) {
-    NavbarServiceService.show = true
+    NavbarServiceService.show = true;
     navbarService.backAnnounced$.subscribe(() => {
       this.router.navigate(['/schedule']);
-    })
+    });
   }
 
   ngOnInit(): void {
