@@ -1,15 +1,9 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { ILapDetailedTelemetry } from '../../../../../interfaces/ilap-detailed-telemetry';
-import { ApexAxisChartSeries } from 'ng-apexcharts';
+import {Component, Input, OnChanges, OnInit, SimpleChanges,} from '@angular/core';
+import {ILapDetailedTelemetry} from '../../../../../interfaces/ilap-detailed-telemetry';
+import {ApexAxisChartSeries} from 'ng-apexcharts';
 import mapTeamColor from '../../../../../helpers/map-team-color';
 import lightenDarkenColor from '../../../../../helpers/lighten-darken-color';
-import { ILapTelemetryChartData } from '../../../../../interfaces/ilap-telemetry-chart-data';
+import {ILapTelemetryChartData} from '../../../../../interfaces/ilap-telemetry-chart-data';
 
 @Component({
   selector: 'app-lap-telemetry-chart-item',
@@ -58,6 +52,16 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       height: 400,
       animations: this.chartAnimationOptions,
     },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return `${val} km/h`;
+        },
+      },
+      title: {
+        text: 'Speed (km/h)',
+      },
+    },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
     xaxis: this.xAxisOptions,
@@ -68,6 +72,17 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       group: 'telemetry',
       height: 200,
       animations: this.chartAnimationOptions,
+    },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return `${val} %`;
+        },
+      },
+      max: 100,
+      title: {
+        text: 'Throttle %',
+      },
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -80,6 +95,17 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       height: 200,
       animations: this.chartAnimationOptions,
     },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return `${val} %`;
+        },
+      },
+      max: 100,
+      title: {
+        text: 'Brake %',
+      },
+    },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
     xaxis: this.xAxisOptions,
@@ -90,6 +116,16 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       group: 'telemetry',
       height: 400,
       animations: this.chartAnimationOptions,
+    },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return `${val.toLocaleString('en-US')} RPM`;
+        },
+      },
+      title: {
+        text: 'RPM',
+      },
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
@@ -102,6 +138,17 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       height: 300,
       animations: this.chartAnimationOptions,
     },
+    yaxis: {
+      labels: {
+        formatter: function (val: number) {
+          return val.toString();
+        },
+      },
+      max: 8,
+      title: {
+        text: 'Gear',
+      },
+    },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
     xaxis: this.xAxisOptions,
@@ -110,17 +157,40 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     chart: {
       id: 'drs',
       group: 'telemetry',
-      height: 200,
+      height: 150,
       animations: this.chartAnimationOptions,
+    },
+    yaxis: {
+      min: -1,
+      max: 1,
+      tickAmount: 2,
+      labels: {
+        formatter: function (val: number) {
+          if (val === -1) {
+            return `OFF`
+          }
+
+          if (val === 0) {
+            return `Available`
+          }
+
+          return `ON`
+        },
+      },
+      title: {
+        text: 'DRS',
+      },
     },
     legend: this.legendOptions,
     dataLabels: this.dataLabelsOptions,
-    xaxis: this.xAxisOptions,
+    xaxis: this.xAxisOptions
   };
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.lapTelemetry) {
@@ -179,12 +249,14 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
       const carData = item.carData;
 
       for (let i: number = 0; i < carData.distance.length; i += nth) {
+        const drsValue = carData.drs[i] < 8 ? -1 : (carData.drs[i] === 8 ? 0 : 1)
+
         speedSeriesValues.push([carData.distance[i], carData.speed[i]]);
         throttleSeriesValues.push([carData.distance[i], carData.throttle[i]]);
         brakeSeriesValues.push([carData.distance[i], carData.brake[i]]);
         rpmSeriesValues.push([carData.distance[i], carData.rpm[i]]);
         gearSeriesValues.push([carData.distance[i], carData.gear[i]]);
-        drsSeriesValues.push([carData.distance[i], carData.drs[i]]);
+        drsSeriesValues.push([carData.distance[i], drsValue]);
 
         if (!categories.includes(carData.distance[i])) {
           categories.push(carData.distance[i]);
@@ -250,16 +322,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     const strokeWidth = 2.5;
 
     this.speedChartOptions.xaxis.categories = chartData.categories;
-    this.speedChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return `${val} km/h`;
-        },
-      },
-      title: {
-        text: 'Speed (km/h)',
-      },
-    };
     this.speedChartOptions.colors = chartData.colors;
     this.speedChartOptions.stroke = {
       width: strokeWidth,
@@ -268,17 +330,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     this.speedChartOptions.series = chartData.speedSeries;
 
     this.throttleChartOptions.xaxis.categories = chartData.categories;
-    this.throttleChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return `${val} %`;
-        },
-      },
-      max: 100,
-      title: {
-        text: 'Throttle %',
-      },
-    };
     this.throttleChartOptions.colors = chartData.colors;
     this.throttleChartOptions.stroke = {
       width: strokeWidth,
@@ -287,17 +338,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     this.throttleChartOptions.series = chartData.throttleSeries;
 
     this.brakeChartOptions.xaxis.categories = chartData.categories;
-    this.brakeChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return `${val} %`;
-        },
-      },
-      max: 100,
-      title: {
-        text: 'Brake %',
-      },
-    };
     this.brakeChartOptions.colors = chartData.colors;
     this.brakeChartOptions.stroke = {
       width: strokeWidth,
@@ -306,16 +346,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     this.brakeChartOptions.series = chartData.brakeSeries;
 
     this.rpmChartOptions.xaxis.categories = chartData.categories;
-    this.rpmChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return `${val.toLocaleString('en-US')} RPM`;
-        },
-      },
-      title: {
-        text: 'RPM',
-      },
-    };
     this.rpmChartOptions.colors = chartData.colors;
     this.rpmChartOptions.stroke = {
       width: strokeWidth,
@@ -324,17 +354,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     this.rpmChartOptions.series = chartData.rpmSeries;
 
     this.gearChartOptions.xaxis.categories = chartData.categories;
-    this.gearChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return val.toString();
-        },
-      },
-      max: 8,
-      title: {
-        text: 'Gear',
-      },
-    };
     this.gearChartOptions.colors = chartData.colors;
     this.gearChartOptions.stroke = {
       width: strokeWidth,
@@ -343,16 +362,6 @@ export class LapTelemetryChartItemComponent implements OnInit, OnChanges {
     this.gearChartOptions.series = chartData.gearSeries;
 
     this.drsChartOptions.xaxis.categories = chartData.categories;
-    this.drsChartOptions.yaxis = {
-      labels: {
-        formatter: function (val: number) {
-          return val <= 8 ? 'OFF' : 'ON';
-        },
-      },
-      title: {
-        text: 'DRS',
-      },
-    };
     this.drsChartOptions.colors = chartData.colors;
     this.drsChartOptions.stroke = {
       width: strokeWidth,
